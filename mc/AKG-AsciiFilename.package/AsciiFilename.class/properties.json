@@ -1,0 +1,15 @@
+{
+	"commentStamp" : "AlistairGrant 4/16/2017 15:33",
+	"super" : "CliScript",
+	"category" : "AKG-AsciiFilename",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"replacementString",
+		"windowsCompatible",
+		"dryRun"
+	],
+	"name" : "AsciiFilename",
+	"type" : "normal"
+}
