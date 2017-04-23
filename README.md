@@ -1,2 +1,2 @@
 # pharo-utilities
-Miscellaneous small classes
+Miscellaneous small classes for Pharo Smalltalk
