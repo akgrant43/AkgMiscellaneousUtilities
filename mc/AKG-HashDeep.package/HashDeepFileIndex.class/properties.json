@@ -6,8 +6,9 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"hashDeepFiles"
+		"collections",
+		"fileDictionary"
 	],
-	"name" : "HashDeepFilesSet",
+	"name" : "HashDeepFileIndex",
 	"type" : "normal"
 }

@@ -1,7 +1,7 @@
 instance creation
 fromName: fileName stream: aStream
 
-	| files header line |
+	| files header line hdf |
 
 	header := ''.
 	line := aStream nextLine.
@@ -13,8 +13,10 @@ fromName: fileName stream: aStream
 							<< header;
 							nextPut: Character cr;
 							<< line ] ]
-			ifFalse:
-				[ stream nextPut: (HashDeepFile fromString: line) ].
+			ifFalse: [ 
+				hdf := HashDeepFile fromString: line.
+				hdf source: self.
+				stream nextPut: hdf ].
 			line := aStream nextLine ] ].
 	^self new 
 		fileName: fileName;

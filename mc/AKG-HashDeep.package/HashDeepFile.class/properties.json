@@ -9,7 +9,8 @@
 		"fileName",
 		"fileSize",
 		"hash1",
-		"hash2"
+		"hash2",
+		"source"
 	],
 	"name" : "HashDeepFile",
 	"type" : "normal"

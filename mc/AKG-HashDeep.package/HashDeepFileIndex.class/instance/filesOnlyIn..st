@@ -1,5 +1,5 @@
 comparing
-missingFromFiles: hashDeepFiles
+filesOnlyIn: hashDeepFiles
 	"Answer the set of files that hashDeepFiles has but the receiver doesn't"
 
 	| missing hdfDictionary |

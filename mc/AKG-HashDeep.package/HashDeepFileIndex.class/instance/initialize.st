@@ -2,4 +2,4 @@ initialize
 initialize
 
 	super initialize.
-	hashDeepFiles := OrderedCollection new.
+	collections := OrderedCollection new.
