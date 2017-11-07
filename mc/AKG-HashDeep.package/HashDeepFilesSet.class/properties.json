@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "",
+	"super" : "Object",
+	"category" : "AKG-HashDeep",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"hashDeepFiles"
+	],
+	"name" : "HashDeepFilesSet",
+	"type" : "normal"
+}
