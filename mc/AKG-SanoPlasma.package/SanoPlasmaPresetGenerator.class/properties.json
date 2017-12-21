@@ -1,0 +1,20 @@
+{
+	"commentStamp" : "AlistairGrant 12/21/2017 15:05",
+	"super" : "Object",
+	"category" : "AKG-SanoPlasma",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"startFreq",
+		"endFreq",
+		"stepFreq",
+		"freqRange",
+		"programSeconds",
+		"outDir",
+		"presetTemplate",
+		"namePrefix"
+	],
+	"name" : "SanoPlasmaPresetGenerator",
+	"type" : "normal"
+}
