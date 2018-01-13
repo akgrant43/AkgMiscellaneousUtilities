@@ -1,10 +1,6 @@
 private - accessing
 frequencyRange
-
-	| xover range |
-
-	xover := self crossoverFrequency.
-	range := self range / 1000.
+	"Answer the receivers frequency range in human readable format"
 
 	^[ self fromFrequency asString, ' - ', self toFrequency asString ]
 		on: Error 

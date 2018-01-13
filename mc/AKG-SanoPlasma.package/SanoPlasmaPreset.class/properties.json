@@ -1,0 +1,14 @@
+{
+	"commentStamp" : "",
+	"super" : "Object",
+	"category" : "AKG-SanoPlasma-Model",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"settings",
+		"programs"
+	],
+	"name" : "SanoPlasmaPreset",
+	"type" : "normal"
+}

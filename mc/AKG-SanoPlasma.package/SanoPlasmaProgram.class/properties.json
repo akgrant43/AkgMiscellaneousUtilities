@@ -1,0 +1,19 @@
+{
+	"commentStamp" : "",
+	"super" : "Object",
+	"category" : "AKG-SanoPlasma-Model",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"name",
+		"runningTime",
+		"notes",
+		"frequencies",
+		"organ",
+		"illness",
+		"dwell"
+	],
+	"name" : "SanoPlasmaProgram",
+	"type" : "normal"
+}

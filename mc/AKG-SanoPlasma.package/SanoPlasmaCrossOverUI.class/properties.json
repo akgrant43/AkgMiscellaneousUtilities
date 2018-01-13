@@ -8,6 +8,7 @@
 		"Defaults"
 	],
 	"instvars" : [
+		"sanoPlasma",
 		"labelCrossoverFreq",
 		"labelRange",
 		"labelTime",

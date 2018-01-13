@@ -1,0 +1,15 @@
+{
+	"commentStamp" : "",
+	"super" : "Object",
+	"category" : "AKG-SanoPlasma-Model",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"out2Voltage",
+		"out1FreqLimitMax",
+		"out1FreqLimitMin"
+	],
+	"name" : "SanoPlasmaSettings",
+	"type" : "normal"
+}

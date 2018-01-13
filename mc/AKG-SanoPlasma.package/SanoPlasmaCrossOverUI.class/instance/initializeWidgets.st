@@ -35,6 +35,7 @@ initializeWidgets
 	summaryText := self newText.
 	createButton := self newButton
 		label: 'Create';
+		action: [ self save ];
 		yourself.
 
 	self focusOrder
