@@ -1,0 +1,3 @@
+accessing
+inputTime
+	^ inputTime

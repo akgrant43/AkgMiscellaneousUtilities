@@ -1,0 +1,3 @@
+accessing
+inputLocation
+	^ inputLocation

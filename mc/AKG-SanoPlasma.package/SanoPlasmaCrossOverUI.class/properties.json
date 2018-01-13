@@ -1,0 +1,26 @@
+{
+	"commentStamp" : "",
+	"super" : "ComposablePresenter",
+	"category" : "AKG-SanoPlasma-CrossOver",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [
+		"Defaults"
+	],
+	"instvars" : [
+		"labelCrossoverFreq",
+		"labelRange",
+		"labelTime",
+		"labelName",
+		"labelLocation",
+		"inputCrossoverFreq",
+		"inputRange",
+		"inputTime",
+		"inputName",
+		"inputLocation",
+		"summaryText",
+		"createButton"
+	],
+	"name" : "SanoPlasmaCrossOverUI",
+	"type" : "normal"
+}
