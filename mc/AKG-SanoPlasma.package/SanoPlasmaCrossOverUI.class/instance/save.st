@@ -2,7 +2,7 @@ private
 save
 	"Save the receivers preset & program"
 
-	| program preset |
+	| program settings preset |
 
 	self validConfiguration ifFalse: [ ^UIManager default 
 			alert: 'Invalid Configuration'
@@ -12,5 +12,13 @@ save
 					frequencies: self frequenciesDefinition;
 					dwell: self timeInSeconds;
 					yourself.
-	preset := SanoPlasmaPreset new 
+	settings := SanoPlasmaSettings new
 					yourself.
+	preset := SanoPlasmaPreset new 
+					settings: settings;
+					add: program;
+					yourself.
+	preset saveIn: self presetDirectory.
+	sanoPlasma 
+		programDB addOrReplace: program;
+		save.
