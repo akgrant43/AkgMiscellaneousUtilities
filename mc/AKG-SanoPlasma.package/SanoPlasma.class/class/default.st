@@ -1,7 +1,6 @@
 accessing
 default
 	"Find the location of an installation and answer a new instance pointing to it"
-	<script>
 
 	| rootDir |
 

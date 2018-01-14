@@ -1,0 +1,17 @@
+{
+	"commentStamp" : "",
+	"super" : "Object",
+	"category" : "AKG-SanoPlasma-Model",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"fromFrequency",
+		"toFrequency",
+		"dwell",
+		"waveform",
+		"gating"
+	],
+	"name" : "SanoPlasmaFrequencyRange",
+	"type" : "normal"
+}

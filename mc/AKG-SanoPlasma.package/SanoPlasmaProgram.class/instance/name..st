@@ -1,3 +1,5 @@
 accessing
-name: anObject
-	name := anObject
+name: aString
+
+	self assert: aString isNotEmpty description: 'Name cannot be empty'.
+	name := aString

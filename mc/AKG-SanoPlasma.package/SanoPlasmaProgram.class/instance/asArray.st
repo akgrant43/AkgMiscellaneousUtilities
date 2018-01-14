@@ -7,7 +7,7 @@ asArray
 		'CUST'.
 		runningTime.
 		notes.
-		frequencies.
+		',' join: (frequencies collect: [ :each | each asString ]).
 		organ.
 		illness.
 		dwell.

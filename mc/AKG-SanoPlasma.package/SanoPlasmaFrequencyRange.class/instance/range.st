@@ -1,0 +1,4 @@
+accessing
+range
+
+	^toFrequency - fromFrequency

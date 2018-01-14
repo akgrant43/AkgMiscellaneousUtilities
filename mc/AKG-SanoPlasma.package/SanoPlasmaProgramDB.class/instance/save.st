@@ -6,4 +6,6 @@ save
 	
 	fileName writeStreamDo: [ :stream |
 		csv := NeoCSVWriter on: stream.
-		csv nextPutAll: self programs ]
+		csv fieldWriter: #optionalQuoted.
+		self programs do: [ :program |
+			csv nextPut: program asArray ] ]

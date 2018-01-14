@@ -5,10 +5,10 @@ fromCollection: aCollection
 
 	^self new 
 		name: (aCollection at: 1);
-		runningTime: (aCollection at: 3);
+		runningTime: (aCollection at: 3) asNumberOrNil;
 		notes: (aCollection at: 4);
-		frequencies: (aCollection at: 5);
+		addFrequencies: (aCollection at: 5);
 		organ: (aCollection at: 6);
 		illness: (aCollection at: 7);
-		dwell: (aCollection at: 8);
+		dwell: (aCollection at: 8) asNumberOrNil;
 		yourself.
