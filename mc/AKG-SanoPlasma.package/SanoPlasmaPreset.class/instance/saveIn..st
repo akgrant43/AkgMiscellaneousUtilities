@@ -6,6 +6,8 @@ saveIn: aDirectory
 
 	self assert: name isNotNil description: 'Preset Name not supplied'.
 	self assert: programs size = 1 description: 'Can only save a preset with a single program for now'.
+	self assert: aDirectory parent isDirectory description: 'Parent directory must exist'.
+	aDirectory ensureCreateDirectory.
 	fileName := self fileNameIn: aDirectory.
 
 	program := programs first.

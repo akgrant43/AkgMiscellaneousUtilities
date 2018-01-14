@@ -15,6 +15,7 @@ save
 	settings := SanoPlasmaSettings new
 					yourself.
 	preset := SanoPlasmaPreset new 
+					name: self name;
 					settings: settings;
 					add: program;
 					yourself.
