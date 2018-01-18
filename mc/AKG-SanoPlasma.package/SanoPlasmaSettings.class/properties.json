@@ -4,11 +4,14 @@
 	"category" : "AKG-SanoPlasma-Model",
 	"classinstvars" : [ ],
 	"pools" : [ ],
-	"classvars" : [ ],
+	"classvars" : [
+		"NameKeyMap"
+	],
 	"instvars" : [
 		"out2Voltage",
 		"out1FreqLimitMax",
-		"out1FreqLimitMin"
+		"out1FreqLimitMin",
+		"settings"
 	],
 	"name" : "SanoPlasmaSettings",
 	"type" : "normal"

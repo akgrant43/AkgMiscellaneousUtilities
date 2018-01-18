@@ -2,6 +2,7 @@ initialization
 initialize
 
 	super initialize.
-	out2Voltage := 12.
-	out1FreqLimitMax := 900000.
-	out1FreqLimitMin := 1.
+	settings := self class settingsDictionaryFromPresetString: SanoPlasmaPreset template.
+	"out2Voltage := 12."
+	self at: #out1FreqLimitMax put: 900000.
+	self at: #out1FreqLimitMin put: 1.
