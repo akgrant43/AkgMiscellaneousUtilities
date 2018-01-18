@@ -22,7 +22,7 @@ template1
 "Text20=6"
 "Text21=0"
 "Text22(0)=-1"
-"Text22(1)=0"
+"Text22(1)=579000"
 "Text22(2)=2"
 "Text22(3)=0"
 "Text22(4)=0"
@@ -169,7 +169,7 @@ template1
 "Check12(1)=0"
 "Check12(2)=0"
 "List2=Program Names (CUST)"
-"List4={fromFrequency}-{toFrequency}={timeInSeconds}"
-"List5={fromFrequency};{toFrequency};{timeInSeconds};;;;;;;;;;;;;;;;;;"
+"List4=123000-456000=789"
+"List5=123000;456000;789;;;;;;;;;;;;;;;;;;"
 "[/Preset]"
 '
