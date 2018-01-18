@@ -5,4 +5,4 @@ at: keyOrName put: anObject
 	| key |
 
 	key := self class nameToKeyMap at: keyOrName ifAbsent: [ keyOrName ].
-	^settings at: key put: anObject.
+	^self settings at: key put: anObject.

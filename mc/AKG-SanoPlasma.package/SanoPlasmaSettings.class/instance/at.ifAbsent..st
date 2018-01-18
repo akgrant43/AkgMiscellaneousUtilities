@@ -5,4 +5,4 @@ at: keyOrName ifAbsent: absentBlock
 	| key |
 
 	key := self class nameToKeyMap at: keyOrName ifAbsent: [ keyOrName ].
-	^settings at: key ifAbsent: [ absentBlock value ].
+	^self settings at: key ifAbsent: [ absentBlock value ].
