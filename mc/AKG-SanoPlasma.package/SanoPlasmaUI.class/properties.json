@@ -1,0 +1,20 @@
+{
+	"commentStamp" : "",
+	"super" : "ComposablePresenter",
+	"category" : "AKG-SanoPlasma-CrossOver",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [
+		"Defaults"
+	],
+	"instvars" : [
+		"sanoPlasma",
+		"directoryTree",
+		"filesList",
+		"presetsList",
+		"programsSettingsList",
+		"menuBar"
+	],
+	"name" : "SanoPlasmaUI",
+	"type" : "normal"
+}

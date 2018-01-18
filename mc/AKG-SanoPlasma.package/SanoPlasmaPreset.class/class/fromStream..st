@@ -10,6 +10,7 @@ fromStream: aStream
 		name: (settings at: 'PresetName' ifAbsent: [ '' ]);
 		add: (SanoPlasmaProgram new 
 					addFrequencies: (settings at: 'List4');
+					name: (settings at: 'Program Name');
 					yourself);
 		yourself.
 	^preset
