@@ -18,7 +18,6 @@ writeOn: aStream
 		at: 'List4' put: frequencyRange asString;
 		at: 'List5' put: frequencyRange asString1.
 
-	aStream lineEndConvention: #crlf.
 	aStream << '"[Preset]"'; cr.
 	settings writeOn: aStream.
 	aStream << '"[/Preset]"'; cr.

@@ -8,4 +8,6 @@ saveIn: aDirectory
 	aDirectory ensureCreateDirectory.
 	fileName := self fileNameIn: aDirectory.
 
-	fileName writeStreamDo: [ :stream | self writeOn: stream ].
+	fileName writeStreamDo: [ :stream | 
+		stream lineEndConvention: #crlf.
+		self writeOn: stream ].
