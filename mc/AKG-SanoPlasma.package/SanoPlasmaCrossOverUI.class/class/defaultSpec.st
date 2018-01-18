@@ -1,10 +1,11 @@
-as yet unclassified
+specs
 defaultSpec
 	<spec: #default>
 	| tfh |
 
 	tfh := StandardFonts defaultFont height + 10.
 	^SpecColumnLayout composed
+		newRow: [ :row | row add: #menu ] height: self toolbarHeight;
 		newRow: [ :row | row
 			add: #labelCrossoverFreq;
 			add: #inputCrossoverFreq ] height: tfh;

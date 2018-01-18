@@ -8,6 +8,9 @@
 		"Defaults"
 	],
 	"instvars" : [
+		"settings",
+		"program",
+		"frequencyRange",
 		"sanoPlasma",
 		"labelCrossoverFreq",
 		"labelRange",
@@ -20,7 +23,8 @@
 		"inputName",
 		"inputLocation",
 		"summaryText",
-		"createButton"
+		"createButton",
+		"menu"
 	],
 	"name" : "SanoPlasmaCrossOverUI",
 	"type" : "normal"

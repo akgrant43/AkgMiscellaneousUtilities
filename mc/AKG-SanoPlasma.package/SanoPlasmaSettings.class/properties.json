@@ -8,9 +8,6 @@
 		"NameKeyMap"
 	],
 	"instvars" : [
-		"out2Voltage",
-		"out1FreqLimitMax",
-		"out1FreqLimitMin",
 		"settings"
 	],
 	"name" : "SanoPlasmaSettings",

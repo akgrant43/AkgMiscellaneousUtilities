@@ -16,7 +16,7 @@ updateSummary
 			<< self name asString; cr;
 			cr;
 			<< 'Frequency Range (kHz): '; tab;
-			<< self frequencyRange asString; cr; cr.
+			<< self frequencyRangeString asString; cr; cr.
 		self validConfiguration 
 			ifTrue: [ stream << 'Configuration Valid' ]
 			ifFalse: [ stream << 'Invalid Configuration' ].

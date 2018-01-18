@@ -1,6 +1,7 @@
 initialization
 initializeWidgets
 
+	menu := self createMenu.
 	labelCrossoverFreq := self newLabel label: 'Crossover Freq. (kHz):'.
 	labelRange := self newLabel label: 'Range (Hz):'.
 	labelTime := self newLabel label: 'Time (min):'.
@@ -36,6 +37,7 @@ initializeWidgets
 	createButton := self newButton
 		label: 'Create';
 		action: [ self save ];
+		icon: (Smalltalk ui icons iconNamed: #smallSave);
 		yourself.
 
 	self focusOrder
