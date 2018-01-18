@@ -4,6 +4,7 @@ nameToKeyMap
 
 	^NameKeyMap ifNil: [ NameKeyMap := {
 		'Program Name' -> 'Text17'.
-		#out1FreqLimitMin -> 'Text37(1)'.
-		#out1FreqLimitMax -> 'Text37(0)'.
+		'Out 2 Voltage Multiplier' -> 'Text22(2)'.
+		'Out 1 Freq. Limit Min.' -> 'Text37(1)'.
+		'Out 1 Freq. Limit Max.' -> 'Text37(0)'.
 		} asDictionary ]
