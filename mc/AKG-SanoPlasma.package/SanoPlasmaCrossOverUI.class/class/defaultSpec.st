@@ -6,6 +6,8 @@ defaultSpec
 	tfh := StandardFonts defaultFont height + 10.
 	^SpecColumnLayout composed
 		newRow: [ :row | row add: #menu ] height: self toolbarHeight;
+		newRow: [ :mainRow | mainRow
+		newColumn: [ :column | column
 		newRow: [ :row | row
 			add: #labelCrossoverFreq;
 			add: #inputCrossoverFreq ] height: tfh;
@@ -20,6 +22,8 @@ defaultSpec
 			add: #inputName ] height: tfh;
 		newRow: [ :row | row 
 			add: #labelLocation;
-			add: #inputLocation ] height: tfh;
+			add: #inputLocation ] height: tfh ];
+		newColumn: [ :column | column 
+			newRow: [ :row | row add: #labelName ] ] ];
 		newRow: [ :row | row add: #summaryText ] height: tfh * 10;
 		newRow: [ :row | row add: #createButton ] height: tfh.

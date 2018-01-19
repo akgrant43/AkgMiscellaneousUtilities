@@ -4,14 +4,15 @@ gtInspectSettingsIn: composite
 
 	^ composite fastTable
 		title: 'Settings';
-		display: [ self namedSettings associations ];
+		display: [ self namedSettings associations sorted: 
+			[ :a :b | a key < b key ] ];
 		"children: [ :each | 
 			(each value isDictionary) 
 				ifTrue: [ each value associations ] 
 				ifFalse: [ (each value isArray and: [ each value allSatisfy: #isDictionary ])
 						ifTrue: [ each value collectWithIndex: [:x :i | i -> x ] ]
 						ifFalse: [ #() ] ] ];"
-		column: 'Key' 
+		column: 'Setting'
 			evaluated: [:each | GTObjectPrinter asTruncatedTextFrom: each key ];
 		column: 'Value' 
 			evaluated: [:each | GTObjectPrinter asTruncatedTextFrom: each value ];
