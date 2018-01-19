@@ -4,4 +4,4 @@ extent
 	| tfh |
 
 	tfh := StandardFonts defaultFont height + 10.
-	^(tfh*20) @ (tfh*18)
+	^(tfh*25) @ (tfh*19)

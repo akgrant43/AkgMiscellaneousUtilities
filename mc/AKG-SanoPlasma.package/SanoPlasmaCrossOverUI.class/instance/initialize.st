@@ -6,4 +6,4 @@ initialize
 	program := SanoPlasmaProgram new 
 					addFrequency: frequencyRange;
 					yourself.
-	settings := SanoPlasmaSettings new.
+	self settings: SanoPlasmaSettings new.

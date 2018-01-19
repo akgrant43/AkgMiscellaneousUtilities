@@ -1,7 +1,7 @@
 {
 	"commentStamp" : "",
 	"super" : "ComposablePresenter",
-	"category" : "AKG-SanoPlasma-CrossOver",
+	"category" : "AKG-SanoPlasma-UI",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [
@@ -24,7 +24,8 @@
 		"inputLocation",
 		"summaryText",
 		"createButton",
-		"menu"
+		"menu",
+		"settingsUI"
 	],
 	"name" : "SanoPlasmaCrossOverUI",
 	"type" : "normal"

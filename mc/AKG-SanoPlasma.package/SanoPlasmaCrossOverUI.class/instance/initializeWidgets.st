@@ -39,6 +39,8 @@ initializeWidgets
 		action: [ self save ];
 		icon: (Smalltalk ui icons iconNamed: #smallSave);
 		yourself.
+	settingsUI := self instantiate: SanoPlasmaSettingsUI.
+	settingsUI whenSettingsChanged: [ :stngs | self updateSummary ].
 
 	self focusOrder
 		add: inputCrossoverFreq;
@@ -46,5 +48,6 @@ initializeWidgets
 		add: inputTime;
 		add: inputName;
 		add: inputLocation;
+		add: settingsUI;
 		add: createButton.
 	self updateSummary.

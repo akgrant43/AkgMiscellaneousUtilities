@@ -9,5 +9,5 @@ saveIn: aDirectory
 	fileName := self fileNameIn: aDirectory.
 
 	fileName writeStreamDo: [ :stream | 
-		stream lineEndConvention: #crlf.
+		stream lineEndConvention: #lf.
 		self writeOn: stream ].

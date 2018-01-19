@@ -24,6 +24,6 @@ defaultSpec
 			add: #labelLocation;
 			add: #inputLocation ] height: tfh ];
 		newColumn: [ :column | column 
-			newRow: [ :row | row add: #labelName ] ] ];
+			newRow: [ :row | row add: #settingsUI ] ] ];
 		newRow: [ :row | row add: #summaryText ] height: tfh * 10;
 		newRow: [ :row | row add: #createButton ] height: tfh.
