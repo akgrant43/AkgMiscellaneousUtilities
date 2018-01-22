@@ -7,4 +7,7 @@ defaultSpec
 	^SpecColumnLayout composed
 		newRow: [ :row | row
 			add: #o2vmLabel;
-			add: #inputOut2VoltageMultiplier ] height: tfh.
+			add: #inputOut2VoltageMultiplier ] height: tfh;
+		newRow: [ :row | row 
+			add: #harmonicWobbleLabel;
+			add: #harmonicWobbleWidget ] height: tfh.

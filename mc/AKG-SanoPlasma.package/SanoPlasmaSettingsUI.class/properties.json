@@ -8,7 +8,9 @@
 	"instvars" : [
 		"settings",
 		"o2vmLabel",
+		"harmonicWobbleLabel",
 		"inputOut2VoltageMultiplier",
+		"harmonicWobbleWidget",
 		"settingsChangedBlock"
 	],
 	"name" : "SanoPlasmaSettingsUI",

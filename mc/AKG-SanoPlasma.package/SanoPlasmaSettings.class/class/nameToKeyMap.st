@@ -8,4 +8,5 @@ nameToKeyMap
 		'Out 2 Voltage Multiplier' -> 'Text22(2)'.
 		'Out 1 Freq. Limit Min.' -> 'Text37(1)'.
 		'Out 1 Freq. Limit Max.' -> 'Text37(0)'.
+		'Harmonic Wobble' -> 'Combo2'.
 		} asDictionary ]
