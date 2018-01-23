@@ -13,6 +13,7 @@
 		"filesList",
 		"presetsList",
 		"programsSettingsList",
+		"programSettingsEditor",
 		"menuBar"
 	],
 	"name" : "SanoPlasmaUI",

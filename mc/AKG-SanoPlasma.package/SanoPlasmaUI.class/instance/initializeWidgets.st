@@ -22,4 +22,7 @@ initializeWidgets
 
 	programsSettingsList := self newList.
 	programsSettingsList 
-		displayBlock: [ :item | item displayString ].
+		displayBlock: [ :item | item displayString ];
+		whenSelectedItemChanged: [ :selection | self spSelected: selection ].
+
+	programSettingsEditor := self emptyEditor.

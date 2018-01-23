@@ -8,4 +8,5 @@ defaultSpec
 			add: #directoryTree;
 			add: #filesList;
 			add: #presetsList;
-			add: #programsSettingsList ].
+			add: #programsSettingsList ];
+		newRow: [ :row | row add: #programSettingsEditor ].
