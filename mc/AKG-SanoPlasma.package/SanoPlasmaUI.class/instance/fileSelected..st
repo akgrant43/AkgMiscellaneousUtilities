@@ -6,4 +6,5 @@ fileSelected: aFileReference
 	aFileReference ifNil: [ ^self ].
 	chain := SanoPlasmaChain fromFile: aFileReference.
 	self presetsList items: chain presets.
-	self presetSelected: self presetsList selectedItem
+	chain presets ifEmpty: [ ^self ].
+	self presetsList setIndex: 1.
