@@ -6,8 +6,12 @@ descriptionText
 		stream
 			<< 'Name: ';
 			<< name asString; cr; cr;
-			<< 'Frequencies: ';
-			<< frequencies asString; cr;
+			<< 'Frequencies: '; cr.
+		frequencies do: [ :freq |
+			stream
+				<< '- ';
+				<< freq asString; cr ].
+		stream
 			<< 'Dwell: ';
 			<< dwell asString; cr;
 			<< 'Notes:'; cr;

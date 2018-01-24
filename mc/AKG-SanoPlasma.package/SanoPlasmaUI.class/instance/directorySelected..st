@@ -12,4 +12,6 @@ directorySelected: aFileReference
 		at: 4 put: nil.
 	files := (aFileReference filesMatching: '*.txt')
 		asSortedCollection: [ :a :b | a basename < b basename ].
-	self filesList items: files
+	self filesList items: files.
+	files isNotEmpty ifTrue: 
+		[ self filesList setSelectedItem: files first ]
