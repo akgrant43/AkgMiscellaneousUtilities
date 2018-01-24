@@ -14,7 +14,9 @@
 		"presetsList",
 		"programsSettingsList",
 		"programSettingsEditor",
-		"menuBar"
+		"menuBar",
+		"currentSelection",
+		"inRebuild"
 	],
 	"name" : "SanoPlasmaUI",
 	"type" : "normal"

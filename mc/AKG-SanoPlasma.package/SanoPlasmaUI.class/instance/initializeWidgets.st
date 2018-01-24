@@ -1,11 +1,15 @@
 initialization
 initializeWidgets
 
+	Transcript show: 'initializeWidgets'; cr.
+	currentSelection := Array new: 4.
+	inRebuild := false.
 	menuBar := self createMenu.
 
 	directoryTree := self newTree.
 	directoryTree
 		multiSelection: false;
+		autoDeselection: false;
 		displayBlock: [ :item | item basename ];
 		childrenBlock: [ :item | item directories ];
 		whenSelectedItemChanged: [ :selection | self directorySelected: selection ].
