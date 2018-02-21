@@ -1,5 +1,5 @@
 accessing
-allPresets
+allChains
 	"Answer a flat collection of all the receiver's presets"
 
 	| presets |

@@ -16,7 +16,11 @@
 		"programSettingsEditor",
 		"menuBar",
 		"currentSelection",
-		"inRebuild"
+		"inRebuild",
+		"dtLabel",
+		"flLabel",
+		"plLabel",
+		"pslLabel"
 	],
 	"name" : "SanoPlasmaUI",
 	"type" : "normal"

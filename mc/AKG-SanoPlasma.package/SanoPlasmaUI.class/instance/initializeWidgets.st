@@ -5,6 +5,19 @@ initializeWidgets
 	currentSelection := Array new: 4.
 	inRebuild := false.
 	menuBar := self createMenu.
+	
+	dtLabel := self newLabel
+		label: 'Directory';
+		yourself.
+	flLabel := self newLabel
+		label: 'Chains (Files)';
+		yourself.
+	plLabel := self newLabel
+		label: 'Presets';
+		yourself.
+	pslLabel := self newLabel
+		label: 'Settings / Programs';
+		yourself.
 
 	directoryTree := self newTree.
 	directoryTree
