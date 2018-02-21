@@ -9,7 +9,7 @@ fromStream: aStream
 	settings := Dictionary new.
 	[ done ] whileFalse: [ 
 		entry := aStream nextLine.
-		(entry includesSubstring: '[/Preset]')
+		(entry isNil or: [entry includesSubstring: '[/Preset]'])
 			ifTrue: [ done := true ]
 			ifFalse: [ self addKeyValue: entry to: settings ] ].
 	^self new
