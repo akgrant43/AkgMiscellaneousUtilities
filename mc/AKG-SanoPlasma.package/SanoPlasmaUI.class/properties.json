@@ -9,18 +9,15 @@
 	],
 	"instvars" : [
 		"sanoPlasma",
+		"selectedChain",
 		"directoryTree",
 		"filesList",
-		"presetsList",
-		"programsSettingsList",
-		"programSettingsEditor",
+		"chainUI",
 		"menuBar",
 		"currentSelection",
 		"inRebuild",
 		"dtLabel",
-		"flLabel",
-		"plLabel",
-		"pslLabel"
+		"flLabel"
 	],
 	"name" : "SanoPlasmaUI",
 	"type" : "normal"
