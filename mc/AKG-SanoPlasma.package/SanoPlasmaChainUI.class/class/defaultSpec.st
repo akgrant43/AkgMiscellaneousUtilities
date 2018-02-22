@@ -8,10 +8,12 @@ defaultSpec
 		newRow: [ :row | row 
 			add: #nameLabel;
 			add: #nameInput ] height: tfh;
-		newRow: [ :row | row add: #presetList ] height: tfh * 4;
-		newRow: [ :row | row add: #summaryText ];
+		newRow: [ :row | row 
+			add: #presetList;
+			add: #programsSettingsList ] height: tfh * 4;
 		newRow: [ :row | row 
 			add: #upButton;
 			add: #downButton;
 			add: #saveChainButton;
-			add: #inspectButton ] height: tfh.
+			add: #inspectButton ] height: tfh;
+		newRow: [ :row | row add: #programSettingsEditor ].

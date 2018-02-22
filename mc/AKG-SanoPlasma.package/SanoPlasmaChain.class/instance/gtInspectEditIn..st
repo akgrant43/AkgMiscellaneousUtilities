@@ -5,7 +5,7 @@ gtInspectEditIn: composite
 	^ composite spec
 		title: 'Edit';
 		display: [:arg1 | 
-			SanoPlasmaChainEditorUI new
+			SanoPlasmaChainUI new
 				chain: arg1;
 				buildWithSpec;
 				yourself ].

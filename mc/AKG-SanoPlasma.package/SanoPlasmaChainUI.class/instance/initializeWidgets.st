@@ -1,6 +1,9 @@
 initialization
 initializeWidgets
 
+	inRebuild := false.
+	currentSelection := Array new: 2.
+
 	removePresetButton := self newButton
 		label: 'X';
 		action: [ self removeSelectedPreset ];
@@ -23,10 +26,15 @@ initializeWidgets
 		autoAccept: true;
 		acceptBlock: [ :text | self updateName ];
 		yourself.
-	presetList := self newList.
-	summaryText := self newText
-		disable;
+	presetList := self newList
+		displayBlock: [ :item | item name ];
+		whenSelectedItemChanged: [ :selection | self presetSelected: selection ];
 		yourself.
+	programsSettingsList := self newList
+		displayBlock: [ :item | item displayString ];
+		whenSelectedItemChanged: [ :selection | self spSelected: selection ];
+		yourself.
+	programSettingsEditor := self emptyEditor.
 	upButton := self newButton
 		label: '^';
 		action: [ self moveSelectedPresetUp ];

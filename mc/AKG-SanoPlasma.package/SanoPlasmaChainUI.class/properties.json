@@ -13,10 +13,13 @@
 		"nameLabel",
 		"nameInput",
 		"presetList",
-		"summaryText",
+		"programsSettingsList",
+		"programSettingsEditor",
 		"upButton",
-		"downButton"
+		"downButton",
+		"inRebuild",
+		"currentSelection"
 	],
-	"name" : "SanoPlasmaChainEditorUI",
+	"name" : "SanoPlasmaChainUI",
 	"type" : "normal"
 }
