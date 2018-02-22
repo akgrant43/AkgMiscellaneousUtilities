@@ -11,6 +11,7 @@ saveIn: aDirectory
 
 	fileName := aDirectory / name.
 	stream := (File named: fileName fullName) writeStream.
-	[ self writeOn: (ZnCrPortableWriteStream on: 
-							(ZnCharacterWriteStream on: stream encoding: 'utf8')) ]
+	[ self writeOn: (ZnCrPlatformWriteStream 
+							on: (ZnCharacterWriteStream on: stream encoding: 'utf8')
+							lineEnd: String crlf) ]
 		ensure: [ stream close ].

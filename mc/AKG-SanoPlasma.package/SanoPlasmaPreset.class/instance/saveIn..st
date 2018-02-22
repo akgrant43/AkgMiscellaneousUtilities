@@ -10,6 +10,7 @@ saveIn: aDirectory
 
 	"MultiByteFileStream seems to have more and more problems..."
 	stream := (File named: fileName fullName) writeStream. 
-	[ self writeOn: (ZnCrPortableWriteStream on: 
-							(ZnCharacterWriteStream on: stream encoding: 'utf8')) ]
+	[ self writeOn: (ZnCrPlatformWriteStream 
+							on: (ZnCharacterWriteStream on: stream encoding: 'utf8')
+							lineEnd: String crlf) ]
 		ensure: [ stream close ].
