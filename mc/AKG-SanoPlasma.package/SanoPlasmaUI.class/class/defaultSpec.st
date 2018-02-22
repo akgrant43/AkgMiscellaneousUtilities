@@ -8,12 +8,8 @@ defaultSpec
 		newRow: [ :row | row add: #menuBar ] height: 30;
 		newRow: [ :row | row 
 			add: #dtLabel;
-			add: #flLabel;
-			add: #plLabel;
-			add: #pslLabel] height: tfh;
+			add: #flLabel] height: tfh;
 		newRow: [ :row | row
 			add: #directoryTree;
 			add: #filesList;
-			add: #presetsList;
-			add: #programsSettingsList ] height: tfh * 8;
-		newRow: [ :row | row add: #programSettingsEditor ].
+			add: #chainUI ].

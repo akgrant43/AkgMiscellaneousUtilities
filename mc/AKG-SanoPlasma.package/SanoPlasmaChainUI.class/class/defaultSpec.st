@@ -9,6 +9,9 @@ defaultSpec
 			add: #nameLabel;
 			add: #nameInput ] height: tfh;
 		newRow: [ :row | row 
+			add: #presetLabel;
+			add: #psLabel ] height: tfh;
+		newRow: [ :row | row 
 			add: #presetList;
 			add: #programsSettingsList ] height: tfh * 4;
 		newRow: [ :row | row 

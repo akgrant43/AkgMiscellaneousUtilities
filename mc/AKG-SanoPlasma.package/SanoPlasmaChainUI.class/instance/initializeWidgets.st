@@ -4,6 +4,12 @@ initializeWidgets
 	inRebuild := false.
 	currentSelection := Array new: 2.
 
+	presetLabel := self newLabel
+		label: 'Presets';
+		yourself.
+	psLabel := self newLabel
+		label: 'Settings / Programs';
+		yourself.
 	removePresetButton := self newButton
 		label: 'X';
 		action: [ self removeSelectedPreset ];
@@ -29,6 +35,13 @@ initializeWidgets
 	presetList := self newList
 		displayBlock: [ :item | item name ];
 		whenSelectedItemChanged: [ :selection | self presetSelected: selection ];
+		dragEnabled: true;
+		dropEnabled: true;
+		wantDropBlock: [ :draggedItem :event :source | 
+			"(draggedItem class = SanoPlasmaChain) and: [" 
+				(self chain presets includes: draggedItem first) not "]" ];
+		acceptDropBlock: [ :transfer :event :source :receiver | 
+			self addPreset: transfer passenger first copy ];
 		yourself.
 	programsSettingsList := self newList
 		displayBlock: [ :item | item displayString ];

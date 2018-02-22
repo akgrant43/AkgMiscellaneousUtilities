@@ -18,7 +18,9 @@
 		"upButton",
 		"downButton",
 		"inRebuild",
-		"currentSelection"
+		"currentSelection",
+		"presetLabel",
+		"psLabel"
 	],
 	"name" : "SanoPlasmaChainUI",
 	"type" : "normal"
