@@ -1,4 +1,4 @@
-as yet unclassified
+templates
 defaultTemplate
 	"Answer the default template"
 

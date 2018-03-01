@@ -1,5 +1,5 @@
 {
-	"commentStamp" : "AlistairGrant 12/21/2017 15:05",
+	"commentStamp" : "AlistairGrant 3/1/2018 14:57",
 	"super" : "Object",
 	"category" : "AKG-SanoPlasma",
 	"classinstvars" : [ ],
@@ -13,7 +13,8 @@
 		"programSeconds",
 		"outDir",
 		"presetTemplate",
-		"namePrefix"
+		"namePrefix",
+		"namePostfix"
 	],
 	"name" : "SanoPlasmaPresetGenerator",
 	"type" : "normal"

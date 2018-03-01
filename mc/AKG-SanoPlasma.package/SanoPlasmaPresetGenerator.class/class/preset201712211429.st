@@ -1,4 +1,4 @@
-as yet unclassified
+templates
 preset201712211429
 
 	^'"[Preset]"
@@ -169,7 +169,7 @@ preset201712211429
 "Check12(1)=0"
 "Check12(2)=0"
 "List2={programName} (CUST)"
-"List4=404000-405600={programSeconds}"
-"List5=404000;405600;{programSeconds};;;;;;;;;;;;;;;;;;"
+"List4={fromFrequency}-{toFrequency}={programSeconds}"
+"List5={fromFrequency};{toFrequency};{programSeconds};;;;;;;;;;;;;;;;;;"
 "[/Preset]"
 '
