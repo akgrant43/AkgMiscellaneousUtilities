@@ -15,7 +15,7 @@ writePresetAt: freq
 				<< namePostfix ].
 		stream
 			<< '.txt' ].
-	subDir := outDir / ('Step ', freq asString first asString, '00').
+	subDir := outDir / ('Step ', (freq printPaddedWith: $0 to: 6) first asString, '00').
 	subDir ensureCreateDirectory.
 	fileReference := subDir / fileName.
 
@@ -26,6 +26,8 @@ writePresetAt: freq
 		at: 'fromFrequency' put: freq;
 		at: 'toFrequency' put: (freq + freqRange);
 		at: 'freqSum' put: (2 * freq + freqRange);
+		at: 'harmonicWobble' put: 'None';
+		at: 'out2VoltageMultiplier' put: '2.3';
 		yourself.
 
 	fileReference writeStreamDo: [ :stream |

@@ -16,7 +16,7 @@ By default, and as in the example above, the program frequency range for the pla
 It is possible to generate programs where the plasma frequency range runs from high-to-low, e.g.:
 
 SanoPlasmaPresetGenerator new
-	startFreq: 100000;
+	startFreq: 2000;
 	endFreq: 899500;
 	stepFreq: 500;
 	freqRange: -1000;
