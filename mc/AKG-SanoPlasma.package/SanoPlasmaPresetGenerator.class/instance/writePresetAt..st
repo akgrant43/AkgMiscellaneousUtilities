@@ -2,33 +2,46 @@ private
 writePresetAt: freq
 	"Write the preset file for the supplied frequency"
 
-	| programName fileName fileReference presetDictionary subDir |
+	| programName fileName fileReference stream subDir chain preset program frequencyRange |
 
 	programName := self programNameAt: freq.
-	fileName := String streamContents: [ :stream |
-		stream 
+	fileName := String streamContents: [ :fstream |
+		fstream 
 			<< programName;
 			<< ' xover'.
 		namePostfix ifNotEmpty: [ 
-			stream
+			fstream
 				<< ' ';
 				<< namePostfix ].
-		stream
+		fstream
 			<< '.txt' ].
 	subDir := outDir / ('Step ', (freq printPaddedWith: $0 to: 6) first asString, '00').
 	subDir ensureCreateDirectory.
 	fileReference := subDir / fileName.
 
-	presetDictionary := Dictionary new 
-		at: 'presetName' put: programName;
-		at: 'programName' put: programName;
-		at: 'programSeconds' put: programSeconds;
-		at: 'fromFrequency' put: freq;
-		at: 'toFrequency' put: (freq + freqRange);
-		at: 'freqSum' put: (2 * freq + freqRange);
-		at: 'harmonicWobble' put: 'None';
-		at: 'out2VoltageMultiplier' put: '2.3';
-		yourself.
+	frequencyRange := SanoPlasmaFrequencyRange new 
+								fromFrequency: freq;
+								toFrequency: (freq + freqRange);
+								dwell: programSeconds;
+								yourself.
+	program := SanoPlasmaProgram new 
+						name: programName;
+						dwell: programSeconds;
+						addFrequency: frequencyRange;
+						yourself.
+	settings	at: 'Program Name' put: programName.
+	preset := SanoPlasmaPreset new 
+					add: program;
+					name: programName;
+					settings: settings;
+					yourself.
+	chain := SanoPlasmaChain new
+					add: preset;
+					name: programName;
+					yourself.
 
-	fileReference writeStreamDo: [ :stream |
-		stream nextPutAll: (presetTemplate format: presetDictionary) ].
+	stream := (File named: fileReference fullName) writeStream.
+	[ chain writeOn: (ZnCrPlatformWriteStream 
+							on: (ZnCharacterWriteStream on: stream encoding: 'utf8')
+							lineEnd: String crlf) ]
+		ensure: [ stream close ].

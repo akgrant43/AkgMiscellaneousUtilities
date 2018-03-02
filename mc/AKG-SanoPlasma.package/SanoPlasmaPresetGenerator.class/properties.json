@@ -14,7 +14,8 @@
 		"outDir",
 		"presetTemplate",
 		"namePrefix",
-		"namePostfix"
+		"namePostfix",
+		"settings"
 	],
 	"name" : "SanoPlasmaPresetGenerator",
 	"type" : "normal"
