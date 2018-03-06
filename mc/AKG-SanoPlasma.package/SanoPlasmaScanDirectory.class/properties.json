@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "AlistairGrant 3/6/2018 12:10",
+	"super" : "Object",
+	"category" : "AKG-SanoPlasma-Model",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"directory"
+	],
+	"name" : "SanoPlasmaScanDirectory",
+	"type" : "normal"
+}

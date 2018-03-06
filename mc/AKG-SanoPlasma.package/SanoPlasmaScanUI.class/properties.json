@@ -1,0 +1,18 @@
+{
+	"commentStamp" : "",
+	"super" : "ComposablePresenter",
+	"category" : "AKG-SanoPlasma-UI",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"sanoPlasma",
+		"sanoPlasmaScan",
+		"filesList",
+		"currentFile",
+		"report",
+		"graph"
+	],
+	"name" : "SanoPlasmaScanUI",
+	"type" : "normal"
+}
