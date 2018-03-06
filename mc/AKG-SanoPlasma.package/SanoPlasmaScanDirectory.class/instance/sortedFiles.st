@@ -5,9 +5,10 @@ sortedFiles
 	| results files |
 
 	results := OrderedCollection new.
-	directory isRoot ifFalse: [ results add: directory parent ].
-	results addAll: directory directories asSortedCollection.
-	files := directory files select: [ :each | each basename endsWith: '.csv' ].
+	self directory isRoot ifFalse: [ results add: self directory parent ].
+	results addAll: self directory directories asSortedCollection.
+	files := self directory files select: [ :each | each basename endsWith: '.csv' ].
 	files := files asSortedCollection: [ :a :b | 
-		(self fileNameDate: a) < (self fileNameDate: b) ].
+		(self fileNameDate: a) > (self fileNameDate: b) ].
 	results addAll: files.
+	^results

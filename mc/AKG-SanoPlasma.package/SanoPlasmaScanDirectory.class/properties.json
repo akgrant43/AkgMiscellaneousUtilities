@@ -6,7 +6,7 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"directory"
+		"sanoPlasma"
 	],
 	"name" : "SanoPlasmaScanDirectory",
 	"type" : "normal"

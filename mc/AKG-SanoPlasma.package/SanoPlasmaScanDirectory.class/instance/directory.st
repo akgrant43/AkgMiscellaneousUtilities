@@ -1,3 +1,3 @@
 accessing
 directory
-	^ directory
+	^ sanoPlasma rootDirectory / 'ScanData'

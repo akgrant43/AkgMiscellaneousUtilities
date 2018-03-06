@@ -1,5 +1,5 @@
 instance creation
-on: aFileReference
-	"Answer an instance of the receiver on the supplied directory"
+on: aSanoPlasma
+	"Answer an instance of the receiver on the supplied SanoPlasma"
 
-	^self new directory: aFileReference asFileReference
+	^self new sanoPlasma: aSanoPlasma 
