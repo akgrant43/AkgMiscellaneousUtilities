@@ -2,10 +2,11 @@ printing
 reportString
 	"Answer the top 30 matches"
 
-	| sortedData report |
+	| sortedByMagnitude sortedByFrequency report |
 
-	sortedData := self scanData sorted: [ :a :b | (a at: 3) > (b at: 3) ].
-	sortedData := sortedData first: (30 min: sortedData size).
+	sortedByMagnitude := self scanData sorted: [ :a :b | (a at: 3) > (b at: 3) ].
+	sortedByMagnitude := sortedByMagnitude first: (30 min: sortedByMagnitude size).
+	sortedByFrequency := sortedByMagnitude sorted: [ :a :b | (a at: 2) < (b at: 2) ].
 	report := String streamContents: [ :stream |
 		stream
 			<< 'Filename: ';
@@ -19,13 +20,33 @@ reportString
 			cr;
 			cr; cr.
 		stream
+			<< 'Results by Magnitude'; cr;
+			<< '===================='; cr;
+			cr;
 			<< '  Freq(Hz) MonitoredValue'; cr;
-			<< '  ======== ==============';
+			<< '  -------- --------------';
 			cr.
-		sortedData do: [ :each | 
+		sortedByMagnitude do: [ :each | 
 			stream
 				<< (each second asNumber printPaddedWith: Character space to: 8);
 				<< '   ';
 				<< (each third asNumber printShowingDecimalPlaces: 2);
-				cr ] ].
+				cr ].
+		stream 
+			cr; cr; cr;
+			nextPut: (Character value: 12).
+		stream
+			<< 'Results by Frequency'; cr;
+			<< '===================='; cr;
+			cr;
+			<< '  Freq(Hz) MonitoredValue'; cr;
+			<< '  -------- --------------';
+			cr.
+		sortedByFrequency do: [ :each | 
+			stream
+				<< (each second asNumber printPaddedWith: Character space to: 8);
+				<< '   ';
+				<< (each third asNumber printShowingDecimalPlaces: 2);
+				cr ].
+		 ].
 	^report
