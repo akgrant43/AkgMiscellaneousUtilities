@@ -1,13 +1,15 @@
 initialization
 initializeWidgets
 
-	filesList := self newList
-		displayBlock: [ :item | item name ];
-		whenSelectedItemChanged: [ :selection | self fileSelected: selection ];
+	menu := self createMenu.
+
+	directoryList := self newMultiColumnList
+		displayBlock: [ :entry | self columnsFor: entry ];
+		whenSelectedItemChanged: [ :selection | self selectedReport: selection ];
 		yourself.
-	report := self newText 
+
+	reportText := self newText 
 		enabled: false;
 		yourself.
-	graph := self newLabel
-		label: 'To Be Implemented';
-		yourself.
+
+	
