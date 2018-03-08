@@ -1,8 +1,8 @@
 inspecting
-gtResultsIn: composite
+gtReportIn: composite
 	<gtInspectorPresentationOrder: 1>
 
 	composite text
-		title: 'Results';
+		title: 'Report';
 		format: #asText;
 		display: [ self reportText ]

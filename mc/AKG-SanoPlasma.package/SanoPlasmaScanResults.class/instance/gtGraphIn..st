@@ -1,6 +1,6 @@
 inspecting
 gtGraphIn: composite
-	<gtInspectorPresentationOrder: 10>
+	<gtInspectorPresentationOrder: 2>
 
 	composite roassal2
 		title: 'Graph';

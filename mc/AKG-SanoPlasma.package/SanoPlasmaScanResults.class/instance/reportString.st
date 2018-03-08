@@ -2,51 +2,41 @@ printing
 reportString
 	"Answer the top 30 matches"
 
-	| sortedByMagnitude sortedByFrequency report |
+	| data maxRecords numRecords sortedByMagnitude sortedByFrequency report |
 
-	sortedByMagnitude := self scanData sorted: [ :a :b | (a at: 3) > (b at: 3) ].
-	sortedByMagnitude := sortedByMagnitude first: (30 min: sortedByMagnitude size).
+	maxRecords := 60.
+	data := self scanData.
+	numRecords := maxRecords min: data size.
+	sortedByMagnitude := data sorted: [ :a :b | (a at: 3) > (b at: 3) ].
+	sortedByMagnitude := sortedByMagnitude first: numRecords.
 	sortedByFrequency := sortedByMagnitude sorted: [ :a :b | (a at: 2) < (b at: 2) ].
 	report := String streamContents: [ :stream |
 		stream
 			<< 'Filename: ';
 			<< self fileReference basename;
 			cr;
-			<< 'Date: ';
+			<< 'Date:     ';
 			<< (self class fileNameDate: self fileReference) printString;
 			cr;
-			<< 'ID: ';
+			<< 'ID:       ';
 			<< (self class fileNameID: self fileReference);
 			cr;
 			cr; cr.
 		stream
-			<< 'Results by Magnitude'; cr;
-			<< '===================='; cr;
+			<< 'Results by Magnitude                  Results by Frequency'; cr;
+			<< '====================                  ===================='; cr;
 			cr;
-			<< '  Freq(Hz) MonitoredValue'; cr;
-			<< '  -------- --------------';
+			<< 'Freq(Hz)   MonitoredValue             Freq(Hz)   MonitoredValue'; cr;
+			<< '--------   --------------             --------   --------------';
 			cr.
-		sortedByMagnitude do: [ :each | 
+		1 to: numRecords do: [ :index | | magnitude frequency |
+			magnitude := sortedByMagnitude at: index.
+			frequency := sortedByFrequency at: index.
 			stream
-				<< (each second asNumber printPaddedWith: Character space to: 8);
-				<< '   ';
-				<< (each third asNumber printShowingDecimalPlaces: 2);
-				cr ].
-		stream 
-			cr; cr; cr;
-			nextPut: (Character value: 12).
-		stream
-			<< 'Results by Frequency'; cr;
-			<< '===================='; cr;
-			cr;
-			<< '  Freq(Hz) MonitoredValue'; cr;
-			<< '  -------- --------------';
-			cr.
-		sortedByFrequency do: [ :each | 
-			stream
-				<< (each second asNumber printPaddedWith: Character space to: 8);
-				<< '   ';
-				<< (each third asNumber printShowingDecimalPlaces: 2);
+				<< (magnitude second asNumber printPaddedWith: Character space to: 8);
+				<< ((magnitude third asNumber printShowingDecimalPlaces: 2) padLeftTo: 8);
+				<< (frequency second asNumber printPaddedWith: Character space to: 28);
+				<< ((frequency third asNumber printShowingDecimalPlaces: 2) padLeftTo: 10);
 				cr ].
 		 ].
 	^report
