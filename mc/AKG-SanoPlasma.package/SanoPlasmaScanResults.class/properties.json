@@ -6,6 +6,7 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
+		"sanoPlasma",
 		"fileReference"
 	],
 	"name" : "SanoPlasmaScanResults",
