@@ -14,8 +14,10 @@ baseline: spec
 				className: #ConfigurationOfNeoCSV;
 				versionString: #stable;
 				repository: 'http://smalltalkhub.com/mc/Pharo/MetaRepoForPharo60/main' ].
+		spec baseline: 'DataFrame' with: [ 
+			spec repository: 'github://PolyMathOrg/DataFrame' ].
 		spec package: 'AKG-SanoPlasma' with: [ 
-			spec requires: #('NeoCSV') ].
+			spec requires: #('NeoCSV' 'DataFrame') ].
 		spec
 			group: 'Core' with: corePackages;
 			group: 'all' with: #(#Core);
