@@ -6,6 +6,7 @@ baseline: spec
 
 	corePackages := #(
 		#'AKG-SanoPlasma'
+		#'AKG-AST-Extensions'
 		).
 	spec for: #common do: [ 
 		spec blessing: #baseline.
