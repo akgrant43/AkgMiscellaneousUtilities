@@ -6,6 +6,8 @@ reportString
 
 	maxRecords := 60.
 	data := self scanData.
+	data ifNil:
+		[ ^self fileReference fullName, ' is not a valid scan results file' ].
 	numRecords := maxRecords min: data size.
 	sortedByMagnitude := data sorted: [ :a :b | (a at: 3) > (b at: 3) ].
 	sortedByMagnitude := sortedByMagnitude first: numRecords.
