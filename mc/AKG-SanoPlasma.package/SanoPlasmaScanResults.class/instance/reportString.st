@@ -4,7 +4,7 @@ reportString
 
 	| data maxRecords numRecords sortedByMagnitude sortedByFrequency report |
 
-	maxRecords := 60.
+	maxRecords := 55.
 	data := self scanData.
 	data ifNil:
 		[ ^self fileReference fullName, ' is not a valid scan results file' ].
