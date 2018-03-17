@@ -12,4 +12,7 @@ sanoPlasmaMenuOn: aBuilder
 			action: [ SanoPlasma default openUI ].
 		(aBuilder item: #ScanResults)
 			parent: #SanoPlasma;
-			action: [ SanoPlasma default openScanUI ] ]
+			action: [ SanoPlasma default openScanUI ].
+		(aBuilder item: #CrossOverUI)
+			parent: #SanoPlasma;
+			action: [ SanoPlasma default openCrossOverUI ] ]
