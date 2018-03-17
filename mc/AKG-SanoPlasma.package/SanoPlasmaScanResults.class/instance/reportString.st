@@ -2,13 +2,12 @@ printing
 reportString
 	"Answer the top 30 matches"
 
-	| data maxRecords numRecords sortedByMagnitude sortedByFrequency report |
+	| data numRecords sortedByMagnitude sortedByFrequency report |
 
-	maxRecords := 55.
 	data := self scanData.
 	data ifNil:
 		[ ^self fileReference fullName, ' is not a valid scan results file' ].
-	numRecords := maxRecords min: data size.
+	numRecords := reportFrequencyCount min: data size.
 	sortedByMagnitude := data sorted: [ :a :b | (a at: 3) > (b at: 3) ].
 	sortedByMagnitude := sortedByMagnitude first: numRecords.
 	sortedByFrequency := sortedByMagnitude sorted: [ :a :b | (a at: 2) < (b at: 2) ].
