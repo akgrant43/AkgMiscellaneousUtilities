@@ -12,7 +12,6 @@
 		"freqRange",
 		"programSeconds",
 		"outDir",
-		"presetTemplate",
 		"namePrefix",
 		"namePostfix",
 		"settings"
