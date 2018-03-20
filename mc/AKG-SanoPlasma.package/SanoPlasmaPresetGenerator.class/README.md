@@ -43,10 +43,11 @@ generator := SanoPlasmaPresetGenerator new
 	crossoverCount: 10;
 	programSeconds: 1800;
 	namePrefix: 'Fr';
-	outDir: '/dev/shm/sanoplasma';
+	outDir: '/dev/shm/sanoplasma/Step 1kHz Cross 10 20min Up';
 	yourself.
 generator settings
-	at: 'Out 2 Voltage Multiplier' put: '3'.
+	at: 'Out 2 Voltage Multiplier' put: '3';
+	at: 'Repeat Chain' put: '3'.
 generator generate.
 
 

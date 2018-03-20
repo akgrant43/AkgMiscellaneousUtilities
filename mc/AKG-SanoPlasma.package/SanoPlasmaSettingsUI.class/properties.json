@@ -9,8 +9,12 @@
 		"settings",
 		"o2vmLabel",
 		"harmonicWobbleLabel",
+		"repeatChainLabel",
+		"repeatProgramLabel",
 		"inputOut2VoltageMultiplier",
 		"harmonicWobbleWidget",
+		"repeatChainWidget",
+		"repeatProgramWidget",
 		"settingsChangedBlock"
 	],
 	"name" : "SanoPlasmaSettingsUI",
