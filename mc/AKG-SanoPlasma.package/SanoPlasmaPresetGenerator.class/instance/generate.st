@@ -8,4 +8,4 @@ generate
 	customCSV writeStreamDo: [ :customCsvStream |
 		startFreq to: endFreq by: stepFreq do: [ :freq |
 			self writeProgramAt: freq to: customCsvStream.
-			self writePresetAt: freq. ] ].
+			self writeChainAt: freq. ] ].

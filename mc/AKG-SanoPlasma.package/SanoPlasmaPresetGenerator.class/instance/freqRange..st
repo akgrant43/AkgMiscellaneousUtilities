@@ -1,3 +1,4 @@
 accessing
-freqRange: anObject
-	freqRange := anObject
+freqRange: anInteger
+
+	freqRange := anInteger.

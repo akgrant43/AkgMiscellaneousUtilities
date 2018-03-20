@@ -1,5 +1,5 @@
 {
-	"commentStamp" : "AlistairGrant 3/1/2018 16:51",
+	"commentStamp" : "AlistairGrant 3/20/2018 15:07",
 	"super" : "Object",
 	"category" : "AKG-SanoPlasma",
 	"classinstvars" : [ ],
@@ -10,6 +10,7 @@
 		"endFreq",
 		"stepFreq",
 		"freqRange",
+		"crossoverCount",
 		"programSeconds",
 		"outDir",
 		"namePrefix",
