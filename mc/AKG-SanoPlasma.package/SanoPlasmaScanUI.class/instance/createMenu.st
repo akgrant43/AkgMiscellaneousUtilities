@@ -20,6 +20,11 @@ createMenu
 			item
 				name: 'Inspect';
 				icon: (Smalltalk ui icons iconNamed: #smallObjects);
-				action: [ self inspect ] ] ].
+				action: [ self inspect ] ].
+		group addItem: [ :item |
+			item
+				name: 'Report';
+				icon: (Smalltalk ui icons iconNamed: #smallObjects);
+				action: [ self currentReport inspect ] ] ].
 	newMenu applyTo: self.
 	^newMenu
