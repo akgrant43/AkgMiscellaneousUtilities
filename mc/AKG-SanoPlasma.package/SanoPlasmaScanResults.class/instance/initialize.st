@@ -2,4 +2,4 @@ initialization
 initialize
 
 	super initialize.
-	reportFrequencyCount := 120.
+	self pages: 3.
