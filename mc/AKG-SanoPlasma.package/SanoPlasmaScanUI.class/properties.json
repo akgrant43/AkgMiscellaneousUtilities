@@ -11,7 +11,8 @@
 		"currentReport",
 		"menu",
 		"directoryList",
-		"reportText"
+		"reportInspector",
+		"inRebuild"
 	],
 	"name" : "SanoPlasmaScanUI",
 	"type" : "normal"

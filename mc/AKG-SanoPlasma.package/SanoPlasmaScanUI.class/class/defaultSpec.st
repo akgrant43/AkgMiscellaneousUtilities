@@ -6,4 +6,4 @@ defaultSpec
 		newRow: [ :row | row add: #menu ] height: 30;
 		newRow: [ :row | row 
 			add: #directoryList width: 300;
-			add: #reportText ].
+			add: #reportInspector ].

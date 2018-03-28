@@ -8,7 +8,8 @@
 	"instvars" : [
 		"sanoPlasma",
 		"fileReference",
-		"reportFrequencyCount"
+		"reportFrequencyCount",
+		"scanData"
 	],
 	"name" : "SanoPlasmaScanResults",
 	"type" : "normal"

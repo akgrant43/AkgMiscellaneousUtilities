@@ -4,4 +4,5 @@ gtGraphIn: composite
 
 	composite roassal2
 		title: 'Graph';
-		initializeView: [ self graph ]
+		initializeView: [ self graph ];
+		when: [ self scanData isNotNil ]
