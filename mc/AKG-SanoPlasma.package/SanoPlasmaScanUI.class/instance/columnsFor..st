@@ -5,5 +5,6 @@ columnsFor: aFileReference
 
 	^{
 		aFileReference basename.
-		self filenameDate: aFileReference.
+		"self filenameDate: aFileReference."
+		aFileReference creationTime asString.
 	}
