@@ -13,7 +13,6 @@ zoomOutFrom: graphData view: view block: buildBlock
 	centre := (minFreq + (range / 2)) rounded.
 	minFreq := centre - range max: ((self scanData at: 1) at: 2).
 	maxFreq := centre + range min: ((self scanData at: self scanData numberOfRows) at: 2). 
-	rows := self scanData select: [ :each |
-		(each at: 2) >= minFreq and: [ (each at: 2) <= maxFreq ] ].
+	rows := self scanData select: [ :each | (each at: 2) between: minFreq and: maxFreq ].
 	view cleanAll.
 	buildBlock value: (DataFrame fromRows: rows asArray)
