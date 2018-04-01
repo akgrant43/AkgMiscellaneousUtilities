@@ -2,17 +2,10 @@ private
 writeChainAt: freq
 	"Write the preset file for the supplied frequency creating the configured number of crossovers"
 
-	| chainName presetName fileName fileReference bStream cStream subDir chain preset program frequencyRange fromFreq toFreq |
+	| chainName presetName fileName fileReference bStream cStream subDir chain preset program frequencyRange fromFreq toFreq signedRange |
 
 	chainName := self programNameAt: freq.
-	fileName := String streamContents: [ :fstream |
-		fstream << chainName.
-		namePostfix ifNotEmpty: [ 
-			fstream
-				<< ' ';
-				<< namePostfix ].
-		fstream
-			<< '.txt' ].
+	fileName := self filenameAt: freq.
 	subDir := outDir / ('Step ', (freq printPaddedWith: $0 to: 6) first asString, '00').
 	subDir ensureCreateDirectory.
 	fileReference := subDir / fileName.
@@ -21,9 +14,10 @@ writeChainAt: freq
 	chain := SanoPlasmaChain new
 					name: chainName;
 					yourself.
+	signedRange := freqRange copySignTo: crossoverRange.
 	1 to: crossoverCount do: [ :i |
 		fromFreq := freq + (freqRange * (i - 1) / crossoverCount) rounded.
-		toFreq := freq + (freqRange * i / crossoverCount) rounded.
+		toFreq := fromFreq + signedRange.
 		presetName := self presetNameFrom: fromFreq to: toFreq.
 		frequencyRange := SanoPlasmaFrequencyRange new 
 								fromFrequency: fromFreq;
@@ -43,8 +37,8 @@ writeChainAt: freq
 		chain add: preset ].
 
 	bStream := (File named: fileReference fullName) writeStream.
-	cStream := ZnCrPlatformWriteStream 
-							on: (ZnCharacterWriteStream on: bStream encoding: 'utf8')
-							lineEnd: String crlf.
+	cStream := (ZnNewLineWriterStream 
+						on: (ZnCharacterWriteStream on: bStream encoding: 'utf8'))
+							forCrLf.
 	[ chain writeOn: cStream ]
 		ensure: [ cStream close ].

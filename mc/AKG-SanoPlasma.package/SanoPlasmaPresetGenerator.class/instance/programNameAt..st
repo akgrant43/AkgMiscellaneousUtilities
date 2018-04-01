@@ -3,21 +3,30 @@ programNameAt: frequency
 	"Generate the program name from the frequency in the form:
 			<namePrefix> <startFreq>-<endFreq>
 	frequency is assumed to be less than 1 million"
-	| freqString startFreqName endFreqName |
-
-	freqString := frequency printPaddedWith: $0 to: 6.
-	startFreqName := freqString copyFrom: 1 to: 3.
-	(freqString at: 4) ~= $0 ifTrue:
-		[ startFreqName := startFreqName, '.', (freqString at: 4) asString ].
-	freqString := (frequency + freqRange) printPaddedWith: $0 to: 6.
-	endFreqName := freqString copyFrom: 1 to: 3.
-	(freqString at: 4) ~= $0 ifTrue:
-		[ endFreqName := endFreqName, '.', (freqString at: 4) asString ].
-
-	^String streamContents: [ :stream |
+	^String streamContents: [ :stream | | freqString |
+		"Put the prefix"
 		stream
 			<< namePrefix;
-			<< ' ';
-			<< startFreqName;
-			<< '-';
-			<< endFreqName ].
+			<< ' '.
+
+		"Next the startFreq.
+		If possible, represent as an integer number of kHz, otherwise as decimal"
+		freqString := frequency printPaddedWith: $0 to: 6.
+		stream
+			<< (freqString copyFrom: 1 to: 3).
+		(freqString endsWith: '000') ifFalse: [ 
+			stream
+				<< '.';
+				<< (freqString copyFrom: 4 to: 6) ].
+
+		stream << '-'.
+
+		"Next the endFreq.
+		If possible, represent as an integer number of kHz, otherwise as decimal"
+		freqString := (frequency + freqRange) printPaddedWith: $0 to: 6.
+		stream
+			<< (freqString copyFrom: 1 to: 3).
+		(freqString endsWith: '000') ifFalse: [ 
+			stream
+				<< '.';
+				<< (freqString copyFrom: 4 to: 6) ] ].

@@ -10,5 +10,5 @@ writeProgramAt: freq to: customCsvStream
 		<< '-';
 		<< (freq + freqRange) asString;
 		<< '",,,';
-		<< programSeconds;
+		<< programSeconds asString;
 		crlf.

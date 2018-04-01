@@ -26,13 +26,14 @@ SanoPlasmaPresetGenerator new
 	outDir: '/dev/shm/sanoplasma';
 	generate
 
-The number of crossovers per program can also be specified with the crossoverRange.  By default, the crossoverRange is the same as the frequencyRange, so there is a single crossover.  Setting the crossover to a division of the frequencyRange will produce multiple crossovers, given:
+The number of crossovers per program can also be specified with the crossoverCount and crossoverRange:
 
 startFreq = 1000
 freqRange = 1000
-crossoverCount = 10
+crossoverCount = 20
+crossoverRange = 100
 
-There will be 10 crossovers per chain.
+There will be 10 crossovers per chain, each running for 100 Hz.
 
 | generator |
 generator := SanoPlasmaPresetGenerator new
@@ -40,10 +41,11 @@ generator := SanoPlasmaPresetGenerator new
 	endFreq: 899000;
 	stepFreq: 500;
 	freqRange: 1000;
-	crossoverCount: 10;
-	programSeconds: 1800;
+	crossoverCount: 20;
+	crossoverRange: 100;
+	programSeconds: 3000;
 	namePrefix: 'Fr';
-	outDir: '/dev/shm/sanoplasma/Step 1kHz Cross 10 20min Up';
+	outDir: '/dev/shm/sanoplasma/Step 1kHz Cross 20-100 50min Up';
 	yourself.
 generator settings
 	at: 'Out 2 Voltage Multiplier' put: '3';
