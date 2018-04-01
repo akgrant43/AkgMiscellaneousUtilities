@@ -3,7 +3,7 @@ saveReportStringIn: aDirectory
 	"Answer the receivers report string in aDirectory"
 
 	| reportName |
-	reportName := aDirectory / (self fileReference basenameWithoutExtension, '.txt').
+	reportName := aDirectory / self reportFilename.
 	reportName binaryWriteStreamDo: [ :outputStream |
 		(ZnNewLineWriterStream on:
 			(ZnCharacterWriteStream on: outputStream encoding: 'utf8'))
