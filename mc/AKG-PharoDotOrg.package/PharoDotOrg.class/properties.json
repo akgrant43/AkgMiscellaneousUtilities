@@ -1,0 +1,15 @@
+{
+	"commentStamp" : "",
+	"super" : "Object",
+	"category" : "AKG-PharoDotOrg",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"vm32",
+		"vm64",
+		"rootNodes"
+	],
+	"name" : "PharoDotOrg",
+	"type" : "normal"
+}
