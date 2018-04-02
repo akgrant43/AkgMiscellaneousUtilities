@@ -6,10 +6,13 @@ saveCurrentReport
 
 	currentReport ifNil: [ ^self ].
 	currentReport saveReportString.
-	cmdString := 'enscript -B {1} -o - | ps2pdf - {1}.pdf' format: { currentReport reportFilename }.
-	OSSUnixSubprocess new 
+	cmdString := 'enscript -B {1} -o - | ps2pdf - latest.pdf' format: { currentReport reportFilename }.
+	[ OSSUnixSubprocess new 
 		shellCommand: cmdString;
-		workingDirectory: currentReport reportDirectory;
+		workingDirectory: currentReport reportDirectory fullName;
 		redirectStderr;
 		redirectStdout;
-		runAndWaitOnExitDo: [ :cmd :stdout :stderr | self halt. ]
+		runAndWaitOnExitDo: [ :cmd :stdout :stderr | 
+			cmd isSuccess 
+				ifTrue: [ UIManager default inform: 'Successfully converted report to pdf' ]
+				ifFalse: [ self halt: 'Something went wrong' ] ] ] forkNamed: 'SanoPlasma Print'.
