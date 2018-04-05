@@ -14,7 +14,7 @@ recentVMsFromNode: aChromeNode
 	sizeIndex := table first indexOf: sizeHeading.
 	rows := table collect: [ :each | | entry |
 		entry := each at: columnIndex.
-		{ entry. (self dateFromName: entry). (each at: sizeIndex). } ].
+		{ entry. (self dateFrom: (each at: dateIndex)). (each at: sizeIndex). } ].
 	rows := rows select: [ :each | each second isNotNil ].
 	today := Date today.
 	sixMonths := Duration weeks: 26.
