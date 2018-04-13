@@ -8,6 +8,11 @@ createMenu
 	newMenu addGroup: [ :group |
 		group addItem: [ :item |
 			item
+				name: 'Print Report';
+				icon: (Smalltalk ui icons iconNamed: #smallPrint);
+				action: [ self printCurrentReport ] ].
+		group addItem: [ :item |
+			item
 				name: 'Save Report';
 				icon: (Smalltalk ui icons iconNamed: #smallSave);
 				action: [ self saveCurrentReport ] ].

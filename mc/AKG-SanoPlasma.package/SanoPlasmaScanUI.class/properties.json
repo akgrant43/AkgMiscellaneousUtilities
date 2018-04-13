@@ -12,7 +12,8 @@
 		"menu",
 		"directoryList",
 		"reportInspector",
-		"inRebuild"
+		"inRebuild",
+		"processSemaphore"
 	],
 	"name" : "SanoPlasmaScanUI",
 	"type" : "normal"
