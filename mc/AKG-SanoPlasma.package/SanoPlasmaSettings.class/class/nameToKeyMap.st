@@ -8,6 +8,8 @@ nameToKeyMap
 		'Repeat Chain' -> 'Text9'.
 		'Out 1 Voltage' -> 'Text20'.
 		'Out 2 Voltage Multiplier' -> 'Text22(2)'.
+		'Out 1 Offset' -> 'Text21'.
+		'Out 2 Offset' -> 'Text25'.
 		'Out 1 Freq. Limit Min.' -> 'Text37(1)'.
 		'Out 1 Freq. Limit Max.' -> 'Text37(0)'.
 		'Harmonic Wobble' -> 'Combo2'.
