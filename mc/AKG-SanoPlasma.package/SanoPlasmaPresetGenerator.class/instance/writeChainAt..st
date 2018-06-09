@@ -18,6 +18,8 @@ writeChainAt: freq
 	1 to: crossoverCount do: [ :i |
 		fromFreq := freq + (freqRange * (i - 1) / crossoverCount) rounded.
 		toFreq := fromFreq + signedRange.
+		fromFreq = 0 ifTrue: [ fromFreq := 1 ].
+		toFreq = 0 ifTrue: [ toFreq := 1 ].
 		presetName := self presetNameFrom: fromFreq to: toFreq.
 		frequencyRange := SanoPlasmaFrequencyRange new 
 								fromFrequency: fromFreq;

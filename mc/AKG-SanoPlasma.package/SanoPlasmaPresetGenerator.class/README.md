@@ -53,7 +53,7 @@ generator settings
 generator generate.
 
 
-
+A start or end frequency of 0 will be converted to 1 in the program, i.e. specifying 0 - 1000Hz will actually generate 1 - 1000Hz.
  
 Internal Representation and Key Implementation Points.
 
