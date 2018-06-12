@@ -5,7 +5,9 @@ convertToPDF
 	| processSemaphore cmdString |
 
 	processSemaphore := Semaphore new.
-	cmdString := 'enscript -B {1} -o - | ps2pdf - latest.pdf' format: { self textTemporary fullName }.
+	cmdString := 'enscript -B {1} -o - | ps2pdf - {2}' format: { 
+		self textTemporary fullName.
+		self pdfTemporary fullName }.
 	[ OSSUnixSubprocess new 
 		shellCommand: cmdString;
 		workingDirectory: self tempDir fullName;
