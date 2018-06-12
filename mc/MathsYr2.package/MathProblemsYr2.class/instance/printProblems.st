@@ -1,11 +1,8 @@
 actions
 printProblems
-	"Save the receiver to a temporary file, convert to pdf and print"
+	"Print the receiver"
 
-	| fileReference |
+	| problems |
 
-	fileReference := '/dev/shm/problems.txt' asFileReference.
-	fileReference ensureDelete.
-	fileReference writeStreamDo: [ :stream |
-		self printOn: (ZnNewLineWriterStream on: stream) ].
-	
+	problems := String streamContents: [ :stream | self printOn: stream ].
+	AKGPrintStream printStream: problems readStream.
