@@ -4,9 +4,7 @@ download: fileName from: aStringURL
 
 	| fullURL response downloadDir |
 
-	fullURL := (aStringURL last = $/) 
-		ifTrue: [ aStringURL, fileName ]
-		ifFalse: [ aStringURL, '/', fileName ].
+	fullURL := self downloadURL: fileName from: aStringURL.
 	downloadDir := FileLocator home / 'Downloads'.
 	self assert: downloadDir isDirectory.
 	response := ZnEasy get: fullURL.

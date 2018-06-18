@@ -1,8 +1,8 @@
 private
-recentVMsFromNode: aChromeNode
+recentVMsFromURL: dirURL node: aChromeNode
 	"Answer a list of recent VMs listed on the supplied page (ChromeNode)"
 
-	| tables table rows columnIndex dateIndex sizeIndex nameHeading dateHeading sizeHeading latest sixMonths today |
+	| tables table rows columnIndex dateIndex sizeIndex nameHeading dateHeading sizeHeading latest sixMonths today fileURL |
 
 	tables := aChromeNode extractTables.
 	nameHeading := 'Name'.
@@ -14,7 +14,8 @@ recentVMsFromNode: aChromeNode
 	sizeIndex := table first indexOf: sizeHeading.
 	rows := table collect: [ :each | | entry |
 		entry := each at: columnIndex.
-		{ entry. (self dateFrom: (each at: dateIndex)). (each at: sizeIndex). } ].
+		fileURL := self downloadURL: entry from: dirURL.
+		{ entry. (self dateFrom: (each at: dateIndex)). (each at: sizeIndex). fileURL. } ].
 	rows := rows select: [ :each | each second isNotNil ].
 	today := Date today.
 	sixMonths := Duration weeks: 26.
