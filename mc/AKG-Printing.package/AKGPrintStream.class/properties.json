@@ -12,6 +12,7 @@
 		"printerHost",
 		"printerName",
 		"printOptions",
+		"enscriptOptions",
 		"tempDir"
 	],
 	"name" : "AKGPrintStream",

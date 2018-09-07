@@ -5,7 +5,14 @@ convertToPDF
 	| processSemaphore cmdString |
 
 	processSemaphore := Semaphore new.
-	cmdString := 'enscript -B {1} -o - | ps2pdf - {2}' format: { 
+	cmdString := String streamContents: [ :stream |
+		stream << 'enscript'.
+		enscriptOptions do: [ :option | 
+			stream 
+				<< ' ';
+				<< option ].
+		stream << ' {1} -o - | ps2pdf - {2}' ].
+	cmdString := cmdString format: { 
 		self textTemporary fullName.
 		self pdfTemporary fullName }.
 	[ OSSUnixSubprocess new 
