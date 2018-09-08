@@ -13,6 +13,7 @@
 		"printerName",
 		"printOptions",
 		"enscriptOptions",
+		"pandocOptions",
 		"tempDir"
 	],
 	"name" : "AKGPrintStream",

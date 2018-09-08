@@ -9,3 +9,4 @@ initialize
 	printerHost := '192.168.0.41:6631'.
 	printerName := 'lbp6020'.
 	enscriptOptions := { '-B' }.
+	pandocOptions := #().
