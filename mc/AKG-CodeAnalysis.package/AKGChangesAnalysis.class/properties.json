@@ -1,0 +1,20 @@
+{
+	"commentStamp" : "",
+	"super" : "Object",
+	"category" : "AKG-CodeAnalysis",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"fileName",
+		"externalChanges",
+		"unchanged",
+		"changed",
+		"added",
+		"removed",
+		"other",
+		"missing"
+	],
+	"name" : "AKGChangesAnalysis",
+	"type" : "normal"
+}
