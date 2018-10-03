@@ -6,12 +6,12 @@ convertToPDF
 
 	processSemaphore := Semaphore new.
 	cmdString := String streamContents: [ :stream |
-		stream << 'enscript'.
+		stream << 'paps'.
 		enscriptOptions do: [ :option | 
 			stream 
 				<< ' ';
 				<< option ].
-		stream << ' {1} -o - | ps2pdf - {2}' ].
+		stream << ' {1} | ps2pdf - {2}' ].
 	cmdString := cmdString format: { 
 		self textTemporary fullName.
 		self pdfTemporary fullName }.
