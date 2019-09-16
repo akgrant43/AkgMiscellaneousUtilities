@@ -1,3 +1,3 @@
 accessing
-pdfTemporary: anObject
-	pdfTemporary := anObject
+pdfTemporary: aFileReference
+	pdfTemporary := aFileReference asFileReference
