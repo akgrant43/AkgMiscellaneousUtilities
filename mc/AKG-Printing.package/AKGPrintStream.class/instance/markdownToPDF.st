@@ -25,7 +25,7 @@ markdownToPDF
 				ifTrue: [ 
 					UIManager default inform: 'Successfully converted pillar to pdf'.
 					processSemaphore signal. ]
-				ifFalse: [ self error: 'Something went wrong' ].
+				ifFalse: [ self error: 'PDF conversion error: ', stderr printString ].
 			processSemaphore := nil. ] ] forkNamed: 'AKGPrintStream PDF conversion'.
 	(processSemaphore waitTimeoutSeconds: 15) ifTrue: 
 		[ self error: 'Timeout on pdf conversion' ].
