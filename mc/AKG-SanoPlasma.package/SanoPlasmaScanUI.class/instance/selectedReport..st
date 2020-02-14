@@ -5,7 +5,7 @@ selectedReport: aFileReference
 	| inspector |
 
 	currentReport := SanoPlasmaScanResults on: aFileReference.
-	inspector := GlamourPresentationModel new.
+	inspector := GlamourPresentationPresenter new.
 	inspector presentationClass: GTInspector startOn: currentReport.
 	reportInspector := inspector.
 	inRebuild := true.

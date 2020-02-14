@@ -11,6 +11,9 @@ rawScanData
 		csv do: [ :row |
 			rows add: (Array streamContents: [ :array |
 				row do: [ :cell | array nextPut: cell asNumberOrNil ] ]) ] ].
-	rawData := DataFrame fromRows: rows.
+	rawData := DataFrame withRows: rows.
+	header doWithIndex: [ :title :index |
+		title = 'Spare' ifTrue: 
+			[ header at: index put: 'Spare', index asString ] ].
 	rawData columnNames: header.
 	^rawData

@@ -8,9 +8,9 @@ reportString
 	data ifNil:
 		[ ^self fileReference fullName, ' is not a valid scan results file' ].
 	numRecords := reportFrequencyCount min: data size.
-	sortedByMagnitude := data sorted: [ :a :b | (a at: 3) > (b at: 3) ].
+	sortedByMagnitude := data sorted: [ :a :b | (a atIndex: 3) > (b atIndex: 3) ].
 	sortedByMagnitude := sortedByMagnitude first: numRecords.
-	sortedByFrequency := sortedByMagnitude sorted: [ :a :b | (a at: 2) < (b at: 2) ].
+	sortedByFrequency := sortedByMagnitude sorted: [ :a :b | (a atIndex: 2) < (b atIndex: 2) ].
 	report := String streamContents: [ :stream |
 		stream
 			<< 'Filename: ';
