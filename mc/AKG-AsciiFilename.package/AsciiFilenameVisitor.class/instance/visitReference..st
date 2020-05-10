@@ -10,5 +10,4 @@ visitReference: anEntry
 		oldName: anEntry reference;
 		newBasename: newBasename;
 		emit.
-	self halt.
 	anEntry reference renameTo: newBasename.
