@@ -5,4 +5,7 @@ testDiacritics
 	| af |
 	
 	af := AsciiFilename new.
-	self assert: (af toAscii: 'ěščřžýáíé.txt') = 'escrzyaie.txt'
+	af 
+		includeDiacritics: false;
+		decodeName: false.
+	self assert: (af clean: 'ěščřžýáíé.txt') equals: 'escrzyaie.txt'

@@ -4,7 +4,7 @@ rename: aFilename
 
 	| newFilename |
 
-	newFilename := self toAscii: aFilename.
+	newFilename := self clean: aFilename.
 	dryRun ifFalse: 
 		[ aFilename asFileReference renameTo: newFilename ].
 	^newFilename

@@ -1,0 +1,14 @@
+{
+	"commentStamp" : "",
+	"super" : "BeaconSignal",
+	"category" : "AKG-AsciiFilename",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"oldName",
+		"newBasename"
+	],
+	"name" : "AsciiFilenameSignal",
+	"type" : "normal"
+}

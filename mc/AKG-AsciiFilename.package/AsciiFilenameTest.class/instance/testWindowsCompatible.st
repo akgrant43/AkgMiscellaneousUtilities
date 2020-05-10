@@ -5,4 +5,4 @@ testWindowsCompatible
 	
 	af := AsciiFilename new
 		windowsCompatible: true.
-	self assert: (af toAscii: 'a <>:"\|?* filename.txt') equals: 'a  filename.txt'
+	self assert: (af clean: 'a <>:"\|?* filename.txt') equals: 'a  filename.txt'

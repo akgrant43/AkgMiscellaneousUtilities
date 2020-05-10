@@ -5,5 +5,7 @@ testNonAsciiReplacement
 	| af |
 	
 	af := AsciiFilename new
-		replacementString: '-'.
-	self assert: (af toAscii: 'love ❤ it.txt') equals: 'love - it.txt'
+		replacementString: '-';
+		decodeName: false;
+		yourself.
+	self assert: (af clean: 'love ❤ it.txt') equals: 'love - it.txt'

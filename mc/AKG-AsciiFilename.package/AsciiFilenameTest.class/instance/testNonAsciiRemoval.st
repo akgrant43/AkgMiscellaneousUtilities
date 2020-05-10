@@ -5,4 +5,5 @@ testNonAsciiRemoval
 	| af |
 	
 	af := AsciiFilename new.
-	self assert: (af toAscii: 'love ❤ it.txt') equals: 'love  it.txt'
+	af decodeName: false.
+	self assert: (af clean: 'love ❤ it.txt') equals: 'love  it.txt'

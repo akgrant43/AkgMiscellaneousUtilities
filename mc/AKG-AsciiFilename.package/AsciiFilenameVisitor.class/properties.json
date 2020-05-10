@@ -1,0 +1,14 @@
+{
+	"commentStamp" : "",
+	"super" : "AbstractEnumerationVisitor",
+	"category" : "AKG-AsciiFilename",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"rootDirectory",
+		"asciiFilename"
+	],
+	"name" : "AsciiFilenameVisitor",
+	"type" : "normal"
+}
