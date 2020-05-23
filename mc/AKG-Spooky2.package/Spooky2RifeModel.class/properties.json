@@ -1,0 +1,27 @@
+{
+	"commentStamp" : "",
+	"super" : "Object",
+	"category" : "AKG-Spooky2-Model",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"c1FunctionString",
+		"c2FunctionString",
+		"c1Function",
+		"c2Function",
+		"runTime",
+		"time",
+		"generator",
+		"c1Frequency",
+		"c2Frequency",
+		"process",
+		"lastStepTime",
+		"c2Voltage",
+		"announcer",
+		"pauseBoolean",
+		"pauseSemaphore"
+	],
+	"name" : "Spooky2RifeModel",
+	"type" : "normal"
+}

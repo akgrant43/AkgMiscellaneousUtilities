@@ -1,0 +1,20 @@
+{
+	"commentStamp" : "",
+	"super" : "Object",
+	"category" : "AKG-Spooky2-Model",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"channel",
+		"waveform",
+		"frequency",
+		"amplitude",
+		"offset",
+		"dutyCycle",
+		"phase",
+		"pWaveforms"
+	],
+	"name" : "Spooky2Channel",
+	"type" : "normal"
+}

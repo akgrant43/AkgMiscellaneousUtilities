@@ -1,0 +1,17 @@
+{
+	"commentStamp" : "",
+	"super" : "Object",
+	"category" : "AKG-Spooky2",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"startFrequency",
+		"endFrequency",
+		"up",
+		"wobble",
+		"duration"
+	],
+	"name" : "Spooky2RampProgramme",
+	"type" : "normal"
+}
