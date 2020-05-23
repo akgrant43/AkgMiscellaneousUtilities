@@ -13,7 +13,7 @@ connect
 		parityType: 0; 
 		yourself. 
 	serialPort close.
-	[ 	serialPort openPort: self deviceName fullName.
+	[ 	serialPort openPort: self deviceName.
 		self startReadProcess. ]
 			on: Error 
 			do: [ UIManager default notify: 'Unable to open serial port' ]
