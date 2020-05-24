@@ -1,4 +1,4 @@
 operating
 stop 
 
-	runTime := Duration zero.
+	state := #stopped.

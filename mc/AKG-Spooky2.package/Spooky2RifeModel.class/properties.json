@@ -10,6 +10,7 @@
 		"c2FunctionString",
 		"c1Function",
 		"c2Function",
+		"description",
 		"runTime",
 		"time",
 		"generator",
@@ -20,7 +21,10 @@
 		"c2Voltage",
 		"announcer",
 		"pauseBoolean",
-		"pauseSemaphore"
+		"pauseSemaphore",
+		"state",
+		"wobble",
+		"random"
 	],
 	"name" : "Spooky2RifeModel",
 	"type" : "normal"

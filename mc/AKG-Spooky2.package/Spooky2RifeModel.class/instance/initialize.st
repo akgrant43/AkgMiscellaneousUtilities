@@ -4,5 +4,6 @@ initialize
 	super initialize.
 	generator := Spooky2SignalGenerator new connect.
 	announcer := Announcer new.
-	pauseBoolean := false.
-	pauseSemaphore := Semaphore new.
+	state := #stopped.
+	wobble := 0.
+	random := Random new.

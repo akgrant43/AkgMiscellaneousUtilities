@@ -1,0 +1,32 @@
+{
+	"commentStamp" : "",
+	"super" : "ComposablePresenter",
+	"category" : "AKG-Spooky2-UI",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"start",
+		"stop",
+		"pause",
+		"c1Function",
+		"c2Function",
+		"model",
+		"c1Freq",
+		"c2Freq",
+		"c1FreqLabel",
+		"c2FreqLabel",
+		"runTime",
+		"time",
+		"name",
+		"nameLabel",
+		"runTimeLabel",
+		"timeLabel",
+		"saveButton",
+		"loadButton",
+		"description",
+		"descriptionLabel"
+	],
+	"name" : "Spooky2RifeRunUI",
+	"type" : "normal"
+}

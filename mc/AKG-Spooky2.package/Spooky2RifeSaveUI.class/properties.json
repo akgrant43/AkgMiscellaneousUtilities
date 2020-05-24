@@ -6,11 +6,14 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"tabmgr",
 		"model",
-		"runTab",
-		"loadTab"
+		"name",
+		"nameLabel",
+		"saveButton",
+		"loadButton",
+		"description",
+		"descriptionLabel"
 	],
-	"name" : "Spooky2RifeUI",
+	"name" : "Spooky2RifeSaveUI",
 	"type" : "normal"
 }

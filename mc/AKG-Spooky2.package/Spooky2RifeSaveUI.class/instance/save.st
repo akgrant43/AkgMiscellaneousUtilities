@@ -6,9 +6,9 @@ save
 	filename := name text.
 	filename ifEmpty: [ self error: 'Invalid filename' ].
 	jsonObject := { 
-		'c1Function' -> c1Function text string.
-		'c2Function' -> c2Function text string.
-		'runTime' -> runTime text string.
-		'description' -> description text string. } asDictionary.
+		'c1Function' -> model c1FunctionString.
+		'c2Function' -> model c2FunctionString.
+		'runTime' -> model runTime.
+		'description' -> model description. } asDictionary.
 	filename string asFileReference writeStreamDo: [ :stream |
 		stream << (STON toJsonStringPretty: jsonObject) ].
