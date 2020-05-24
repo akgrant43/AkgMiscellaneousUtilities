@@ -24,7 +24,9 @@
 		"timeLabel",
 		"wobbleLabel",
 		"enableWobble",
-		"wobbleAmount"
+		"wobbleAmount",
+		"stepBackButton",
+		"stepForwardButton"
 	],
 	"name" : "Spooky2RifeRunUI",
 	"type" : "normal"

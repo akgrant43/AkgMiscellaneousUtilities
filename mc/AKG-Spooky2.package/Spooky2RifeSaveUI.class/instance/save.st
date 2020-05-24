@@ -8,7 +8,7 @@ save
 	jsonObject := { 
 		'c1Function' -> model c1FunctionString.
 		'c2Function' -> model c2FunctionString.
-		'runTime' -> model runTime.
+		'runTime' -> (model runTime asSeconds / 60.0).
 		'description' -> model description.
 		'wobbleAmount' -> model wobble. } asDictionary.
 	filename string asFileReference writeStreamDo: [ :stream |

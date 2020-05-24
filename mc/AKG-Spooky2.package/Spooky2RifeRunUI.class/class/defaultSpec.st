@@ -29,5 +29,7 @@ defaultSpec
 				newRow: [ :row | row add: #time ] height: oneLine;
 				newRow: [ :row | row 
 					add: #start;
+					add: #stepBackButton;
 					add: #pause;
+					add: #stepForwardButton;
 					add: #stop ] ] ].

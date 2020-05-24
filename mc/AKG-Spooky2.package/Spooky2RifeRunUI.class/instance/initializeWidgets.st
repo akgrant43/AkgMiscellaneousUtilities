@@ -19,6 +19,8 @@ initializeWidgets
 	wobbleLabel := self newLabel label: 'Wobble:'.
 	enableWobble := self newCheckBox label: 'Enable'.
 	wobbleAmount := self newTextInput.
+	stepBackButton := self newButton label: '<'.
+	stepForwardButton := self newButton label: '>'.
 
 	self focusOrder 
 		add: c1Function;
