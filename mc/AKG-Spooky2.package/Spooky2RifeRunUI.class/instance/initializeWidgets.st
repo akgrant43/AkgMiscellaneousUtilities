@@ -18,6 +18,7 @@ initializeWidgets
 	timeLabel := self newLabel label: 'Time:'.
 	wobbleLabel := self newLabel label: 'Wobble:'.
 	enableWobble := self newCheckBox label: 'Enable'.
+	enableWobble whenChangedDo: [ self setWobble ].
 	wobbleAmount := self newTextInput.
 	stepBackButton := self newButton label: '<'.
 	stepForwardButton := self newButton label: '>'.
