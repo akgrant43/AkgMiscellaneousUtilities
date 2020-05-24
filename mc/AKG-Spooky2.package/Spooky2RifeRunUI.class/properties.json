@@ -11,6 +11,8 @@
 		"pause",
 		"c1Function",
 		"c2Function",
+		"c1FunctionLabel",
+		"c2FunctionLabel",
 		"model",
 		"c1Freq",
 		"c2Freq",
@@ -18,14 +20,11 @@
 		"c2FreqLabel",
 		"runTime",
 		"time",
-		"name",
-		"nameLabel",
 		"runTimeLabel",
 		"timeLabel",
-		"saveButton",
-		"loadButton",
-		"description",
-		"descriptionLabel"
+		"wobbleLabel",
+		"enableWobble",
+		"wobbleAmount"
 	],
 	"name" : "Spooky2RifeRunUI",
 	"type" : "normal"

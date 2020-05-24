@@ -13,3 +13,6 @@ load
 	model description: ''.
 	jsonObject at: #description ifPresent: [ :desc |
 		model description: desc ].
+	jsonObject at: #wobbleAmount ifPresent: [ :wobble |
+		model wobble: wobble. ].
+	model announcer announce: Spooky2Loaded new.

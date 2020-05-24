@@ -9,6 +9,7 @@ save
 		'c1Function' -> model c1FunctionString.
 		'c2Function' -> model c2FunctionString.
 		'runTime' -> model runTime.
-		'description' -> model description. } asDictionary.
+		'description' -> model description.
+		'wobbleAmount' -> model wobble. } asDictionary.
 	filename string asFileReference writeStreamDo: [ :stream |
 		stream << (STON toJsonStringPretty: jsonObject) ].

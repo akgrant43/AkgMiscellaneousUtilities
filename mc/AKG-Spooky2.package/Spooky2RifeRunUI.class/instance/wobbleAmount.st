@@ -1,0 +1,4 @@
+accessing
+wobbleAmount
+
+	^ wobbleAmount

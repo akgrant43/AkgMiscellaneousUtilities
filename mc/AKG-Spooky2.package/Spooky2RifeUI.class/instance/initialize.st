@@ -1,5 +1,6 @@
 initialization
 initialize
+	"The model gets set as 'super initialize' initializes the widgets"
 
-	super initialize.
 	model := Spooky2RifeModel new.
+	super initialize.
