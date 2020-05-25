@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "AlistairGrant 5/25/2020 19:24",
+	"super" : "Spooky2Waveform",
+	"category" : "AKG-Spooky2-Waveforms",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"steps"
+	],
+	"name" : "Spooky2StepWaveform",
+	"type" : "normal"
+}

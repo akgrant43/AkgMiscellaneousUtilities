@@ -1,14 +1,11 @@
 {
 	"commentStamp" : "",
 	"super" : "Object",
-	"category" : "AKG-Spooky2-Rife-UI",
+	"category" : "AKG-Spooky2-Waveforms",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
-	"instvars" : [
-		"model",
-		"dataFrame"
-	],
-	"name" : "Spooky2Plot",
+	"instvars" : [ ],
+	"name" : "Spooky2Waveform",
 	"type" : "normal"
 }
