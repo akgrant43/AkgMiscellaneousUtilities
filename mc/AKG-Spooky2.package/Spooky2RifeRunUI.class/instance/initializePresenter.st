@@ -7,3 +7,5 @@ initializePresenter
 
 	stepBackButton action: [ self stepBackward ].
 	stepForwardButton action: [ self stepForward ].
+
+	plotButton action: [ self plotGraph ].

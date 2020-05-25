@@ -14,7 +14,7 @@ defaultSpec
 				newRow: [ :row | row add: #c1FreqLabel ] height: oneLine;
 				newRow: [ :row | row add: #c2FreqLabel ] height: oneLine;
 				newRow: [ :row | row add: #timeLabel ] height: oneLine;
-				newRow: [ :row | ] ] width: 100;
+				newRow: [ :row | row add: #plotButton ] ] width: 100;
 		newColumn: [ :col |
 			col
 				newRow: [ :row | row 

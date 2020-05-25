@@ -25,6 +25,7 @@ initializeWidgets
 	zapperVoltage := self newTextInput.
 	zapperVoltage whenTextChanged: [ self setZapperVoltage ].
 	zapperVoltageLabel := self newLabel label: 'Zap. V.:'.
+	plotButton := self newButton label: 'Graph'.
 
 	self focusOrder 
 		add: c1Function;

@@ -1,0 +1,14 @@
+{
+	"commentStamp" : "",
+	"super" : "Object",
+	"category" : "AKG-Spooky2",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"model",
+		"dataFrame"
+	],
+	"name" : "Spooky2Plot",
+	"type" : "normal"
+}
