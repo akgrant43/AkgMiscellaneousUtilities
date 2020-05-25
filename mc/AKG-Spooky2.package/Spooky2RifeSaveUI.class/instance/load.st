@@ -15,4 +15,6 @@ load
 		desc ifNotNil: [ model description: desc ] ].
 	jsonObject at: #wobbleAmount ifPresent: [ :wobble |
 		model wobble: wobble. ].
+	jsonObject at: #zapperVoltage ifPresent: [ :voltage |
+		model c2Voltage: voltage. ].
 	model announcer announce: Spooky2Loaded new.

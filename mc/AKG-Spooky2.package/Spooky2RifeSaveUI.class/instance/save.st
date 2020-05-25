@@ -10,6 +10,7 @@ save
 		'c2Function' -> model c2FunctionString.
 		'runTime' -> (model runTime asSeconds / 60.0).
 		'description' -> model description.
-		'wobbleAmount' -> model wobble. } asDictionary.
+		'wobbleAmount' -> model wobble.
+		'zapperVoltage' -> model c2Voltage. } asDictionary.
 	filename string asFileReference writeStreamDo: [ :stream |
 		stream << (STON toJsonStringPretty: jsonObject) ].

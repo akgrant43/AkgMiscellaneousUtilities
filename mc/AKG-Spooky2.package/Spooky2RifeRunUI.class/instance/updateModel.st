@@ -7,3 +7,4 @@ updateModel
 	runTime text: model runTime asString.
 	wobbleAmount text: model wobble asString.
 	enableWobble state: model wobble > 0.
+	zapperVoltage text: model c2Voltage asString.

@@ -20,4 +20,6 @@ step
 		generator channel: 2 frequency: c2Frequency ].
 	( state = #running and: [ time > runTime ]) ifTrue: 
 		[ state := #stopped ].
+	c2Voltage = generator channel2 amplitude ifFalse: 
+		[ generator channel: 2 amplitude: c2Voltage  ].
 	announcer announce: Spooky2Step new.

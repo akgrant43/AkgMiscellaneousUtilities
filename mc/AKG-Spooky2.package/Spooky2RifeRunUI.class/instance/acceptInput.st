@@ -5,3 +5,4 @@ acceptInput
 	c2Function text: c2Function pendingText.
 	runTime text: runTime pendingText.
 	wobbleAmount text: wobbleAmount pendingText.
+	zapperVoltage text: zapperVoltage pendingText.
