@@ -1,0 +1,4 @@
+operating
+stop 
+
+	state := #stopped.

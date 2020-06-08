@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "",
+	"super" : "Spooky2SignalGenerator",
+	"category" : "AKG-Spooky2-Model",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "Spooky2SignalGeneratorSimulator",
+	"type" : "normal"
+}

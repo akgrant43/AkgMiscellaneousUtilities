@@ -1,0 +1,2 @@
+accessing
+writeCommand: aString
