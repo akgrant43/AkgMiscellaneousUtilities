@@ -1,0 +1,16 @@
+{
+	"commentStamp" : "",
+	"super" : "Spooky2RifeElement",
+	"category" : "AKG-Spooky2-Rife-UI",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"backward",
+		"play",
+		"forward",
+		"stop"
+	],
+	"name" : "BlRifeControlButtonsElement",
+	"type" : "normal"
+}

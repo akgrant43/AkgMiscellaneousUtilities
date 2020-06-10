@@ -1,0 +1,3 @@
+accessing
+pauseSemaphore
+	^ pauseSemaphore

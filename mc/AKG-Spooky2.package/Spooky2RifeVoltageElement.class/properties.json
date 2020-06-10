@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "",
+	"super" : "Spooky2RifeElement",
+	"category" : "AKG-Spooky2-Rife-UI",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "Spooky2RifeVoltageElement",
+	"type" : "normal"
+}
