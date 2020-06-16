@@ -1,4 +1,0 @@
-operating
-stop 
-
-	state := #stopped.

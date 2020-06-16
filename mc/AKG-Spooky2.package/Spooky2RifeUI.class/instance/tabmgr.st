@@ -1,4 +1,0 @@
-accessing
-tabmgr
-
-	^ tabmgr 

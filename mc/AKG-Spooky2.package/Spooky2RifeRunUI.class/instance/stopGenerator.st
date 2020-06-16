@@ -1,4 +1,0 @@
-private
-stopGenerator
-
-	model stop.

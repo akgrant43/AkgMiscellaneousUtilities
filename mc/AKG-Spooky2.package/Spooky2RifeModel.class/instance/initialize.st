@@ -2,9 +2,13 @@ initialization
 initialize 
 
 	super initialize.
-	generator := Spooky2SignalGenerator new connect.
-	announcer := Announcer new.
-	state := #stopped.
-	wobble := 0.
-	c2Voltage := 5.
-	random := Random new.
+	generator := Spooky2SignalGeneratorSimulator new.
+	channelModels := Array new: 2.
+	channelModels at: 1 put: 
+		(Spooky2RifeChannelModel new
+			generator: generator;
+			channelNumber: 1).
+	channelModels at: 2 put: 
+		(Spooky2RifeChannelModel new
+			generator: generator;
+			channelNumber: 2).

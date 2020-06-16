@@ -1,4 +1,0 @@
-operating
-close 
-
-	generator close.

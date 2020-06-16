@@ -1,4 +1,0 @@
-operating
-stepForward
-
-	model stepForward.

@@ -4,16 +4,16 @@ configure
 	self addChild: (BlTextElement new 
 		constraintsDo: [ :c |
 					c horizontal exact: 100.
-					c vertical exact: 14. ];
-		text: 'Voltage (V):' asRopedText).
+					c vertical fitContent. ];
+		text: 'Run Time:' asRopedText).
 
-	voltage := BrEditorElement new 
+	runTime := BrEditorElement new 
 		constraintsDo: [ :c |
 					c horizontal exact: 100.
 					c vertical exact: 14. ];
 		editor: (BrTextEditor new 
-			text: rifeModel voltage asString asRopedText ).
-	voltage addShortcut: (BlShortcut new 
+			text: '60 minutes' asString asRopedText).
+	runTime addShortcut: (BlShortcut new 
 		combination: (BlSingleKeyCombination key: BlKeyboardKey return);
-		action: [ self updateVoltage ]).
-	self addChild: voltage.
+		action: [ self updateRunTime ]).
+	self addChild: runTime.

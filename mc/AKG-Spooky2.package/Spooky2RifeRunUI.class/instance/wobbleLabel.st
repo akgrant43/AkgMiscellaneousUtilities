@@ -1,4 +1,0 @@
-accessing
-wobbleLabel
-
-	^ wobbleLabel

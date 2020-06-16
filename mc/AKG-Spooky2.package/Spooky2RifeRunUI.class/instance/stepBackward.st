@@ -1,4 +1,0 @@
-operating
-stepBackward 
-
-	model stepBackward.

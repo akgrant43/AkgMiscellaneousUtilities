@@ -6,25 +6,10 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"c1FunctionString",
-		"c2FunctionString",
-		"c1Function",
-		"c2Function",
-		"description",
-		"runTime",
-		"time",
+		"channelModels",
 		"generator",
-		"c1Frequency",
-		"c2Frequency",
-		"process",
-		"lastStepTime",
-		"c2Voltage",
-		"announcer",
-		"pauseBoolean",
-		"pauseSemaphore",
-		"state",
-		"wobble",
-		"random"
+		"time",
+		"runTime"
 	],
 	"name" : "Spooky2RifeModel",
 	"type" : "normal"

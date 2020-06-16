@@ -6,8 +6,8 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"voltage"
+		"runTime"
 	],
-	"name" : "Spooky2RifeVoltageElement",
+	"name" : "Spooky2RifeRunTimeElement",
 	"type" : "normal"
 }
