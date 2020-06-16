@@ -1,12 +1,8 @@
 private - button actions
 doPlay
 
-	rifeModel isStopped ifTrue: 
-		[ rifeModel start.
-		play label: 'Hold'.
-		^ self ].
+	rifeModel isStopped ifFalse: [ ^ self ].
 
-	rifeModel pause.
-	play label: (rifeModel isPaused 
-		ifTrue: [ 'Resume' ]
-		ifFalse: [ 'Hold' ]).
+	rifeModel start.
+	play enabled: false.
+	stop enabled: true.

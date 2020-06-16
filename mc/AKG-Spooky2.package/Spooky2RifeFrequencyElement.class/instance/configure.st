@@ -8,8 +8,9 @@ configure
 		text: ('Frequency (kHz): ' asRopedText fontSize: 20) ";
 		look: BrGlamorousLabelLook").
 
-	self addChild: (BlTextElement new 
+	frequency := BlTextElement new 
 		constraintsDo: [ :c |
 					c horizontal matchParent.
 					c vertical exact: 30. ];
-		text: (rifeModel frequency asString asRopedText fontSize: 20)).
+		text: (rifeModel frequency asString asRopedText fontSize: 20).
+	self addChild: frequency.

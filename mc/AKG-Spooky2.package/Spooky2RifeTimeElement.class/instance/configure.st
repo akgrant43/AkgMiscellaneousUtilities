@@ -8,8 +8,9 @@ configure
 		text: ('Time: ' asRopedText fontSize: 20) ";
 		look: BrGlamorousLabelLook").
 
-	self addChild: (BlTextElement new 
+	time := BlTextElement new 
 		constraintsDo: [ :c |
 					c horizontal matchParent.
 					c vertical exact: 30. ];
-		text: (rifeModel time asString asRopedText fontSize: 20)).
+		text: ('Not Started' asRopedText fontSize: 20).
+	self addChild: time.

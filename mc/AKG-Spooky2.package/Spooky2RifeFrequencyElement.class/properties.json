@@ -5,7 +5,9 @@
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
-	"instvars" : [ ],
+	"instvars" : [
+		"frequency"
+	],
 	"name" : "Spooky2RifeFrequencyElement",
 	"type" : "normal"
 }

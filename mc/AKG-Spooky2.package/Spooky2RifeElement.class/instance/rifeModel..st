@@ -1,3 +1,5 @@
 accessing
-rifeModel: anObject
-	rifeModel := anObject
+rifeModel: aRifeModel
+
+	rifeModel := aRifeModel.
+	rifeModel announcer when: Spooky2Step send: #updateModel to: self.

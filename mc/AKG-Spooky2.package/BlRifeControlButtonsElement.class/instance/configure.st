@@ -1,6 +1,15 @@
 configuration
 configure
 
+	play := BrButton new 
+		constraintsDo: [ :c |
+					c horizontal exact: 30.
+					c vertical exact: 30. ];
+		look: BrGlamorousButtonWithLabelLook;
+		label: 'Play' asRopedText;
+		action: [ :theButton :aButtonModel :anEvent | self doPlay ].
+	self addChild: play.
+
 	backward := BrButton new 
 		constraintsDo: [ :c |
 					c horizontal exact: 30.
@@ -10,14 +19,23 @@ configure
 		action: [ :theButton :aButtonModel :anEvent | self doBackward ].
 	self addChild: backward.
 
-	play := BrButton new 
+	pause := BrButton new 
 		constraintsDo: [ :c |
 					c horizontal exact: 30.
 					c vertical exact: 30. ];
 		look: BrGlamorousButtonWithLabelLook;
-		label: 'Play' asRopedText;
-		action: [ :theButton :aButtonModel :anEvent | self doPlay ].
-	self addChild: play.
+		label: 'Pause' asRopedText;
+		action: [ :theButton :aButtonModel :anEvent | self doPause ].
+	self addChild: pause.
+
+	hold := BrButton new 
+		constraintsDo: [ :c |
+					c horizontal exact: 30.
+					c vertical exact: 30. ];
+		look: BrGlamorousButtonWithLabelLook;
+		label: 'Hold' asRopedText;
+		action: [ :theButton :aButtonModel :anEvent | self doHold ].
+	self addChild: hold.
 
 	forward := BrButton new 
 		constraintsDo: [ :c |

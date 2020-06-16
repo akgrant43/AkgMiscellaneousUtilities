@@ -7,10 +7,13 @@ configure
 					c vertical fitContent. ];
 		text: 'Wobble (%):' asRopedText).
 
-	self addChild: (BrEditorElement new 
+	wobble := BrEditorElement new 
 		constraintsDo: [ :c |
 					c horizontal exact: 100.
 					c vertical exact: 14. ];
 		editor: (BrTextEditor new 
-			text: rifeModel wobble asString asRopedText )).
-
+			text: rifeModel wobble asString asRopedText).
+	wobble addShortcut: (BlShortcut new 
+		combination: (BlSingleKeyCombination key: BlKeyboardKey return);
+		action: [ self updateWobble ]).
+	self addChild: wobble.

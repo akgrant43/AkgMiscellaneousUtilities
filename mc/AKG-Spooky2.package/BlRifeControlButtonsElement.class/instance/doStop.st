@@ -4,4 +4,5 @@ doStop
 	rifeModel isStopped ifTrue: [ ^self ].
 
 	rifeModel stop.
-	play label: 'Play'.
+	stop enabled: false.
+	play enabled: true.
