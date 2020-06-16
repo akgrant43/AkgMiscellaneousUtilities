@@ -1,4 +1,4 @@
 events
 updateRunTime
 
-	rifeModel wobble: runTime dataSource text asString asNumber
+	rifeModel runTime: (self compileRunTime: runTime dataSource text asString)

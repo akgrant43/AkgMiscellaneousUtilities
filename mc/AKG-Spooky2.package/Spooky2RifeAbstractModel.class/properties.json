@@ -1,16 +1,14 @@
 {
 	"commentStamp" : "",
-	"super" : "Spooky2RifeAbstractModel",
+	"super" : "Object",
 	"category" : "AKG-Spooky2-Rife-Model",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"channelModels",
-		"generator",
-		"time",
-		"runTime"
+		"announcer",
+		"state"
 	],
-	"name" : "Spooky2RifeModel",
+	"name" : "Spooky2RifeAbstractModel",
 	"type" : "normal"
 }

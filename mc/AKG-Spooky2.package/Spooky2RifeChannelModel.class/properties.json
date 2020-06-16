@@ -1,6 +1,6 @@
 {
 	"commentStamp" : "",
-	"super" : "Object",
+	"super" : "Spooky2RifeAbstractModel",
 	"category" : "AKG-Spooky2-Rife-Model",
 	"classinstvars" : [ ],
 	"pools" : [ ],
@@ -15,10 +15,8 @@
 		"process",
 		"lastStepTime",
 		"voltage",
-		"announcer",
 		"pauseBoolean",
 		"pauseSemaphore",
-		"state",
 		"wobble",
 		"random"
 	],
