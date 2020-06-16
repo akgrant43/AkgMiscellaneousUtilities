@@ -2,11 +2,9 @@ operating
 start 
 
 	process ifNotNil: [ self error: 'Existing process' ].
-	(channelNumber between: 1 and: 2) ifFalse: 
-		[ self error: 'Invalid Channel Number' ].
 	state = #stopped ifFalse: [ self error: 'Already running' ].
 
-	time := Duration zero.
+	self reset.
 	lastStepTime := DateAndTime now.
 	state := #running.
 	self configureGenerator.
@@ -15,4 +13,4 @@ start
 			[ self step.
 			(Delay forSeconds: 1) wait. ].
 		self stopGenerator.
-		process := nil. ] forkNamed: 'Spooky2 Runner ', channelNumber asString.
+		process := nil. ] forkNamed: 'Spooky2 Runner'.

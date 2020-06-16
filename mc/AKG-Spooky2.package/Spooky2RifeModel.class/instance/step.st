@@ -1,4 +1,4 @@
-private
+operating
 step 
 	| now stepDuration |
 
@@ -8,7 +8,3 @@ step
 	lastStepTime := now.
 
 	self stepDuration: stepDuration.
-
-	voltage = self generatorChannel amplitude ifFalse: 
-		[ generator channel: channelNumber amplitude: voltage ].
-	announcer announce: Spooky2Step new.

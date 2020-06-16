@@ -1,0 +1,4 @@
+operating
+switchOffChannel
+
+	generator switchOffChannel: channelNumber

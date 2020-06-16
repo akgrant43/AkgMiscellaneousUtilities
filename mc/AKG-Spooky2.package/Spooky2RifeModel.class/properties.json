@@ -8,8 +8,9 @@
 	"instvars" : [
 		"channelModels",
 		"generator",
-		"time",
-		"runTime"
+		"runTime",
+		"process",
+		"lastStepTime"
 	],
 	"name" : "Spooky2RifeModel",
 	"type" : "normal"

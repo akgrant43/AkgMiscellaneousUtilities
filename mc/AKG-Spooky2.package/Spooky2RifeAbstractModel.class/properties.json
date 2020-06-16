@@ -7,7 +7,8 @@
 	"classvars" : [ ],
 	"instvars" : [
 		"announcer",
-		"state"
+		"state",
+		"time"
 	],
 	"name" : "Spooky2RifeAbstractModel",
 	"type" : "normal"

@@ -1,11 +1,11 @@
-operating
+actions
 pause
 	"Toggle the paused state of the programme"
 
 	state = #stopped ifTrue: [ ^self ].
 	state = #running ifTrue: 
-		[ generator switchOffChannel: channelNumber.
+		[ channelModels do: #switchOffChannel.
 		state := #paused ]
 	ifFalse: 
-		[ generator switchOnChannel: channelNumber.
+		[ channelModels do: #switchOnChannel.
 		state := #running ]

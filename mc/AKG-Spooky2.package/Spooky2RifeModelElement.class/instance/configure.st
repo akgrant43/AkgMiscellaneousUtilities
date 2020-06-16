@@ -16,6 +16,24 @@ configure
 					c vertical fitContent. ];
 		configure ).
 
+	self addChild: (Spooky2RifeFrequencyElement new
+		rifeModel: rifeModel channelModels first;
+		padding: (BlInsets all: 5);
+		layout: BlLinearLayout horizontal;
+		constraintsDo: [ :c |
+					c horizontal fitContent.
+					c vertical fitContent. ];
+		configure ).
+
+	self addChild: (Spooky2RifeFrequencyElement new
+		rifeModel: rifeModel channelModels second;
+		padding: (BlInsets all: 5);
+		layout: BlLinearLayout horizontal;
+		constraintsDo: [ :c |
+					c horizontal fitContent.
+					c vertical fitContent. ];
+		configure ).
+
 	self addChild: (Spooky2RifeRunTimeElement new 
 		rifeModel: rifeModel;
 		padding: (BlInsets all: 5);

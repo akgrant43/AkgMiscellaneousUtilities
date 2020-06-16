@@ -1,5 +1,5 @@
 ui
-channelControlFor: aView
+generatorControlFor: aView
 	<gtView>
 
 	^aView explicit 

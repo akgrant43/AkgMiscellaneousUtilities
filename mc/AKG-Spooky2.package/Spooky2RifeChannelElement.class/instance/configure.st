@@ -43,7 +43,7 @@ configure
 					c vertical fitContent. ];
 		configure ).
 
-	self addChild: (Spooky2RifeControlButtonsElement new 
+	self addChild: (Spooky2RifeChannelControlButtonsElement new 
 		rifeModel: rifeModel;
 		padding: (BlInsets top: 20 right: 0 bottom: 20 left: 40);
 		layout: BlLinearLayout horizontal;

@@ -1,11 +1,13 @@
 configuration
 configure 
+	| label |
 
+	label := 'Frequency ', rifeModel channelNumber asString, ' (kHz): '.
 	self addChild: (BlTextElement new 
 		constraintsDo: [ :c |
-					c horizontal exact: 170.
+					c horizontal exact: 200.
 					c vertical exact: 30. ];
-		text: ('Frequency (kHz): ' asRopedText fontSize: 20) ";
+		text: (label asRopedText fontSize: 20) ";
 		look: BrGlamorousLabelLook").
 
 	frequency := BlTextElement new 
