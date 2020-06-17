@@ -1,5 +1,5 @@
 configuration
-configure 
+configure
 
 	self addChild: (BlTextElement new 
 		constraintsDo: [ :c |
@@ -12,8 +12,10 @@ configure
 					c horizontal exact: 100.
 					c vertical exact: 14. ];
 		editor: (BrTextEditor new 
-			text: '60 minutes' asString asRopedText).
+			text: '<not set>' asString asRopedText).
 	runTime addShortcut: (BlShortcut new 
 		combination: (BlSingleKeyCombination key: BlKeyboardKey return);
 		action: [ self updateRunTime ]).
 	self addChild: runTime.
+
+	rifeModel ifNotNil: [ self updateModel ].

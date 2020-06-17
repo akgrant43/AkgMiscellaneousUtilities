@@ -2,7 +2,8 @@ private
 stepDuration: stepDuration
 	| newFrequency |
 
-	time := time + stepDuration.
+	state = #running ifTrue:
+		[ time := time + stepDuration ].
 	newFrequency := function value: time asSeconds.
 	wobble > 0 ifTrue:
 		[ newFrequency := (newFrequency * (1 + (wobble / 100.0 * (random next * 2.0 - 1.0)))) rounded ].

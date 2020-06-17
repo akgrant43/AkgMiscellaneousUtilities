@@ -4,6 +4,6 @@ channel2ControlFor: aView
 
 	^ aView forward 
 		title: 'Channel 2';
-		priority: 20;
+		priority: 30;
 		object: [ self channelModels second ];
 		view: #channelControlFor:.

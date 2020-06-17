@@ -14,3 +14,4 @@ initialize
 		(Spooky2RifeChannelModel new
 			generator: generator;
 			channelNumber: 2).
+	runTime := 60 minutes.

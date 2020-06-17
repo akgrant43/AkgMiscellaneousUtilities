@@ -1,5 +1,7 @@
 private - button actions
 doPause
 
-	rifeModel pause.
+	rifeModel isPaused
+		ifTrue: [ rifeModel unpause ]
+		ifFalse: [ rifeModel pause ].
 	self setButtonState.

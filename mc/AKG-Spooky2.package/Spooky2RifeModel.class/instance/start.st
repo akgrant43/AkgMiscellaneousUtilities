@@ -7,6 +7,7 @@ start
 	self reset.
 	lastStepTime := DateAndTime now.
 	state := #running.
+	channelModels do: #start.
 	self configureGenerator.
 	process := [ 
 		[ state = #stopped ] whileFalse:

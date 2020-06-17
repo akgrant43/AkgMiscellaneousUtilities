@@ -1,3 +1,5 @@
 accessing
-generator: anObject
-	generator := anObject
+generator: aSignalGenerator
+
+	generator := aSignalGenerator.
+	channelModels do: [ :channel | channel generator: aSignalGenerator ]
