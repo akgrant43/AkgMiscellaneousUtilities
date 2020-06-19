@@ -1,0 +1,14 @@
+{
+	"commentStamp" : "",
+	"super" : "BrStencil",
+	"category" : "AKG-Spooky2-Rife-UI",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"channel1Plot",
+		"channel2Plot"
+	],
+	"name" : "Spooky2GeneratorPlot",
+	"type" : "normal"
+}

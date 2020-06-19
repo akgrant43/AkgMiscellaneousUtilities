@@ -1,0 +1,17 @@
+{
+	"commentStamp" : "",
+	"super" : "BrStencil",
+	"category" : "AKG-Spooky2-Rife-UI",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"programme",
+		"sparkleStencil",
+		"minY",
+		"maxY",
+		"offset"
+	],
+	"name" : "Spooky2ChannelPlot",
+	"type" : "normal"
+}
