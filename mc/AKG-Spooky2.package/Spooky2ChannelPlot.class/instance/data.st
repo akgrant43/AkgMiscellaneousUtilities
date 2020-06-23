@@ -4,4 +4,5 @@ data
 
 	^ GtPlotterDataGroup new
 		values: self points;
-		sorted: [ :a :b | a x < b x ].
+		colored: (BrGlamorousColors distinctTenStrongColors at: self channelNumber).
+		"sorted: [ :a :b | a x < b x ]"
