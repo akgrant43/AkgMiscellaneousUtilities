@@ -2,4 +2,4 @@ events
 updateModel 
 
 	super updateModel.
-	self updateVoltage.
+	self setButtonState.
