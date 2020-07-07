@@ -1,3 +1,3 @@
 accessing
 textTemporary
-	^ textTemporary
+	^ self basename withExtension: 'txt'

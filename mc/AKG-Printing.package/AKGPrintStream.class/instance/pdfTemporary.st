@@ -1,3 +1,3 @@
 accessing
 pdfTemporary
-	^ pdfTemporary
+	^ self basename withExtension: 'pdf'

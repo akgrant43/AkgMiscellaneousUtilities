@@ -7,8 +7,6 @@
 	"classvars" : [ ],
 	"instvars" : [
 		"basename",
-		"textTemporary",
-		"pdfTemporary",
 		"printerHost",
 		"printerName",
 		"printOptions",
