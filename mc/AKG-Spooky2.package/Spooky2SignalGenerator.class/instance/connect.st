@@ -16,4 +16,4 @@ connect
 	[ 	serialPort openPort: self deviceName.
 		self startReadProcess. ]
 			on: Error 
-			do: [ UIManager default notify: 'Unable to open serial port' ]
+			do: [ StringSignal emit: 'Unable to open serial port' ]

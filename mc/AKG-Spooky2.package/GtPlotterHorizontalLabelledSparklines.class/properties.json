@@ -1,0 +1,17 @@
+{
+	"commentStamp" : "AlistairGrant 8/14/2020 15:53",
+	"super" : "GtPlotterBuilder",
+	"category" : "AKG-Spooky2-Rife-UI",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"sparklines",
+		"xAxisScale",
+		"xAxisData",
+		"yAxisScale",
+		"yAxisData"
+	],
+	"name" : "GtPlotterHorizontalLabelledSparklines",
+	"type" : "normal"
+}
