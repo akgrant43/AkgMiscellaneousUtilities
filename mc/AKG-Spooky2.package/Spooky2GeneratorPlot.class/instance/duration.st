@@ -1,0 +1,4 @@
+accessing
+duration 
+
+	^ rifeModel runTime

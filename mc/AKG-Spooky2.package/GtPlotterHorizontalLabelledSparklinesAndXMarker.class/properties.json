@@ -1,16 +1,13 @@
 {
 	"commentStamp" : "",
-	"super" : "BrStencil",
+	"super" : "GtPlotterHorizontalLabelledSparklines",
 	"category" : "AKG-Spooky2-Rife-UI",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"rifeModel",
-		"channel1Plot",
-		"channel2Plot",
-		"timeProportionHolder"
+		"xValueHolder"
 	],
-	"name" : "Spooky2GeneratorPlot",
+	"name" : "GtPlotterHorizontalLabelledSparklinesAndXMarker",
 	"type" : "normal"
 }

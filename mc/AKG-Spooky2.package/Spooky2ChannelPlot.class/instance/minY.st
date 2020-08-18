@@ -1,4 +1,4 @@
 accessing
 minY 
 
-	^ minY ifNil: [ maxY := programme startFrequency + offset ]
+	^ minY ifNil: [ minY := programme startFrequency + offset ]

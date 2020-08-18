@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "",
+	"super" : "BlElement",
+	"category" : "AKG-Spooky2",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"xValueHolder"
+	],
+	"name" : "GtPlotterXMarker",
+	"type" : "normal"
+}
