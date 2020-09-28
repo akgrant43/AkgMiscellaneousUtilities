@@ -9,7 +9,10 @@ markdownToPDF: markdownFileReference
 	cmd := '/usr/bin/pandoc'.
 	args := Array streamContents: [ :argsStream |
 		argsStream 
-			nextPut: markdownFileReference fullName;
+			nextPut: markdownFileReference fullName.
+		pandocOptions do: [ :pOption |
+			argsStream nextPut: pOption ].
+		argsStream
 			nextPut: '-o';
 			nextPut: self odtTemporary fullName ].
 	proc := GtUnixSubprocess command: cmd arguments: args.
