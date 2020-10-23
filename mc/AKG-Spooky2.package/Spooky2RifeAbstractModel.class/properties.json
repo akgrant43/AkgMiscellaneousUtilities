@@ -1,9 +1,5 @@
 {
-	"commentStamp" : "",
-	"super" : "Object",
-	"category" : "AKG-Spooky2-Rife-Model",
-	"classinstvars" : [ ],
-	"pools" : [ ],
+	"classtraitcomposition" : "TGtAnnouncer classTrait",
 	"classvars" : [ ],
 	"instvars" : [
 		"announcer",
@@ -11,5 +7,11 @@
 		"time"
 	],
 	"name" : "Spooky2RifeAbstractModel",
-	"type" : "normal"
+	"commentStamp" : "",
+	"super" : "Object",
+	"traitcomposition" : "TGtAnnouncer",
+	"type" : "normal",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"category" : "AKG-Spooky2-Rife-Model"
 }

@@ -1,4 +1,4 @@
 accessing
-duration 
+runTime
 
 	^ rifeModel runTime

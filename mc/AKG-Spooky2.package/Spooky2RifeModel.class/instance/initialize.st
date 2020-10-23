@@ -3,7 +3,7 @@ initialize
 
 	super initialize.
 	announcer := Announcer new.
-	generator := Spooky2SignalGenerator new.
+	generator := Spooky2SignalGeneratorSimulator new.
 	generator connect.
 	state := #stopped.
 	channelModels := Array new: 2.

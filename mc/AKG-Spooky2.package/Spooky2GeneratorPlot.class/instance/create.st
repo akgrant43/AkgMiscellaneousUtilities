@@ -1,9 +1,9 @@
 accessing
 create 
 
-	^ GtPlotterHorizontalLabelledSparklinesAndXMarker new 
-		addSparkline: self channel1Plot sparkleStencil;
-		addSparkline: self channel2Plot sparkleStencil;
-		xAxisScale: (GtPlotterDurationScale new domainFrom: 0 minutes to: self duration);
-		xValueHolder: timeProportionHolder;
-		create.
+	^ Spooky2TimePlotElement new
+		constraintsDo: [ :c |
+			c horizontal matchParent.
+			c vertical matchParent ];
+		plotStencil: self;
+		yourself.

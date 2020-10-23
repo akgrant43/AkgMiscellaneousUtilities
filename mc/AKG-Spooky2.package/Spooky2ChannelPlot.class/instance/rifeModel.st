@@ -1,0 +1,3 @@
+accessing
+rifeModel
+	^ rifeModel

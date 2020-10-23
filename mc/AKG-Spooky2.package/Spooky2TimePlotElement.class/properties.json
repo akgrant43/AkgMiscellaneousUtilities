@@ -1,19 +1,13 @@
 {
 	"commentStamp" : "",
-	"super" : "BrStencil",
+	"super" : "BlElement",
 	"category" : "AKG-Spooky2-Rife-UI",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"rifeModel",
-		"programme",
-		"sparkleStencil",
-		"minY",
-		"maxY",
-		"offset",
-		"channelNumber"
+		"plotStencil"
 	],
-	"name" : "Spooky2ChannelPlot",
+	"name" : "Spooky2TimePlotElement",
 	"type" : "normal"
 }

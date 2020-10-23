@@ -1,0 +1,4 @@
+accessing
+rifeModel 
+
+	^ plotStencil rifeModel

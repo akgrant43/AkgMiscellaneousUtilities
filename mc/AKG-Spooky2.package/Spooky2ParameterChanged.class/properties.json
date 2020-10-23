@@ -1,0 +1,15 @@
+{
+	"commentStamp" : "",
+	"super" : "Announcement",
+	"category" : "AKG-Spooky2-Rife-Announcements",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"oldValue",
+		"newValue",
+		"parameterName"
+	],
+	"name" : "Spooky2ParameterChanged",
+	"type" : "normal"
+}
