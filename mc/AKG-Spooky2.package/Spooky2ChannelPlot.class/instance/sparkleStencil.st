@@ -4,6 +4,6 @@ sparkleStencil
 	^ GtPlotterHorizontalSparkline new
 		scaleX: (GtPlotterLinearScale new domainFrom: 0 to: self xPointCount);
 		scaleDataX: #x;
-		scaleY: (GtPlotterLinearScale new domainFrom: self minY to: self maxY);
+		scaleY: (GtPlotterLinearScale new domainFrom: self minFrequency to: self maxFrequency);
 		scaleDataY: #y;
 		with: self data

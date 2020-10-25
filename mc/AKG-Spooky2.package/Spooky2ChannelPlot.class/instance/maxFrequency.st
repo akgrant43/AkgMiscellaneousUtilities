@@ -1,0 +1,4 @@
+accessing
+maxFrequency
+
+	^ rifeModel maxFrequency

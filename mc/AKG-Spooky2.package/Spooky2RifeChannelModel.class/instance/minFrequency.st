@@ -1,0 +1,4 @@
+accessing
+minFrequency 
+
+	^ function minFrequency
