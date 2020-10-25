@@ -67,7 +67,7 @@ configure
 					c horizontal matchParent.
 					c vertical exact: 100. ];
 		editor: (editor := BrTextEditor new 
-			text: rifeModel functionString asRopedText )).
+			text: (rifeModel functionString asRopedText glamorousCodeFontAndSize) )).
 
 	self addChild: (BrButton new 
 		constraintsDo: [ :c |
