@@ -12,6 +12,7 @@ start
 	process := [ 
 		[ state = #stopped ] whileFalse:
 			[ self step.
-			(Delay forSeconds: 1) wait. ].
+			(Delay forSeconds: 1) wait.
+			time > runTime ifTrue: [ self stop ] ].
 		self stopGenerator.
 		process := nil. ] forkNamed: 'Spooky2 Runner'.

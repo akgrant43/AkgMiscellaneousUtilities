@@ -1,6 +1,7 @@
 private
 regeneratePlot
 
+	plotStencil reset.
 	self removeChildren.
 	self addChild: (GtPlotterHorizontalLabelledSparklinesAndXMarker new 
 			addSparkline: plotStencil channel1Plot sparkleStencil;
