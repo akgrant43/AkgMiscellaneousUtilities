@@ -7,7 +7,7 @@ configure
 					c horizontal matchParent.
 					c vertical matchParent ].
 
-	self addChild: (Spooky2RifeFrequencyElement new 
+	self addChild: (Spooky2RifeTimeElement new 
 		rifeModel: rifeModel;
 		padding: (BlInsets all: 5);
 		layout: BlLinearLayout horizontal;
@@ -16,7 +16,7 @@ configure
 					c vertical fitContent. ];
 		configure ).
 
-	self addChild: (Spooky2RifeTimeElement new 
+	self addChild: (Spooky2RifeFrequencyElement new 
 		rifeModel: rifeModel;
 		padding: (BlInsets all: 5);
 		layout: BlLinearLayout horizontal;
