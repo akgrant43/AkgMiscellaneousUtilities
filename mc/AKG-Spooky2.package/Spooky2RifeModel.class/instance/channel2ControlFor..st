@@ -3,7 +3,7 @@ channel2ControlFor: aView
 	<gtView>
 
 	^ aView forward 
-		title: 'Channel 2';
+		title: self channelModels second label;
 		priority: 30;
 		object: [ self channelModels second ];
 		view: #channelControlFor:.

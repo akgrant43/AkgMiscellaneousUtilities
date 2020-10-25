@@ -9,14 +9,16 @@ initialize
 	channelModels at: 1 put: 
 		(Spooky2RifeChannelModel new
 			generator: generator;
-			channelNumber: 1).
+			channelNumber: 1;
+			label: 'Plasma').
 	channelModels first
 		when: Spooky2ParameterChanged
 		do: [ :announcement | self announce: announcement ].
 	channelModels at: 2 put: 
 		(Spooky2RifeChannelModel new
 			generator: generator;
-			channelNumber: 2).
+			channelNumber: 2;
+			label: 'Contacts').
 	channelModels second
 		when: Spooky2ParameterChanged
 		do: [ :announcement | self announce: announcement ].

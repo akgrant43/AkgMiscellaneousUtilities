@@ -2,7 +2,7 @@ configuration
 configure 
 	| label |
 
-	label := 'Frequency ', rifeModel channelNumber asString, ' (kHz): '.
+	label := rifeModel label, ' (kHz): '.
 	self addChild: (BlTextElement new 
 		constraintsDo: [ :c |
 					c horizontal exact: 200.
