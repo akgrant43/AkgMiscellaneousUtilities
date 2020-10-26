@@ -5,7 +5,7 @@ configure
 		constraintsDo: [ :c |
 					c horizontal exact: 100.
 					c vertical fitContent. ];
-		text: 'Wobble (%):' asRopedText).
+		text: 'Wobble (Hz):' asRopedText).
 
 	wobble := BrEditorElement new 
 		constraintsDo: [ :c |
