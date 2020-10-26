@@ -2,6 +2,7 @@ configuration
 configure
 
 	play := BrButton new 
+		beHuge;
 		constraintsDo: [ :c |
 					c horizontal exact: 30.
 					c vertical exact: 30. ];
@@ -11,6 +12,7 @@ configure
 	self addChild: play.
 
 	backward := BrButton new 
+		beHuge;
 		constraintsDo: [ :c |
 					c horizontal exact: 30.
 					c vertical exact: 30. ];
@@ -20,6 +22,7 @@ configure
 	self addChild: backward.
 
 	pause := BrButton new 
+		beHuge;
 		constraintsDo: [ :c |
 					c horizontal exact: 30.
 					c vertical exact: 30. ];
@@ -29,6 +32,7 @@ configure
 	self addChild: pause.
 
 	hold := BrButton new 
+		beHuge;
 		constraintsDo: [ :c |
 					c horizontal exact: 30.
 					c vertical exact: 30. ];
@@ -38,6 +42,7 @@ configure
 	self addChild: hold.
 
 	forward := BrButton new 
+		beHuge;
 		constraintsDo: [ :c |
 					c horizontal exact: 30.
 					c vertical exact: 30. ];
@@ -47,6 +52,7 @@ configure
 	self addChild: forward.
 
 	stop := BrButton new 
+		beHuge;
 		constraintsDo: [ :c |
 					c horizontal exact: 30.
 					c vertical exact: 30. ];

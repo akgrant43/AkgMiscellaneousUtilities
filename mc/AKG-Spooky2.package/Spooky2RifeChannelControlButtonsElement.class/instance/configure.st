@@ -2,6 +2,7 @@ configuration
 configure
 
 	backward := BrButton new 
+		beHuge;
 		constraintsDo: [ :c |
 					c horizontal exact: 30.
 					c vertical exact: 30. ];
@@ -11,6 +12,7 @@ configure
 	self addChild: backward.
 
 	forward := BrButton new 
+		beHuge;
 		constraintsDo: [ :c |
 					c horizontal exact: 30.
 					c vertical exact: 30. ];
