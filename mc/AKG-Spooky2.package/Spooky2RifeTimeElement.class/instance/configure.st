@@ -5,12 +5,11 @@ configure
 		constraintsDo: [ :c |
 					c horizontal exact: 170.
 					c vertical exact: 30. ];
-		text: ('Time: ' asRopedText fontSize: 20) ";
-		look: BrGlamorousLabelLook").
+		text: ('Time: ' asRopedText fontSize: 32)).
 
 	time := BlTextElement new 
 		constraintsDo: [ :c |
 					c horizontal matchParent.
 					c vertical exact: 30. ];
-		text: ('Not Started' asRopedText fontSize: 20).
+		text: ('Not Started' asRopedText fontSize: 32).
 	self addChild: time.

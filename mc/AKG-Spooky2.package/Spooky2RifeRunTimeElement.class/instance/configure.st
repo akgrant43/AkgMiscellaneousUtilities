@@ -3,14 +3,14 @@ configure
 
 	self addChild: (BlTextElement new 
 		constraintsDo: [ :c |
-					c horizontal exact: 100.
+					c horizontal exact: 180.
 					c vertical fitContent. ];
-		text: 'Run Time:' asRopedText).
+		text: ('Run Time:' asRopedText fontSize: 32)).
 
 	runTime := BrEditorElement new 
 		constraintsDo: [ :c |
-					c horizontal exact: 100.
-					c vertical exact: 14. ];
+					c horizontal exact: 150.
+					c vertical fitContent. ];
 		editor: (BrTextEditor new 
 			text: '<not set>' asString asRopedText).
 	runTime addShortcut: (BlShortcut new 

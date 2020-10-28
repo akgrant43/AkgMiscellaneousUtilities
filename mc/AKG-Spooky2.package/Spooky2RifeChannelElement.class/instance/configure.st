@@ -65,14 +65,11 @@ configure
 		margin: (BlInsets all: 5);
 		constraintsDo: [ :c |
 					c horizontal matchParent.
-					c vertical exact: 100. ];
+					c vertical exact: 180. ];
 		editor: (editor := BrTextEditor new 
-			text: (rifeModel functionString asRopedText glamorousCodeFontAndSize) )).
+			text: (rifeModel functionString asRopedText glamorousCodeFont fontSize: 28) )).
 
 	self addChild: (BrButton new 
-		constraintsDo: [ :c |
-					c horizontal exact: 30.
-					c vertical exact: 30. ];
 		look: BrGlamorousButtonWithLabelLook;
 		label: 'Update Function' asRopedText;
 		action: [ :theButton :aButtonModel :anEvent | self updateFunction ]).
