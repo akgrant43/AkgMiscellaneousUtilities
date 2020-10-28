@@ -2,7 +2,9 @@ initialization
 initialize 
 
 	super initialize.
-	generator := Spooky2SignalGeneratorSimulator new.
+	generator := Spooky2SignalGenerator findPort
+		ifNil: [ Spooky2SignalGeneratorSimulator new ]
+		ifNotNil: [ Spooky2SignalGenerator new ].
 	generator connect.
 	state := #stopped.
 	channelModels := Array new: 2.
