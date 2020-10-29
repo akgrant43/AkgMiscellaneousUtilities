@@ -1,4 +1,4 @@
 operating
 stepForward
 
-	time := time + 1 second
+	self timeOffset: timeOffset + self stepSize

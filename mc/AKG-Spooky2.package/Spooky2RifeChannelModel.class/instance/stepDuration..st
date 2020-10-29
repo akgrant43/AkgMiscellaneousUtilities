@@ -2,9 +2,7 @@ private
 stepDuration: stepDuration
 	| newFrequency |
 
-	state = #running ifTrue:
-		[ time := time + stepDuration ].
-	newFrequency := function value: time asSeconds.
+	newFrequency := function value: (rifeModel time + timeOffset) asSeconds.
 	wobble > 0 ifTrue:
 		[ newFrequency := (newFrequency + (wobble * (random next * 2.0 - 1.0))) rounded ].
 	newFrequency = frequency ifFalse:

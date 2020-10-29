@@ -37,9 +37,8 @@ configure
 	hold := BrButton new 
 		beHuge;
 		margin: (BlInsets left: 0 right: 10);
-		constraintsDo: [ :c |
-					c horizontal exact: 30.
-					c vertical exact: 30. ];
+		vFitContent;
+		hExact: 150;
 		look: BrGlamorousButtonWithLabelLook;
 		label: 'Hold' asRopedText;
 		action: [ :theButton :aButtonModel :anEvent | self doHold ].

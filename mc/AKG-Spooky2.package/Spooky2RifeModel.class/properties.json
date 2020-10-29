@@ -10,7 +10,8 @@
 		"generator",
 		"runTime",
 		"process",
-		"lastStepTime"
+		"lastStepTime",
+		"time"
 	],
 	"name" : "Spooky2RifeModel",
 	"type" : "normal"

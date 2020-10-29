@@ -3,8 +3,7 @@
 	"classvars" : [ ],
 	"instvars" : [
 		"announcer",
-		"state",
-		"time"
+		"state"
 	],
 	"name" : "Spooky2RifeAbstractModel",
 	"commentStamp" : "",

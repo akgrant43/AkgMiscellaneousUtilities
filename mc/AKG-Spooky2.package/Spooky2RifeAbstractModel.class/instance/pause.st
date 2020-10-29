@@ -1,4 +1,4 @@
-actions
+operating
 pause 
 
 	state = #running ifFalse: [ ^ self ].

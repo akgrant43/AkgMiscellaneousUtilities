@@ -10,6 +10,7 @@ initialize
 	channelModels := Array new: 2.
 	channelModels at: 1 put: 
 		(Spooky2RifeChannelModel new
+			rifeModel: self;
 			generator: generator;
 			channelNumber: 1;
 			label: 'Plasma').
@@ -18,6 +19,7 @@ initialize
 		do: [ :announcement | self announce: announcement ].
 	channelModels at: 2 put: 
 		(Spooky2RifeChannelModel new
+			rifeModel: self;
 			generator: generator;
 			channelNumber: 2;
 			label: 'Contacts').

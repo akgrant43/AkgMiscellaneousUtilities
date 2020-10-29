@@ -1,4 +1,4 @@
 operating
 reset 
 
-	time := Duration zero.
+	timeOffset := Duration zero.

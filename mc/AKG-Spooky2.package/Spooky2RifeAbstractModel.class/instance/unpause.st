@@ -1,4 +1,4 @@
-actions
+operating
 unpause 
 
 	state = #paused ifFalse: [ ^ self ].

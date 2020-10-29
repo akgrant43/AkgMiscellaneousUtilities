@@ -6,6 +6,7 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
+		"rifeModel",
 		"channelNumber",
 		"label",
 		"functionString",
@@ -14,7 +15,8 @@
 		"frequency",
 		"voltage",
 		"wobble",
-		"random"
+		"random",
+		"timeOffset"
 	],
 	"name" : "Spooky2RifeChannelModel",
 	"type" : "normal"

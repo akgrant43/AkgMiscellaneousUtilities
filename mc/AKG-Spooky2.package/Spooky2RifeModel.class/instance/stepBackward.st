@@ -1,7 +1,5 @@
 operating
 stepBackward
-	"Step the receiver and its channels backward by 1 second"
+	"Step the receiver and its channels backward by stepSize"
 
-	time := time - 1 second.
-	channelModels do: [ :channel |
-		channel stepBackward ].
+	time := time - self stepSize.
