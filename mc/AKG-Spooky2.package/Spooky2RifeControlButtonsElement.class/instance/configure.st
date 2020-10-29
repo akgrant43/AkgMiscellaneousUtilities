@@ -3,6 +3,7 @@ configure
 
 	play := BrButton new 
 		beHuge;
+		margin: (BlInsets left: 0 right: 10);
 		constraintsDo: [ :c |
 					c horizontal exact: 30.
 					c vertical exact: 30. ];
@@ -13,6 +14,7 @@ configure
 
 	backward := BrButton new 
 		beHuge;
+		margin: (BlInsets left: 0 right: 10);
 		constraintsDo: [ :c |
 					c horizontal exact: 30.
 					c vertical exact: 30. ];
@@ -23,6 +25,7 @@ configure
 
 	pause := BrButton new 
 		beHuge;
+		margin: (BlInsets left: 0 right: 10);
 		constraintsDo: [ :c |
 					c horizontal exact: 30.
 					c vertical exact: 30. ];
@@ -33,6 +36,7 @@ configure
 
 	hold := BrButton new 
 		beHuge;
+		margin: (BlInsets left: 0 right: 10);
 		constraintsDo: [ :c |
 					c horizontal exact: 30.
 					c vertical exact: 30. ];
@@ -43,6 +47,7 @@ configure
 
 	forward := BrButton new 
 		beHuge;
+		margin: (BlInsets left: 0 right: 10);
 		constraintsDo: [ :c |
 					c horizontal exact: 30.
 					c vertical exact: 30. ];

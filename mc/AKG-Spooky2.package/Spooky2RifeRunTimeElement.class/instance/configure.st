@@ -9,8 +9,9 @@ configure
 
 	runTime := BrEditorElement new 
 		constraintsDo: [ :c |
-					c horizontal exact: 150.
+					c horizontal exact: 250.
 					c vertical fitContent. ];
+		background: self inputBackgroundColor;
 		editor: (BrTextEditor new 
 			text: '<not set>' asString asRopedText).
 	runTime addShortcut: (BlShortcut new 

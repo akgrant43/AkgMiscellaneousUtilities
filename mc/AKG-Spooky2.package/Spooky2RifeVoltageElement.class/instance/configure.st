@@ -16,4 +16,8 @@ configure
 	voltage addShortcut: (BlShortcut new 
 		combination: (BlSingleKeyCombination key: BlKeyboardKey return);
 		action: [ self updateVoltage ]).
+	rifeModel channelNumber = 1 ifTrue: 
+		[ voltage editor beReadOnlyWithoutSelection ]
+	ifFalse:
+		[ voltage background: self inputBackgroundColor ].
 	self addChild: voltage.

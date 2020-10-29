@@ -7,8 +7,7 @@ configure
 		constraintsDo: [ :c |
 					c horizontal exact: 250.
 					c vertical exact: 30. ];
-		text: (label asRopedText fontSize: 32) ";
-		look: BrGlamorousLabelLook").
+		text: ((label asRopedText fontSize: 32) foreground: rifeModel suggestedColor)).
 
 	frequency := BlTextElement new 
 		constraintsDo: [ :c |

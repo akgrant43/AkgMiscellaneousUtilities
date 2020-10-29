@@ -11,6 +11,7 @@ configure
 		constraintsDo: [ :c |
 					c horizontal exact: 100.
 					c vertical fitContent. ];
+		background: self inputBackgroundColor;
 		editor: (BrTextEditor new 
 			text: (rifeModel wobble asString asRopedText fontSize: 32)).
 	wobble addShortcut: (BlShortcut new 
