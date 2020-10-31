@@ -7,6 +7,6 @@ writeOn: aStream
 			<< '"';
 			<< keyName;
 			<< '=';
-			<< (self at: keyName);
+			print: (self at: keyName);
 			<< '"';
 			cr ].
