@@ -6,7 +6,7 @@ updateModel
 		ifTrue: [ '<not running>' ]
 		ifFalse: [ String streamContents: [ :s | rifeModel time printHMSOn: s ] ].
 	colour := rifeModel isRunning ifTrue: 
-			[ Color green ]
+			[ Color fromHexString: #'47d147' ]
 		ifFalse: [ rifeModel isHeld ifTrue: 
 			[ Color red ]
 		ifFalse:

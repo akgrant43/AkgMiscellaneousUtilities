@@ -1,0 +1,4 @@
+operating
+stopWobble
+
+	isWobbling := false

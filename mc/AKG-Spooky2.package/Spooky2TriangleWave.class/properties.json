@@ -1,13 +1,13 @@
 {
 	"commentStamp" : "",
-	"super" : "Spooky2RifeElement",
-	"category" : "AKG-Spooky2-Rife-UI",
+	"super" : "Object",
+	"category" : "AKG-Spooky2-Rife-Model",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"wobble"
+		"period"
 	],
-	"name" : "Spooky2RifeWobbleElement",
+	"name" : "Spooky2TriangleWave",
 	"type" : "normal"
 }

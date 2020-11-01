@@ -16,5 +16,9 @@ setButtonState
 		(rifeModel isHeld
 			ifTrue: [ Color red ]
 			ifFalse: [ Color white ]).	
-	forward enabled: rifeModel isHeld.
-	backward enabled: rifeModel isHeld.
+	wobble enabled: (rifeModel isRunning or: [rifeModel isHeld ]).
+	(wobble look findActor: BrGlamorousButtonExteriorLook) backgroundPaint: 
+		(rifeModel isWobbling
+			ifTrue: [ Color green ]
+			ifFalse: [ Color white ]).	
+	wobble invalidate.

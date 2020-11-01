@@ -45,7 +45,7 @@ configure
 
 	self addChild: (Spooky2RifeControlButtonsElement new 
 		rifeModel: rifeModel;
-		padding: (BlInsets top: 20 right: 0 bottom: 20 left: 40);
+		padding: (BlInsets top: 20 right: 0 bottom: 20 left: 10);
 		layout: BlLinearLayout horizontal;
 		constraintsDo: [ :c |
 					c horizontal fitContent.

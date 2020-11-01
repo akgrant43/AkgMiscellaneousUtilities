@@ -9,7 +9,6 @@
 		"startFrequency",
 		"endFrequency",
 		"up",
-		"wobble",
 		"duration"
 	],
 	"name" : "Spooky2RampProgramme",

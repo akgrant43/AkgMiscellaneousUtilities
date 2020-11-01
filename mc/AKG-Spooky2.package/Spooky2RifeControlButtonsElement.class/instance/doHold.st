@@ -4,7 +4,7 @@ doHold
 
 	label := 'Hold' asRopedText.
 	rifeModel isHeld ifTrue: 
-		[ rifeModel unhold.
+		[ rifeModel unhold; stopWobble.
 		(hold look findActor: BrGlamorousButtonExteriorLook) backgroundPaint: Color white ]
 	ifFalse: 
 		[ rifeModel hold.

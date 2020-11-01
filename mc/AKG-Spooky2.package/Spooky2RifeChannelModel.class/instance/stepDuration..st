@@ -1,10 +1,11 @@
 private
 stepDuration: stepDuration
-	| newFrequency |
+	| localTime newFrequency |
 
-	newFrequency := function value: (rifeModel time + timeOffset) asSeconds.
-	wobble > 0 ifTrue:
-		[ newFrequency := (newFrequency + (wobble * (random next * 2.0 - 1.0))) rounded ].
+	localTime := rifeModel time + timeOffset.
+	newFrequency := function value: localTime asSeconds.
+	(rifeModel isWobbling and: [ channelNumber = 1 ]) ifTrue:
+		[ newFrequency := (newFrequency + (50 * (rifeModel wobbleFunction at: Time now asDuration))) rounded ].
 	newFrequency = frequency ifFalse:
 		[ frequency := newFrequency.
 		generator channel: channelNumber frequency: newFrequency].

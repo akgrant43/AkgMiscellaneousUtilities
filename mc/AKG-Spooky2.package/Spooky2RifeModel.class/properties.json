@@ -11,7 +11,9 @@
 		"runTime",
 		"process",
 		"lastStepTime",
-		"time"
+		"time",
+		"isWobbling",
+		"wobbleFunction"
 	],
 	"name" : "Spooky2RifeModel",
 	"type" : "normal"

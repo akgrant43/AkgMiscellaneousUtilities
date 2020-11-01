@@ -4,31 +4,14 @@ configure
 	play := BrButton new 
 		beHuge;
 		margin: (BlInsets left: 0 right: 10);
-		constraintsDo: [ :c |
-					c horizontal exact: 30.
-					c vertical exact: 30. ];
 		look: BrGlamorousButtonWithLabelLook;
 		label: 'Play' asRopedText;
 		action: [ :theButton :aButtonModel :anEvent | self doPlay ].
 	self addChild: play.
 
-	backward := BrButton new 
-		beHuge;
-		margin: (BlInsets left: 0 right: 10);
-		constraintsDo: [ :c |
-					c horizontal exact: 30.
-					c vertical exact: 30. ];
-		look: BrGlamorousButtonWithLabelLook;
-		label: '<' asRopedText;
-		action: [ :theButton :aButtonModel :anEvent | self doBackward ].
-	self addChild: backward.
-
 	pause := BrButton new 
 		beHuge;
 		margin: (BlInsets left: 0 right: 10);
-		constraintsDo: [ :c |
-					c horizontal exact: 30.
-					c vertical exact: 30. ];
 		look: BrGlamorousButtonWithLabelLook;
 		label: 'Pause' asRopedText;
 		action: [ :theButton :aButtonModel :anEvent | self doPause ].
@@ -44,16 +27,13 @@ configure
 		action: [ :theButton :aButtonModel :anEvent | self doHold ].
 	self addChild: hold.
 
-	forward := BrButton new 
+	wobble := BrButton new 
 		beHuge;
 		margin: (BlInsets left: 0 right: 10);
-		constraintsDo: [ :c |
-					c horizontal exact: 30.
-					c vertical exact: 30. ];
 		look: BrGlamorousButtonWithLabelLook;
-		label: '>' asRopedText;
-		action: [ :theButton :aButtonModel :anEvent | self doForward ].
-	self addChild: forward.
+		label: 'Wobble' asRopedText;
+		action: [ :theButton :aButtonModel :anEvent | self doWobble ].
+	self addChild: wobble.
 
 	stop := BrButton new 
 		beHuge;

@@ -27,3 +27,5 @@ initialize
 		when: Spooky2ParameterChanged
 		do: [ :announcement | self announce: announcement ].
 	runTime := 60 minutes.
+	isWobbling := false.
+	wobbleFunction := Spooky2TriangleWave new period: 30 seconds.

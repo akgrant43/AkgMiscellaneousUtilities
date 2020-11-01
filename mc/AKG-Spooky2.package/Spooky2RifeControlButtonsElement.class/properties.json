@@ -6,12 +6,11 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"backward",
 		"play",
 		"pause",
 		"hold",
-		"forward",
-		"stop"
+		"stop",
+		"wobble"
 	],
 	"name" : "Spooky2RifeControlButtonsElement",
 	"type" : "normal"

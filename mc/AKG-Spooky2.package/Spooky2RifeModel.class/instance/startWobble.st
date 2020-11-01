@@ -1,0 +1,4 @@
+operating
+startWobble
+
+	isWobbling := true
