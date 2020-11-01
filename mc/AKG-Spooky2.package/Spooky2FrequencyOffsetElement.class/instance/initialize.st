@@ -5,3 +5,4 @@ initialize
 
 	self layout: BlLinearLayout vertical.
 	self addChildren.
+	self updateRange.

@@ -6,6 +6,7 @@ addChildren
 		constraintsDo: [ :c |
 			c vertical exact: 80.
 			c horizontal matchParent ]).
+	sliderElement valueHolder whenChangedDo: [ :newValue | self halt ].
 
 	row2 := BlElement new 
 		constraintsDo: [ :c |
@@ -23,19 +24,19 @@ addChildren
 	row2 addChild: (maxFrequencyInput := BrEditorElement new 
 		constraintsDo: [ :c |
 			c vertical fitContent.
-			c horizontal matchParent ];
+			c horizontal exact: 80 ];
 		background: (Color fromHexString: #'f0f0f0');
 		editor: (BrTextEditor new 
-			text: ('100' asRopedText fontSize: 32) )).
+			text: (self initialRange asString asRopedText fontSize: 32) )).
 	maxFrequencyInput
 		when: BlFocusOutEvent
-		do: [ :event | | hz |
-			hz := maxFrequencyInput editor text asString asNumber. 
-			sliderElement 
-				startValue: 0 - hz;
-				endValue: hz;
-				regeneratePlot.
-				sliderElement valueHolder value: 0.5 ].
+		do: [ :event | self updateRange ].
+	maxFrequencyInput addShortcut: (BlShortcut new 
+		combination: (BlSingleKeyCombination key: BlKeyboardKey return);
+		action: [ self updateRange ]).
+	maxFrequencyInput addShortcut: (BlShortcut new 
+		combination: (BlSingleKeyCombination key: BlKeyboardKey tab);
+		action: [ self updateRange ]).
 
 	row2 addChild: (BlTextElement new 
 		constraintsDo: [ :c |
@@ -50,6 +51,6 @@ addChildren
 		margin: (BlInsets top: 5 left: 10);
 		look: BrGlamorousButtonWithLabelLook;
 		label: 'Reset';
-		action: [ :aButton | sliderElement valueHolder value: 0.5 ]).
+		action: [ :aButton | self updateRange ]).
 
 	self addChild: row2.

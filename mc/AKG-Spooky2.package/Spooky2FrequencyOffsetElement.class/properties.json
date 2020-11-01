@@ -8,7 +8,8 @@
 	"instvars" : [
 		"sliderElement",
 		"maxFrequencyInput",
-		"resetButton"
+		"resetButton",
+		"range"
 	],
 	"name" : "Spooky2FrequencyOffsetElement",
 	"type" : "normal"

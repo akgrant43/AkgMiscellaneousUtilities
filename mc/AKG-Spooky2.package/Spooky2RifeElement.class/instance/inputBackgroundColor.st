@@ -1,4 +1,4 @@
 private - accessing
 inputBackgroundColor
 
-	^ Color veryLightGray
+	^ Color fromHexString: #f0f0f0
