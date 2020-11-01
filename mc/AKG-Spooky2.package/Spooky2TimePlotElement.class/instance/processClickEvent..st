@@ -1,4 +1,4 @@
-as yet unclassified
+private - event handling
 processClickEvent: event
 	"Set the time based on where the user clicked"
 	| percentage time |

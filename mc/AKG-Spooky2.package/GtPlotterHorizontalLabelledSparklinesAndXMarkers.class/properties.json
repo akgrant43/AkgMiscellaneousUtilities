@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "",
+	"super" : "GtPlotterHorizontalLabelledSparklines",
+	"category" : "AKG-Spooky2-Rife-UI",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"xValueHolders"
+	],
+	"name" : "GtPlotterHorizontalLabelledSparklinesAndXMarkers",
+	"type" : "normal"
+}

@@ -1,0 +1,15 @@
+{
+	"commentStamp" : "",
+	"super" : "BlElement",
+	"category" : "AKG-Spooky2-Rife-UI",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"startValue",
+		"endValue",
+		"valueHolder"
+	],
+	"name" : "Spooky2SliderElement",
+	"type" : "normal"
+}
