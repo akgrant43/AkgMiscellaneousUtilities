@@ -1,5 +1,7 @@
 SanoPlasmaPresetGenerator generates a custom.csv (custom programs) and presets for running the plasma and contacts in crossover fashion, i.e. the plasma runs from the start frequence to the end frequency, and the contacts run in the opposite direction.
 
+The custom programs are not required to use the presets.
+
 SanoPlasmaPresetGenerator new
 	startFreq: 400000;
 	endFreq: 500000;
@@ -12,6 +14,8 @@ SanoPlasmaPresetGenerator new
 
 
 By default, and as in the example above, the program frequency range for the plasma runs from low-to-high, and the contact frequency range runs from high-to-low.
+
+The stepFreq is the increase in frequency (Hz) between each preset, e.g. in the above example the first preset will start at 400KHz, the second at 400.5kHz.
 
 It is possible to generate programs where the plasma frequency range runs from high-to-low, e.g.:
 
@@ -49,7 +53,7 @@ generator := SanoPlasmaPresetGenerator new
 	yourself.
 generator settings
 	at: 'Out 2 Voltage Multiplier' put: '3';
-	at: 'Repeat Chain' put: '3'.
+	at: 'Repeat each program' put: '3'.
 generator generate.
 
 

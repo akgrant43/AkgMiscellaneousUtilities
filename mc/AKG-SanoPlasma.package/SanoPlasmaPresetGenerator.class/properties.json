@@ -1,7 +1,7 @@
 {
-	"commentStamp" : "AlistairGrant 6/9/2018 14:23",
+	"commentStamp" : "AlistairGrant 11/1/2020 07:33",
 	"super" : "Object",
-	"category" : "AKG-SanoPlasma",
+	"category" : "AKG-SanoPlasma-Generator",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],

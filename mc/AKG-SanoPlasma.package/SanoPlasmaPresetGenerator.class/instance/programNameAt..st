@@ -9,24 +9,19 @@ programNameAt: frequency
 			<< namePrefix;
 			<< ' '.
 
-		"Next the startFreq.
-		If possible, represent as an integer number of kHz, otherwise as decimal"
+		"Next the startFreq in kHz.
+		Always include the decimal place otherwise the ascii file ordering comes out unexpectedly"
 		freqString := frequency printPaddedWith: $0 to: 6.
 		stream
-			<< (freqString copyFrom: 1 to: 3).
-		(freqString endsWith: '000') ifFalse: [ 
-			stream
-				<< '.';
-				<< (freqString copyFrom: 4 to: 6) ].
+			<< (freqString copyFrom: 1 to: 3);
+			<< '.';
+			<< (freqString copyFrom: 4 to: 6).
 
 		stream << '-'.
 
-		"Next the endFreq.
-		If possible, represent as an integer number of kHz, otherwise as decimal"
+		"Next the endFreq."
 		freqString := (frequency + freqRange) printPaddedWith: $0 to: 6.
 		stream
-			<< (freqString copyFrom: 1 to: 3).
-		(freqString endsWith: '000') ifFalse: [ 
-			stream
-				<< '.';
-				<< (freqString copyFrom: 4 to: 6) ] ].
+			<< (freqString copyFrom: 1 to: 3);
+			<< '.';
+			<< (freqString copyFrom: 4 to: 6) ].
