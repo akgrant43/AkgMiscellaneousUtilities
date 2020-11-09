@@ -7,3 +7,4 @@ initialize
 	random := Random new.
 	voltage := 6.
 	timeOffset := Duration zero.
+	frequencyOffset := 0.

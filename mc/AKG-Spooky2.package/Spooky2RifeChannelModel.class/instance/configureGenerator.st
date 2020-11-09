@@ -4,5 +4,5 @@ configureGenerator
 	generator
 		squareWaveChannel: channelNumber;
 		channel: channelNumber amplitude: voltage;
-		channel: channelNumber frequency: (function value: 0);
+		channel: channelNumber frequency: (self valueAt: 0);
 		switchOnChannel: channelNumber.

@@ -13,11 +13,12 @@ configure
 					c vertical fitContent. ];
 		editor: (BrTextEditor new 
 			text: (rifeModel voltage asString asRopedText fontSize: 32)).
-	voltage addShortcut: (BlShortcut new 
-		combination: (BlSingleKeyCombination key: BlKeyboardKey return);
-		action: [ self updateVoltage ]).
+
 	rifeModel channelNumber = 1 ifTrue: 
 		[ voltage editor beReadOnlyWithoutSelection ]
 	ifFalse:
-		[ voltage background: self inputBackgroundColor ].
+		[ voltage
+			when: BlKeyUpEvent 
+			do: [ :event | self updateVoltage ].
+		voltage background: self inputBackgroundColor ].
 	self addChild: voltage.

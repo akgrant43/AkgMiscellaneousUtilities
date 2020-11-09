@@ -15,7 +15,8 @@
 		"frequency",
 		"voltage",
 		"random",
-		"timeOffset"
+		"timeOffset",
+		"frequencyOffset"
 	],
 	"name" : "Spooky2RifeChannelModel",
 	"type" : "normal"

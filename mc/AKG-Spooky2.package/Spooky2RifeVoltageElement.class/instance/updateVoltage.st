@@ -1,14 +1,15 @@
 events
 updateVoltage
 	"Update the receiver's model's voltage"
-	| newVoltage |
+	| vString newVoltage |
 
-	"Ignore any errors and wait for the user to enter something valid"
-	"Channel 1 isn't allowed to change it's voltage.
-	The field should be read-only, this is a hack"
-	[ rifeModel channelNumber = 1 ifTrue:
-		[ ^ voltage dataSource text: ('6' asRopedText fontSize: 32) ].
-	newVoltage := voltage dataSource text asString asNumber.
-	rifeModel voltage: newVoltage ]
-			on: Error 
-			do: [ ].
+	vString := voltage dataSource text asString.
+	(NumberParser isNumber: vString) ifFalse: 
+		[ voltage background: Color red.
+		^ self ].
+	newVoltage := vString asNumber.
+	(newVoltage between: 0 and: 20) ifFalse:
+		[ voltage background: Color red.
+		^ self ].
+	rifeModel voltage: newVoltage.
+	voltage background: self inputBackgroundColor.

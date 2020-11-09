@@ -2,6 +2,7 @@ private - events
 updateMarker
 
 	self removeChildren.
+	xValueHolder value ifNil: [ ^ self ].
 	self addChild: (BlElement new 
 		geometry: (BlNormalizedPolyline vertices: { xValueHolder value @ 0.02. xValueHolder value @ 0.98. });
 		border: (BlBorder paint: Color green darker width: 4);

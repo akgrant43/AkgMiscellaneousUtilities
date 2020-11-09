@@ -3,7 +3,7 @@ stepDuration: stepDuration
 	| localTime newFrequency |
 
 	localTime := rifeModel time + timeOffset.
-	newFrequency := function value: localTime asSeconds.
+	newFrequency := self valueAt: localTime asSeconds.
 	(rifeModel isWobbling and: [ channelNumber = 1 ]) ifTrue:
 		[ newFrequency := (newFrequency + (50 * (rifeModel wobbleFunction at: Time now asDuration))) rounded ].
 	newFrequency = frequency ifFalse:

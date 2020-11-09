@@ -6,7 +6,6 @@ addChildren
 		constraintsDo: [ :c |
 			c vertical exact: 80.
 			c horizontal matchParent ]).
-	sliderElement valueHolder whenChangedDo: [ :newValue | self halt ].
 
 	row2 := BlElement new 
 		constraintsDo: [ :c |
@@ -29,14 +28,8 @@ addChildren
 		editor: (BrTextEditor new 
 			text: (self initialRange asString asRopedText fontSize: 32) )).
 	maxFrequencyInput
-		when: BlFocusOutEvent
+		when: BlKeyUpEvent
 		do: [ :event | self updateRange ].
-	maxFrequencyInput addShortcut: (BlShortcut new 
-		combination: (BlSingleKeyCombination key: BlKeyboardKey return);
-		action: [ self updateRange ]).
-	maxFrequencyInput addShortcut: (BlShortcut new 
-		combination: (BlSingleKeyCombination key: BlKeyboardKey tab);
-		action: [ self updateRange ]).
 
 	row2 addChild: (BlTextElement new 
 		constraintsDo: [ :c |

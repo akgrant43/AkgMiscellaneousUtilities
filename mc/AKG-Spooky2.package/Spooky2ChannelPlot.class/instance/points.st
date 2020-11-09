@@ -5,4 +5,4 @@ points
 
 	timeOffset := self channelModel timeOffset asSeconds.
 	^ (1 to: self xPointCount) collect: [ :x |
-		x @ ((programme value: (x + timeOffset)) + offset) ].
+		x @ ((self channelModel valueAt: (x + timeOffset)) + offset) ].

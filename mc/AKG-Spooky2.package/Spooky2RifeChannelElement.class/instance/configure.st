@@ -1,5 +1,6 @@
 configuration
 configure
+	| slider |
 
 	self 
 		layout: BlLinearLayout vertical;
@@ -33,6 +34,13 @@ configure
 					c horizontal fitContent.
 					c vertical fitContent. ];
 		configure ).
+
+	slider := Spooky2FrequencyOffsetElement new
+		constraintsDo: [ :c |
+			c horizontal matchParent.
+			c vertical exact: 120 ].
+	slider valueHolder whenChangedDo: [ :newValue | rifeModel frequencyOffset: slider offset ].
+	self addChild: slider.
 
 	self addChild: (BrLabel new 
 		constraintsDo: [ :c |
