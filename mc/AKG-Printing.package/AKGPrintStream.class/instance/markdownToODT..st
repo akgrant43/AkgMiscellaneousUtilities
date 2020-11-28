@@ -17,7 +17,7 @@ markdownToODT: markdownFileReference
 			nextPut: '-o';
 			nextPut: odtFileReference fullName ].
 	proc := GtUnixSubprocess command: cmd arguments: args.
-	proc workingDirectory: self tempDir.
+	proc workingDirectory: markdownFileReference parent.
 	proc runAndWait.
 	proc isSuccess ifTrue: 
 		[ UIManager default inform: 'Successfully converted markdown to odt' ]

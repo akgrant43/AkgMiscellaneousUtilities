@@ -14,7 +14,7 @@ markdownToPDF: markdownFileReference
 			nextPut: 'pdf';
 			nextPut: odtFileReference fullName ].
 	proc := GtUnixSubprocess command: cmd arguments: args.
-	proc workingDirectory: self tempDir.
+	proc workingDirectory: markdownFileReference parent.
 	proc removeLD_LIBRARY_PATH.
 	proc runAndWait.
 	proc isSuccess ifTrue: 
