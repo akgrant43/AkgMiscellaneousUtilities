@@ -19,5 +19,4 @@ basicSaveCurrentReport
 				ifTrue: [ 
 					UIManager default inform: 'Successfully converted report to pdf'.
 					processSemaphore signal. ]
-				ifFalse: [ self halt: 'Something went wrong' ].
-			processSemaphore := nil. ] ] forkNamed: 'SanoPlasma PDF conversion'.
+				ifFalse: [ self error: 'Something went wrong' ] ] ] forkNamed: 'SanoPlasma PDF conversion'.

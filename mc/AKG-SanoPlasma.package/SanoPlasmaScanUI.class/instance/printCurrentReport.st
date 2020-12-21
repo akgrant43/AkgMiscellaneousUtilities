@@ -5,6 +5,7 @@ printCurrentReport
 	| cmdString |
 self halt.
 	currentReport ifNil: [ ^self ].
+	processSemaphore := nil.
 	self basicSaveCurrentReport.
 	(processSemaphore waitTimeoutSeconds: 15) ifTrue: 
 		[ self halt: 'Timeout on pdf conversion' ].
