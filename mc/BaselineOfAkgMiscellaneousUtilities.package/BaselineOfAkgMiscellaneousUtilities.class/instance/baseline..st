@@ -14,9 +14,8 @@ baseline: spec
 			nextPut: #'AKG-Printing'.
 		].
 	spec for: #common do: [ spec 
-		configuration: 'Diacritics' with: [ spec 
-			versionString: #stable;
-			repository: 'http://smalltalkhub.com/mc/herman/Diacritics/main' ].
+		baseline: 'Diacritics' with: 
+			[ spec repository: 'github://hernanmd/Diacriticals' ].
 
 		packages do: [ :package |
 			spec package: package ].
