@@ -3,7 +3,7 @@ printCurrentReport
 	"Print the currently selected report"
 
 	| cmdString |
-self halt.
+
 	currentReport ifNil: [ ^self ].
 	processSemaphore := nil.
 	self basicSaveCurrentReport.

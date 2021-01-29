@@ -8,6 +8,7 @@ rawScanData
 	self fileReference readStreamDo: [ :stream |
 		csv := NeoCSVReader on: stream.
 		header := csv readHeader.
+		(header includes: 'Frequency (Hz)') ifFalse: [ ^ nil ].
 		csv do: [ :row |
 			rows add: (Array streamContents: [ :array |
 				row do: [ :cell | array nextPut: cell asNumberOrNil ] ]) ] ].
