@@ -10,7 +10,7 @@ odtToPDF: odtFileReference
 			nextPut: '--convert-to';
 			nextPut: 'pdf';
 			nextPut: odtFileReference fullName ].
-	proc := GtUnixSubprocess command: cmd arguments: args.
+	proc := GtSubprocessWithInMemoryOutput command: cmd arguments: args.
 	proc workingDirectory: odtFileReference parent.
 	proc removeLD_LIBRARY_PATH.
 	proc runAndWait.

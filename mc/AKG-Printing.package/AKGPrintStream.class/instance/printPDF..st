@@ -17,7 +17,7 @@ printPDF: pdfFileReference
 				nextPut: option ].
 		argsStream nextPut: pdfFileReference fullName ].
 
-	proc := GtUnixSubprocess command: cmd arguments: args.
+	proc := GtSubprocessWithInMemoryOutput command: cmd arguments: args.
 	proc workingDirectory: self tempDir.
 	proc runAndWait.
 	proc isSuccess ifTrue: 

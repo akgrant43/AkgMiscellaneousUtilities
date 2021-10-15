@@ -16,7 +16,7 @@ markdownToODT: markdownFileReference
 		argsStream
 			nextPut: '-o';
 			nextPut: odtFileReference fullName ].
-	proc := GtUnixSubprocess command: cmd arguments: args.
+	proc := GtSubprocessWithInMemoryOutput command: cmd arguments: args.
 	proc workingDirectory: markdownFileReference parent.
 	proc runAndWait.
 	proc isSuccess ifTrue: 
