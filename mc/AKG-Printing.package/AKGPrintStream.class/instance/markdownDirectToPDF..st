@@ -1,12 +1,11 @@
 private
-markdownToODT: markdownFileReference
+markdownDirectToPDF: markdownFileReference
 	"Convert the supplied markdown file to pdfTemporary"
-
-	| proc cmd args odtFileReference |
+	| proc cmd args pdfFileReference |
 
 	self assert: markdownFileReference extension = 'md'
 		description: 'pandoc uses the extension to determine contents'.
-	odtFileReference := markdownFileReference withExtension: 'odt'.
+	pdfFileReference := markdownFileReference withExtension: 'pdf'.
 	cmd := 'pandoc'.
 	args := Array streamContents: [ :argsStream |
 		argsStream 
@@ -15,12 +14,12 @@ markdownToODT: markdownFileReference
 			argsStream nextPut: pOption ].
 		argsStream
 			nextPut: '-o';
-			nextPut: odtFileReference fullName ].
+			nextPut: pdfFileReference fullName ].
 	proc := GtSubprocessWithInMemoryOutput command: cmd arguments: args.
 	proc workingDirectory: markdownFileReference parent.
 	proc runAndWait.
 	proc isSuccess ifTrue: 
-		[ UIManager default inform: 'Successfully converted markdown to odt' ]
+		[ UIManager default inform: 'Successfully converted markdown to pdf' ]
 	ifFalse: 
-		[ self error: 'ODT conversion error: ', proc stderr printString ].
-	^ odtFileReference
+		[ self error: 'PDF conversion error: ', proc stderr printString ].
+	^ pdfFileReference

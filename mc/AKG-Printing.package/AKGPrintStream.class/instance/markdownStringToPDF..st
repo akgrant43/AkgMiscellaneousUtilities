@@ -1,6 +1,9 @@
 actions
 markdownStringToPDF: aString
-	| odtFile |
+	| mdFile |
 
-	odtFile := self markdownStringToODT: aString.
-	^ self odtToPDF: odtFile.
+	mdFile := self mdTemporary.
+	mdFile ensureDelete.
+	mdFile writeStreamDo: [ :stream |
+		stream asNewLineStream nextPutAll: aString ].
+	^ self markdownDirectToPDF: mdFile.

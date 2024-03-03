@@ -3,7 +3,7 @@ odtToPDF: odtFileReference
 	"Convert the supplied odt file to pdf"
 	| proc cmd args |
 
-	cmd := '/usr/bin/soffice'.
+	cmd := 'soffice'.
 	args := Array streamContents: [ :argsStream |
 		argsStream
 			nextPut: '--headless';
