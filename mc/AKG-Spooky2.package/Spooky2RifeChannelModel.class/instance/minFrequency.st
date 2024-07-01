@@ -1,4 +1,0 @@
-accessing
-minFrequency 
-
-	^ function minFrequency

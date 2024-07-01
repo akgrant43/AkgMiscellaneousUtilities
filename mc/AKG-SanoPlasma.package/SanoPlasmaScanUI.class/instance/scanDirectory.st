@@ -1,3 +1,0 @@
-accessing
-scanDirectory
-	^ scanDirectory

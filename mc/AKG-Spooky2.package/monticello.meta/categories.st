@@ -1,9 +1,0 @@
-SystemOrganization addCategory: #'AKG-Spooky2'!
-SystemOrganization addCategory: #'AKG-Spooky2-Model'!
-SystemOrganization addCategory: #'AKG-Spooky2-Rife-Announcements'!
-SystemOrganization addCategory: #'AKG-Spooky2-Rife-Examples'!
-SystemOrganization addCategory: #'AKG-Spooky2-Rife-Model'!
-SystemOrganization addCategory: #'AKG-Spooky2-Rife-Programmes'!
-SystemOrganization addCategory: #'AKG-Spooky2-Rife-UI'!
-SystemOrganization addCategory: #'AKG-Spooky2-Utilities'!
-SystemOrganization addCategory: #'AKG-Spooky2-Waveforms'!

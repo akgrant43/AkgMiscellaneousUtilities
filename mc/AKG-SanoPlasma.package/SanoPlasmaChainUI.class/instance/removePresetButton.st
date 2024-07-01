@@ -1,3 +1,0 @@
-accessing
-removePresetButton
-	^ removePresetButton

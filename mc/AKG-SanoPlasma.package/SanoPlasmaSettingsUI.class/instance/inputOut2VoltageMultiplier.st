@@ -1,3 +1,0 @@
-accessing
-inputOut2VoltageMultiplier
-	^ inputOut2VoltageMultiplier

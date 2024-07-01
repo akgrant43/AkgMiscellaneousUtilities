@@ -1,3 +1,0 @@
-accessing
-stepFreq
-	^ stepFreq

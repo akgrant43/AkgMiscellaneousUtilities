@@ -1,2 +1,0 @@
-accessing
-writeCommand: aString

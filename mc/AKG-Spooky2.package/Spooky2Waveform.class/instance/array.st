@@ -1,4 +1,0 @@
-private
-array 
-
-	^ self subclassResponsibility

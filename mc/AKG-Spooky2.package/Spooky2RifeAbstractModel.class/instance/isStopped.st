@@ -1,4 +1,0 @@
-testing
-isStopped 
-
-	^ state = #stopped

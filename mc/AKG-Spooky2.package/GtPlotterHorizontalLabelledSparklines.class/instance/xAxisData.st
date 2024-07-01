@@ -1,3 +1,0 @@
-accessing
-xAxisData
-	^ xAxisData

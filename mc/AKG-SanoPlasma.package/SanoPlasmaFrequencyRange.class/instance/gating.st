@@ -1,3 +1,0 @@
-accessing
-gating
-	^ gating

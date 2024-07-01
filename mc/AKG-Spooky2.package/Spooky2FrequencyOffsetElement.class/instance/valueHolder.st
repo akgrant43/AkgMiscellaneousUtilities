@@ -1,5 +1,0 @@
-accessing
-valueHolder 
-
-
-	^ sliderElement valueHolder

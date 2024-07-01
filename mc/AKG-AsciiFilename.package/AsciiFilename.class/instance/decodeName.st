@@ -1,3 +1,0 @@
-accessing
-decodeName
-	^ decodeName

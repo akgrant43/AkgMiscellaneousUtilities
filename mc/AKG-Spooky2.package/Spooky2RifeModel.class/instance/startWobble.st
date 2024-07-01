@@ -1,4 +1,0 @@
-operating
-startWobble
-
-	isWobbling := true

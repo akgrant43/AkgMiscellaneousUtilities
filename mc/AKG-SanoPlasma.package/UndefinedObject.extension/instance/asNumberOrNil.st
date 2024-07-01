@@ -1,3 +1,0 @@
-*AKG-SanoPlasma
-asNumberOrNil
-	^nil

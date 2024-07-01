@@ -1,4 +1,0 @@
-accessing
-maxFrequency 
-
-	^ function maxFrequency

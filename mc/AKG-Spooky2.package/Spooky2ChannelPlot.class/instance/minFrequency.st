@@ -1,4 +1,0 @@
-accessing
-minFrequency
-
-	^ rifeModel minFrequency
