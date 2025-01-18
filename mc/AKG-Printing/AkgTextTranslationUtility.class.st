@@ -1,3 +1,18 @@
+"
+Typical Czech to English document translation:
+
+```
+src := '/home/alistair/Documents/Properties/Prague Flats/Rumburska 255-5/2024/Eva/2025-01-18 Preparation/2025-01-18 Libal odvolání.txt' asFileReference.
+dst := '/home/alistair/Documents/Properties/Prague Flats/Rumburska 255-5/2024/Eva/2025-01-18 Preparation/2025-01-18 Libal odvolání en.txt' asFileReference.
+AkgTextTranslationUtility new
+	inFile: src;
+	outFile: dst;
+	translate.
+```
+
+
+
+"
 Class {
 	#name : #AkgTextTranslationUtility,
 	#superclass : #Object,
