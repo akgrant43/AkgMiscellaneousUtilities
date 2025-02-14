@@ -1,19 +1,17 @@
 Class {
 	#name : #BaselineOfAkgMiscellaneousUtilities,
 	#superclass : #BaselineOf,
-	#category : 'BaselineOfAkgMiscellaneousUtilities'
+	#category : #BaselineOfAkgMiscellaneousUtilities
 }
 
 { #category : #baseline }
 BaselineOfAkgMiscellaneousUtilities >> baseline: spec [
 	<baseline>
-
 	| packages |
 
 	packages := Array streamContents: [ :stream |
 		stream 
 			nextPut: #'AKG-AST-Extensions';
-			nextPut: #'AKG-AsciiFilename';
 			nextPut: #'AKG-CodeAnalysis';
 			nextPut: #'AKG-HashDeep';
 			nextPut: #'AKG-PharoDotOrg';
@@ -28,7 +26,6 @@ BaselineOfAkgMiscellaneousUtilities >> baseline: spec [
 
 		spec		
 			group: 'default' with: packages;
-			group: 'tests' with: #('AKG-AsciiFilename-Tests');
-			group: 'development' with: #('default' 'tests')
+			group: 'development' with: #('default')
 		]
 ]
