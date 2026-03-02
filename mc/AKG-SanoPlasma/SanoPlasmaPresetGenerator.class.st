@@ -76,8 +76,8 @@ Instance Variables
 Implementation Points
 "
 Class {
-	#name : #SanoPlasmaPresetGenerator,
-	#superclass : #Object,
+	#name : 'SanoPlasmaPresetGenerator',
+	#superclass : 'Object',
 	#instVars : [
 		'startFreq',
 		'endFreq',
@@ -91,17 +91,19 @@ Class {
 		'namePostfix',
 		'settings'
 	],
-	#category : 'AKG-SanoPlasma-Generator'
+	#category : 'AKG-SanoPlasma-Generator',
+	#package : 'AKG-SanoPlasma',
+	#tag : 'Generator'
 }
 
-{ #category : #templates }
+{ #category : 'templates' }
 SanoPlasmaPresetGenerator class >> defaultTemplate [
 	"Answer the default template"
 
 	^self preset201712211429
 ]
 
-{ #category : #history }
+{ #category : 'history' }
 SanoPlasmaPresetGenerator class >> dj20180302 [
 	<script>
 
@@ -123,7 +125,7 @@ SanoPlasmaPresetGenerator class >> dj20180302 [
 	generator generate.
 ]
 
-{ #category : #history }
+{ #category : 'history' }
 SanoPlasmaPresetGenerator class >> dj20180305 [
 	"DJ: Up and Down sets.
 	- Leave up out of preset name
@@ -170,7 +172,7 @@ SanoPlasmaPresetGenerator class >> dj20180305 [
 
 ]
 
-{ #category : #history }
+{ #category : 'history' }
 SanoPlasmaPresetGenerator class >> dj20180425 [
 	"DJ: Up and Down sets.
 	- 30 minute duration
@@ -223,7 +225,7 @@ SanoPlasmaPresetGenerator class >> dj20180425 [
 
 ]
 
-{ #category : #history }
+{ #category : 'history' }
 SanoPlasmaPresetGenerator class >> dj20180425b [
 	"DJ: Up and Down sets.
 	- 30 minute duration
@@ -277,7 +279,7 @@ SanoPlasmaPresetGenerator class >> dj20180425b [
 
 ]
 
-{ #category : #history }
+{ #category : 'history' }
 SanoPlasmaPresetGenerator class >> dj20180504 [
 	"DJ: Up and Down sets.
 	- 30 minute duration
@@ -327,7 +329,7 @@ SanoPlasmaPresetGenerator class >> dj20180504 [
 
 ]
 
-{ #category : #history }
+{ #category : 'history' }
 SanoPlasmaPresetGenerator class >> dj20180609 [
 	"DJ: Up and Down sets.
 	- 1Hz - 1kHz, 100Hz range, 10Hz step
@@ -379,7 +381,7 @@ SanoPlasmaPresetGenerator class >> dj20180609 [
 
 ]
 
-{ #category : #history }
+{ #category : 'history' }
 SanoPlasmaPresetGenerator class >> dj20180609b [
 	"DJ: Up and Down sets.
 	- 1Hz - 1kHz, 100Hz range, 10Hz step
@@ -433,7 +435,7 @@ SanoPlasmaPresetGenerator class >> dj20180609b [
 
 ]
 
-{ #category : #templates }
+{ #category : 'templates' }
 SanoPlasmaPresetGenerator class >> preset201712211429 [
 
 	^'"[Preset]"
@@ -610,12 +612,12 @@ SanoPlasmaPresetGenerator class >> preset201712211429 [
 '
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaPresetGenerator >> crossoverCount [
 	^ crossoverCount
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaPresetGenerator >> crossoverCount: anInteger [
 	"Set the number of crossovers for each chain.
 	If not already set, make the crossover range the chain range / crossoverCount"
@@ -626,27 +628,27 @@ SanoPlasmaPresetGenerator >> crossoverCount: anInteger [
 		self crossoverRange: (freqRange / crossoverCount) rounded ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaPresetGenerator >> crossoverRange [
 	^ crossoverRange
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaPresetGenerator >> crossoverRange: anObject [
 	crossoverRange := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaPresetGenerator >> endFreq [
 	^ endFreq
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaPresetGenerator >> endFreq: anObject [
 	endFreq := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaPresetGenerator >> filenameAt: freq [
 	"Answer the file name used for the specified frequency"
 
@@ -661,12 +663,12 @@ SanoPlasmaPresetGenerator >> filenameAt: freq [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaPresetGenerator >> freqRange [
 	^ freqRange
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaPresetGenerator >> freqRange: anInteger [
 
 	freqRange := anInteger.
@@ -674,7 +676,7 @@ SanoPlasmaPresetGenerator >> freqRange: anInteger [
 		[ self crossoverCount: 1 ]
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 SanoPlasmaPresetGenerator >> generate [
 	"Generate the custom.csv file and associated presets in the specified directory"
 
@@ -687,7 +689,7 @@ SanoPlasmaPresetGenerator >> generate [
 			self writeChainAt: freq. ] ].
 ]
 
-{ #category : #initialize }
+{ #category : 'initialize' }
 SanoPlasmaPresetGenerator >> initialize [
 
 	super initialize.
@@ -701,32 +703,32 @@ SanoPlasmaPresetGenerator >> initialize [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaPresetGenerator >> namePostfix [
 	^ namePostfix
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaPresetGenerator >> namePostfix: anObject [
 	namePostfix := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaPresetGenerator >> namePrefix [
 	^ namePrefix
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaPresetGenerator >> namePrefix: anObject [
 	namePrefix := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaPresetGenerator >> outDir [
 	^ outDir
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaPresetGenerator >> outDir: aDirectory [
 
 	outDir := aDirectory asFileReference.
@@ -736,7 +738,7 @@ SanoPlasmaPresetGenerator >> outDir: aDirectory [
 		outDir ensureCreateDirectory ].
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaPresetGenerator >> presetNameFrom: startFrequency to: endFrequency [
 	"Generate the program name from the frequency in the form:
 			<namePrefix> <startFrequency>-<endFrequency>
@@ -771,7 +773,7 @@ SanoPlasmaPresetGenerator >> presetNameFrom: startFrequency to: endFrequency [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaPresetGenerator >> programNameAt: frequency [
 	"Generate the program name from the frequency in the form:
 			<namePrefix> <startFreq>-<endFreq>
@@ -801,47 +803,47 @@ SanoPlasmaPresetGenerator >> programNameAt: frequency [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaPresetGenerator >> programSeconds [
 	^ programSeconds
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaPresetGenerator >> programSeconds: anObject [
 	programSeconds := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaPresetGenerator >> settings [
 	^ settings
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaPresetGenerator >> settings: anObject [
 	settings := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaPresetGenerator >> startFreq [
 	^ startFreq
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaPresetGenerator >> startFreq: anObject [
 	startFreq := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaPresetGenerator >> stepFreq [
 	^ stepFreq
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaPresetGenerator >> stepFreq: anObject [
 	stepFreq := anObject
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 SanoPlasmaPresetGenerator >> writeChainAt: freq [
 	"Write the preset file for the supplied frequency creating the configured number of crossovers"
 
@@ -890,7 +892,7 @@ SanoPlasmaPresetGenerator >> writeChainAt: freq [
 
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 SanoPlasmaPresetGenerator >> writeProgramAt: freq to: customCsvStream [
 	"Add an entry to the supplied CSV stream"
 

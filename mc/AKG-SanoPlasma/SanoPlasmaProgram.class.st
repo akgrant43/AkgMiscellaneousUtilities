@@ -1,6 +1,6 @@
 Class {
-	#name : #SanoPlasmaProgram,
-	#superclass : #SanoPlasmaModel,
+	#name : 'SanoPlasmaProgram',
+	#superclass : 'SanoPlasmaModel',
 	#instVars : [
 		'name',
 		'runningTime',
@@ -10,10 +10,12 @@ Class {
 		'illness',
 		'dwell'
 	],
-	#category : 'AKG-SanoPlasma-Model'
+	#category : 'AKG-SanoPlasma-Model',
+	#package : 'AKG-SanoPlasma',
+	#tag : 'Model'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 SanoPlasmaProgram class >> fromCollection: aCollection [
 	"Answer an instance of the receiver derived from the supplied collection,
 	which is a csv record in SanoPlasma custom.csv format"
@@ -29,7 +31,7 @@ SanoPlasmaProgram class >> fromCollection: aCollection [
 		yourself.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaProgram >> addFrequencies: aString [
 	"Add the list of frequency ranges encoded in the supplied string"
 
@@ -38,14 +40,14 @@ SanoPlasmaProgram >> addFrequencies: aString [
 		self addFrequency: (SanoPlasmaFrequencyRange fromString: range) ].
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaProgram >> addFrequency: aFrequencyRange [
 	"Add the supplied frequency range to the receiver"
 
 	^frequencies add: aFrequencyRange
 ]
 
-{ #category : #converting }
+{ #category : 'converting' }
 SanoPlasmaProgram >> asArray [
 	"Answer the receiver as an Array in SanoPlasma format"
 
@@ -61,7 +63,7 @@ SanoPlasmaProgram >> asArray [
 	}
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 SanoPlasmaProgram >> descriptionText [
 	"Answer a multi-line description of the receiver"
 
@@ -88,29 +90,29 @@ SanoPlasmaProgram >> descriptionText [
 			<< illness asString; cr ]
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 SanoPlasmaProgram >> displayString [
 
 	^self name
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaProgram >> dwell [
 	^ dwell
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaProgram >> dwell: anObject [
 	dwell := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaProgram >> frequencies [
 
 	^ frequencies
 ]
 
-{ #category : #inspecting }
+{ #category : 'inspecting' }
 SanoPlasmaProgram >> gtInspectIn: composite [
 	<gtInspectorPresentationOrder: 2>
 
@@ -120,17 +122,17 @@ SanoPlasmaProgram >> gtInspectIn: composite [
 		display: [self descriptionText].
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaProgram >> illness [
 	^ illness
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaProgram >> illness: anObject [
 	illness := anObject
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SanoPlasmaProgram >> initialize [
 
 	super initialize.
@@ -138,46 +140,46 @@ SanoPlasmaProgram >> initialize [
 	notes := ''.
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SanoPlasmaProgram >> isProgram [
 	"Answer a boolean indicating if the receiver is a SanoPlasma Program"
 
 	^true
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaProgram >> name [
 	^ name
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaProgram >> name: aString [
 
 	name := aString ifEmpty: [ '(unnamed)' ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaProgram >> notes [
 	^ notes
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaProgram >> notes: aString [
 
 	notes := aString ifNil: [ '' ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaProgram >> organ [
 	^ organ
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaProgram >> organ: anObject [
 	organ := anObject
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 SanoPlasmaProgram >> printOn: aStream [
 
 	super printOn: aStream.
@@ -188,17 +190,17 @@ SanoPlasmaProgram >> printOn: aStream [
 			<< ')' ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaProgram >> runningTime [
 	^ runningTime
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaProgram >> runningTime: anObject [
 	runningTime := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaProgram >> timeInSeconds [
 	"Answer the total time in seconds"
 

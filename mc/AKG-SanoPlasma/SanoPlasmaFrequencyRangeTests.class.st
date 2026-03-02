@@ -1,10 +1,12 @@
 Class {
-	#name : #SanoPlasmaFrequencyRangeTests,
-	#superclass : #TestCase,
-	#category : 'AKG-SanoPlasma-Tests'
+	#name : 'SanoPlasmaFrequencyRangeTests',
+	#superclass : 'TestCase',
+	#category : 'AKG-SanoPlasma-Tests',
+	#package : 'AKG-SanoPlasma',
+	#tag : 'Tests'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 SanoPlasmaFrequencyRangeTests >> testAsString1 [
 
 	| range testString |
@@ -15,7 +17,7 @@ SanoPlasmaFrequencyRangeTests >> testAsString1 [
 	self assert: range asString equals: testString.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 SanoPlasmaFrequencyRangeTests >> testFromString1 [
 
 	| range |

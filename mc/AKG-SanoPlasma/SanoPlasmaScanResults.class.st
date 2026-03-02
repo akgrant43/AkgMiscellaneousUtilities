@@ -24,18 +24,20 @@ Internal Representation and Key Implementation Points.
     Implementation Points
 "
 Class {
-	#name : #SanoPlasmaScanResults,
-	#superclass : #Object,
+	#name : 'SanoPlasmaScanResults',
+	#superclass : 'Object',
 	#instVars : [
 		'sanoPlasma',
 		'fileReference',
 		'reportFrequencyCount',
 		'scanData'
 	],
-	#category : 'AKG-SanoPlasma-Model'
+	#category : 'AKG-SanoPlasma-Model',
+	#package : 'AKG-SanoPlasma',
+	#tag : 'Model'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaScanResults class >> fileNameDate: aFileReference [
 	"Answer the date encoded in the supplied file.
 	The filename is assumed to be DDMMYYYYxxxx"
@@ -50,7 +52,7 @@ SanoPlasmaScanResults class >> fileNameDate: aFileReference [
 	^Date year: year asInteger month: month asInteger day: day asInteger.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaScanResults class >> fileNameID: aFileReference [
 	"Answer the date encoded in the supplied file.
 	The filename is assumed to be DDMMYYYYxxxx"
@@ -62,7 +64,7 @@ SanoPlasmaScanResults class >> fileNameID: aFileReference [
 	^basename copyFrom: 9 to: extensionStart-1.
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 SanoPlasmaScanResults class >> on: aFileReference [
 	"Answer an instance of the receiver for the supplied file"
 
@@ -72,7 +74,7 @@ SanoPlasmaScanResults class >> on: aFileReference [
 		yourself
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 SanoPlasmaScanResults class >> on: aFileReference sanoPlasma: aSanoPlasma [
 	"Answer an instance of the receiver for the supplied file and equipment"
 
@@ -82,14 +84,14 @@ SanoPlasmaScanResults class >> on: aFileReference sanoPlasma: aSanoPlasma [
 		yourself
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaScanResults class >> pageToLineCount [
 	"Answer an array that maps the number of pages in the report (array index) to the number of lines"
 
 	^#(58 127 193)
 ]
 
-{ #category : #'private - inspecting' }
+{ #category : 'private - inspecting' }
 SanoPlasmaScanResults >> add: scanData toGrapher: grapher [
 	"Add the supplied scanData to the supplied gapher, setting the labels and offsets as required"
 
@@ -138,24 +140,24 @@ SanoPlasmaScanResults >> add: scanData toGrapher: grapher [
 	^grapher
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaScanResults >> fileReference [
 	^ fileReference
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaScanResults >> fileReference: anObject [
 	fileReference := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaScanResults >> filenameDate [
 	"Answer the date encoded in the receivers filename"
 
 	^self class fileNameDate: self fileReference
 ]
 
-{ #category : #'private - inspecting' }
+{ #category : 'private - inspecting' }
 SanoPlasmaScanResults >> graph [
 	"Answer a Roassal2 graph for the receivers data"
 
@@ -181,16 +183,7 @@ SanoPlasmaScanResults >> graph [
 	^view
 ]
 
-{ #category : #inspecting }
-SanoPlasmaScanResults >> gtDataIn: composite [
-	<gtInspectorPresentationOrder: 5>
-
-	composite morph
-		title: 'Data';
-		display: [ self scanData showWithGlamour ]
-]
-
-{ #category : #inspecting }
+{ #category : 'inspecting' }
 SanoPlasmaScanResults >> gtGraphIn: composite [
 	<gtInspectorPresentationOrder: 2>
 
@@ -200,31 +193,42 @@ SanoPlasmaScanResults >> gtGraphIn: composite [
 		when: [ self scanData isNotNil ]
 ]
 
-{ #category : #inspecting }
-SanoPlasmaScanResults >> gtReportIn: composite [
-	<gtInspectorPresentationOrder: 1>
+{ #category : 'inspecting' }
+SanoPlasmaScanResults >> gtReportFor: aView [
+	<gtView>
 
-	composite text
+	^ aView text
 		title: 'Report';
-		format: #asText;
-		display: [ self reportText ]
+		priority: 10;
+		text: [ self reportString asRopedText glamorousCodeFont]
 ]
 
-{ #category : #initialization }
+{ #category : 'inspecting' }
+SanoPlasmaScanResults >> gtScanDataFor: aView [
+	<gtView>
+
+	^ aView forward
+		title: 'Scan Data';
+		priority: 20;
+		object: [ self scanData];
+		view: #gtTableFor:
+]
+
+{ #category : 'initialization' }
 SanoPlasmaScanResults >> initialize [
 
 	super initialize.
 	self pages: 3.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaScanResults >> pages: pageCount [
 	"Set the reportFrequencyCount to the number matching the number of pages"
 
 	^self reportFrequencyCount: (self class pageToLineCount at: pageCount)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaScanResults >> rawScanData [
 	"Answer the raw scan data as a DataFrame"
 
@@ -246,14 +250,14 @@ SanoPlasmaScanResults >> rawScanData [
 	^rawData
 ]
 
-{ #category : #reports }
+{ #category : 'reports' }
 SanoPlasmaScanResults >> reportDirectory [
 	"Answer the default location for saving reports"
 
 	^self sanoPlasma reportDirectory
 ]
 
-{ #category : #reports }
+{ #category : 'reports' }
 SanoPlasmaScanResults >> reportFilename [
 	"Answer the receivers report filename"
 
@@ -261,17 +265,17 @@ SanoPlasmaScanResults >> reportFilename [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaScanResults >> reportFrequencyCount [
 	^ reportFrequencyCount
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaScanResults >> reportFrequencyCount: anObject [
 	reportFrequencyCount := anObject
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 SanoPlasmaScanResults >> reportString [
 	"Answer the top 30 matches"
 
@@ -281,9 +285,9 @@ SanoPlasmaScanResults >> reportString [
 	data ifNil:
 		[ ^self fileReference fullName, ' is not a valid scan results file' ].
 	numRecords := reportFrequencyCount min: data size.
-	sortedByMagnitude := data sorted: [ :a :b | (a atIndex: 3) > (b atIndex: 3) ].
+	sortedByMagnitude := data sorted: [ :a :b | (a at: 3) > (b at: 3) ].
 	sortedByMagnitude := sortedByMagnitude first: numRecords.
-	sortedByFrequency := sortedByMagnitude sorted: [ :a :b | (a atIndex: 2) < (b atIndex: 2) ].
+	sortedByFrequency := sortedByMagnitude sorted: [ :a :b | (a at: 2) < (b at: 2) ].
 	report := String streamContents: [ :stream |
 		stream
 			<< 'Filename: ';
@@ -316,28 +320,17 @@ SanoPlasmaScanResults >> reportString [
 	^report
 ]
 
-{ #category : #printing }
-SanoPlasmaScanResults >> reportText [
-	"Answer the report string with fixed width font"
-
-	| stream |
-
-	stream := TextStream on: (Text new: 1024).
-	self textOn: stream.
-	^stream contents
-]
-
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaScanResults >> sanoPlasma [
 	^ sanoPlasma
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaScanResults >> sanoPlasma: anObject [
 	sanoPlasma := anObject
 ]
 
-{ #category : #reports }
+{ #category : 'reports' }
 SanoPlasmaScanResults >> savePDF [
 	"Save the currently selected report"
 
@@ -358,14 +351,14 @@ SanoPlasmaScanResults >> savePDF [
 					forkNamed: 'SanoPlasma PDF conversion'.
 ]
 
-{ #category : #reports }
+{ #category : 'reports' }
 SanoPlasmaScanResults >> saveReportString [
 	"Save the report in the default location"
 
 	^self saveReportStringIn: self sanoPlasma reportDirectory
 ]
 
-{ #category : #reports }
+{ #category : 'reports' }
 SanoPlasmaScanResults >> saveReportStringIn: aDirectory [
 	"Answer the receivers report string in aDirectory"
 
@@ -380,7 +373,7 @@ SanoPlasmaScanResults >> saveReportStringIn: aDirectory [
 	UIManager default inform: 'Saved report to: ', reportName fullName
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaScanResults >> scanData [
 	"Answer the scan data as a DataFrame"
 
@@ -395,7 +388,7 @@ SanoPlasmaScanResults >> scanData [
 			scanData := rawData columnsAt: #(1 2 3 4) ] ].
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 SanoPlasmaScanResults >> textOn: aTextStream [
 
 	aTextStream
@@ -406,7 +399,7 @@ SanoPlasmaScanResults >> textOn: aTextStream [
 						pointSize: StandardFonts defaultFont pointSize)) beginningAt: 1.
 ]
 
-{ #category : #'private - inspecting' }
+{ #category : 'private - inspecting' }
 SanoPlasmaScanResults >> zoomOutFrom: graphData view: view block: buildBlock [
 	"Answer the dataset with twice the range of the selected data set"
 

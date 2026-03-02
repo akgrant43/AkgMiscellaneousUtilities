@@ -1,10 +1,12 @@
 Class {
-	#name : #SanoPlasmaPresetTests,
-	#superclass : #TestCase,
-	#category : 'AKG-SanoPlasma-Tests'
+	#name : 'SanoPlasmaPresetTests',
+	#superclass : 'TestCase',
+	#category : 'AKG-SanoPlasma-Tests',
+	#package : 'AKG-SanoPlasma',
+	#tag : 'Tests'
 }
 
-{ #category : #constants }
+{ #category : 'constants' }
 SanoPlasmaPresetTests >> template1 [
 
 	^'"[Preset]"
@@ -181,7 +183,7 @@ SanoPlasmaPresetTests >> template1 [
 '
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 SanoPlasmaPresetTests >> testFromStream [
 
 	| preset program range |
@@ -196,7 +198,7 @@ SanoPlasmaPresetTests >> testFromStream [
 	self assert: range toFrequency equals: 456000.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 SanoPlasmaPresetTests >> testWriteOn [
 
 	| frequencyRange program settings preset presetString |
