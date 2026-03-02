@@ -52,37 +52,10 @@ SanoPlasma class >> default [
 ]
 
 { #category : #'user interface' }
-SanoPlasma class >> openCrossOverUI [
-	<script>
-
-	^self default openCrossOverUI
-]
-
-{ #category : #'user interface' }
 SanoPlasma class >> openUI [
 	<script>
 
 	^self default openUI
-]
-
-{ #category : #'world menu' }
-SanoPlasma class >> sanoPlasmaMenuOn: aBuilder [
-	"Add the SanoPlasma world menu items"
-	<worldMenu>
-
-	| sanoPlasma |
-
-	sanoPlasma := aBuilder item: #SanoPlasma.
-	sanoPlasma with: [ 
-		(aBuilder item: #Chains)
-			parent: #SanoPlasma;
-			action: [ SanoPlasma default openUI ].
-		(aBuilder item: #ScanResults)
-			parent: #SanoPlasma;
-			action: [ SanoPlasma default openScanUI ].
-		(aBuilder item: #CrossOverUI)
-			parent: #SanoPlasma;
-			action: [ SanoPlasma default openCrossOverUI ] ]
 ]
 
 { #category : #accessing }
@@ -131,15 +104,6 @@ SanoPlasma >> openScanUI [
 	"Open the Scan UI for the receiver"
 
 	^SanoPlasmaScanUI new 
-		sanoPlasma: self;
-		openWithSpec.
-]
-
-{ #category : #'user interface' }
-SanoPlasma >> openUI [
-	"Open the UI for the receiver"
-
-	^SanoPlasmaUI new 
 		sanoPlasma: self;
 		openWithSpec.
 ]
