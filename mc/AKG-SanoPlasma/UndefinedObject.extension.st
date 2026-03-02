@@ -1,6 +1,6 @@
-Extension { #name : #UndefinedObject }
+Extension { #name : 'UndefinedObject' }
 
-{ #category : #'*AKG-SanoPlasma' }
+{ #category : '*AKG-SanoPlasma' }
 UndefinedObject >> asNumberOrNil [
 	^nil
 ]

@@ -1,14 +1,16 @@
 Class {
-	#name : #SanoPlasmaChain,
-	#superclass : #SanoPlasmaModel,
+	#name : 'SanoPlasmaChain',
+	#superclass : 'SanoPlasmaModel',
 	#instVars : [
 		'name',
 		'presets'
 	],
-	#category : 'AKG-SanoPlasma-Model'
+	#category : 'AKG-SanoPlasma-Model',
+	#package : 'AKG-SanoPlasma',
+	#tag : 'Model'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 SanoPlasmaChain class >> fromFile: aFilename [
 
 	^aFilename asFileReference readStreamDo: [ :stream |
@@ -17,7 +19,7 @@ SanoPlasmaChain class >> fromFile: aFilename [
 			yourself ]
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 SanoPlasmaChain class >> fromStream: aStream [
 
 	| chain |
@@ -28,42 +30,42 @@ SanoPlasmaChain class >> fromStream: aStream [
 	^chain
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaChain >> add: aPreset [
 
 	^presets add: aPreset
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 SanoPlasmaChain >> descriptionText [
 
 	^String streamContents: [ :stream |
 		 ]
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SanoPlasmaChain >> initialize [
 
 	super initialize.
 	presets := OrderedCollection new.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaChain >> name [
 	^ name
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaChain >> name: anObject [
 	name := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaChain >> presets [
 	^ presets
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 SanoPlasmaChain >> printOn: aStream [
 
 	super printOn: aStream.
@@ -73,7 +75,7 @@ SanoPlasmaChain >> printOn: aStream [
 		<< ')'
 ]
 
-{ #category : #writing }
+{ #category : 'writing' }
 SanoPlasmaChain >> saveIn: aDirectory [
 	"Write the receiver in aDirectory"
 
@@ -93,7 +95,7 @@ SanoPlasmaChain >> saveIn: aDirectory [
 
 ]
 
-{ #category : #writing }
+{ #category : 'writing' }
 SanoPlasmaChain >> writeOn: aStream [
 
 	self assert: presets isNotEmpty 

@@ -1,14 +1,16 @@
 Class {
-	#name : #SanoPlasmaProgramDB,
-	#superclass : #Object,
+	#name : 'SanoPlasmaProgramDB',
+	#superclass : 'Object',
 	#instVars : [
 		'fileName',
 		'programs'
 	],
-	#category : 'AKG-SanoPlasma-Model'
+	#category : 'AKG-SanoPlasma-Model',
+	#package : 'AKG-SanoPlasma',
+	#tag : 'Model'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 SanoPlasmaProgramDB class >> rootDirectory: rootDir [
 
 	^self new 
@@ -16,7 +18,7 @@ SanoPlasmaProgramDB class >> rootDirectory: rootDir [
 		yourself
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaProgramDB >> addOrReplace: aProgram [
 	"Ensure the supplied program exists in the DB.
 	If a program with the same name exists, replace it.
@@ -32,17 +34,17 @@ SanoPlasmaProgramDB >> addOrReplace: aProgram [
 	^aProgram
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaProgramDB >> fileName [
 	^ fileName
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaProgramDB >> fileName: anObject [
 	fileName := anObject
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 SanoPlasmaProgramDB >> loadPrograms [
 
 	| newPrograms csv |
@@ -55,12 +57,12 @@ SanoPlasmaProgramDB >> loadPrograms [
 	^newPrograms
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaProgramDB >> programs [
 	^ programs ifNil: [ programs := self loadPrograms ]
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 SanoPlasmaProgramDB >> save [
 	"Write the receiver back to the database"
 

@@ -1,1 +1,1 @@
-Package { #name : #'AKG-SanoPlasma' }
+Package { #name : 'AKG-SanoPlasma' }

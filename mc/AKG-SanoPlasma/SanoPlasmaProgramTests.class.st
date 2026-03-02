@@ -1,10 +1,12 @@
 Class {
-	#name : #SanoPlasmaProgramTests,
-	#superclass : #TestCase,
-	#category : 'AKG-SanoPlasma-Tests'
+	#name : 'SanoPlasmaProgramTests',
+	#superclass : 'TestCase',
+	#category : 'AKG-SanoPlasma-Tests',
+	#package : 'AKG-SanoPlasma',
+	#tag : 'Tests'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 SanoPlasmaProgramTests >> testFromCollection1 [
 
 	| program name time notes frequencies organ illness dwell |

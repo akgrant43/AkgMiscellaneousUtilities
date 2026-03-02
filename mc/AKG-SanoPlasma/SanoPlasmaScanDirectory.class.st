@@ -19,34 +19,36 @@ Internal Representation and Key Implementation Points.
     Implementation Points
 "
 Class {
-	#name : #SanoPlasmaScanDirectory,
-	#superclass : #Object,
+	#name : 'SanoPlasmaScanDirectory',
+	#superclass : 'Object',
 	#instVars : [
 		'sanoPlasma'
 	],
-	#category : 'AKG-SanoPlasma-Model'
+	#category : 'AKG-SanoPlasma-Model',
+	#package : 'AKG-SanoPlasma',
+	#tag : 'Model'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 SanoPlasmaScanDirectory class >> default [
 	"Answer the default Scan directory"
 
 	^self on: SanoPlasma default
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 SanoPlasmaScanDirectory class >> on: aSanoPlasma [
 	"Answer an instance of the receiver on the supplied SanoPlasma"
 
 	^self new sanoPlasma: aSanoPlasma 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaScanDirectory >> directory [
 	^ sanoPlasma rootDirectory / 'ScanData'
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 SanoPlasmaScanDirectory >> fileNameDate: aFileReference [
 	"Answer the date encoded in the supplied file.
 	The filename is assumed to be DDMMYYYYxxxx"
@@ -61,7 +63,7 @@ SanoPlasmaScanDirectory >> fileNameDate: aFileReference [
 	^Date year: year asInteger month: month asInteger day: day asInteger.
 ]
 
-{ #category : #inspecting }
+{ #category : 'inspecting' }
 SanoPlasmaScanDirectory >> gtInspectorItemsIn: composite [
 	<gtInspectorPresentationOrder: 1>
 	^ composite fastTable 
@@ -94,17 +96,31 @@ SanoPlasmaScanDirectory >> gtInspectorItemsIn: composite [
 		send: [ :selection | SanoPlasmaScanResults on: selection ]
 ]
 
-{ #category : #accessing }
+{ #category : 'as yet unclassified' }
+SanoPlasmaScanDirectory >> gtViewFilesFor: aView [
+	<gtView>
+
+	^ aView columnedList
+		title: 'Files';
+		priority: 10;
+		items: [ self sortedFiles ];
+		column: 'Name' text: #basename;
+		column: 'Size' text: #size;
+		column: 'Modified' text: #modificationTime;
+		send: [ :fileReference | SanoPlasmaScanResults on: fileReference ].
+]
+
+{ #category : 'accessing' }
 SanoPlasmaScanDirectory >> sanoPlasma [
 	^ sanoPlasma
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaScanDirectory >> sanoPlasma: anObject [
 	sanoPlasma := anObject
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 SanoPlasmaScanDirectory >> sortedFiles [
 	"Answer the receivers list of reports and directories"
 	| files |
@@ -113,6 +129,6 @@ SanoPlasmaScanDirectory >> sortedFiles [
 		(each basename endsWith: '.csv') and:
 		[ (SanoPlasmaScanResults on: each sanoPlasma: sanoPlasma) scanData isNotNil ] ].
 	files := files sorted: [ :a :b |
-		a creationTime > b creationTime ].
+		(self fileNameDate: a) > (self fileNameDate: b) ].
 	^ files
 ]

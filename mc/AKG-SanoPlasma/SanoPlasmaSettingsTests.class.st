@@ -1,10 +1,12 @@
 Class {
-	#name : #SanoPlasmaSettingsTests,
-	#superclass : #TestCase,
-	#category : 'AKG-SanoPlasma-Tests'
+	#name : 'SanoPlasmaSettingsTests',
+	#superclass : 'TestCase',
+	#category : 'AKG-SanoPlasma-Tests',
+	#package : 'AKG-SanoPlasma',
+	#tag : 'Tests'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 SanoPlasmaSettingsTests >> testDefaults [
 
 	| settings |

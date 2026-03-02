@@ -1,6 +1,6 @@
-Extension { #name : #String }
+Extension { #name : 'String' }
 
-{ #category : #'*AKG-SanoPlasma' }
+{ #category : '*AKG-SanoPlasma' }
 String >> asNumberOrNil [
 	"Answer the receiver as a number, or if empty, nil"
 

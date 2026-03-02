@@ -1,6 +1,6 @@
 Class {
-	#name : #SanoPlasmaFrequencyRange,
-	#superclass : #SanoPlasmaModel,
+	#name : 'SanoPlasmaFrequencyRange',
+	#superclass : 'SanoPlasmaModel',
 	#instVars : [
 		'fromFrequency',
 		'toFrequency',
@@ -8,10 +8,12 @@ Class {
 		'waveform',
 		'gating'
 	],
-	#category : 'AKG-SanoPlasma-Model'
+	#category : 'AKG-SanoPlasma-Model',
+	#package : 'AKG-SanoPlasma',
+	#tag : 'Model'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 SanoPlasmaFrequencyRange class >> fromString: aString [
 	"Create an instance of the receiver from the supplied string in SanoPlasma format"
 
@@ -33,7 +35,7 @@ SanoPlasmaFrequencyRange class >> fromString: aString [
 	^newRange
 ]
 
-{ #category : #converting }
+{ #category : 'converting' }
 SanoPlasmaFrequencyRange >> asString [
 	"Conver the receiver to it's SanoPlasma string representation"
 
@@ -57,7 +59,7 @@ SanoPlasmaFrequencyRange >> asString [
 				<< gating asString ] ]
 ]
 
-{ #category : #converting }
+{ #category : 'converting' }
 SanoPlasmaFrequencyRange >> asString1 [
 	"Don't really understand this format yet (thus the meaningless name)"
 
@@ -71,37 +73,37 @@ SanoPlasmaFrequencyRange >> asString1 [
 		stream << ';;;;;;;;;;;;;;;;;;' ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaFrequencyRange >> dwell [
 	^ dwell
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaFrequencyRange >> dwell: anObject [
 	dwell := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaFrequencyRange >> fromFrequency [
 	^ fromFrequency
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaFrequencyRange >> fromFrequency: anObject [
 	fromFrequency := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaFrequencyRange >> gating [
 	^ gating
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaFrequencyRange >> gating: anObject [
 	gating := anObject
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SanoPlasmaFrequencyRange >> initialize [
 
 	super initialize.
@@ -109,7 +111,7 @@ SanoPlasmaFrequencyRange >> initialize [
 	waveform := 1.
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 SanoPlasmaFrequencyRange >> printOn: aStream [
 
 	super printOn: aStream.
@@ -119,13 +121,13 @@ SanoPlasmaFrequencyRange >> printOn: aStream [
 		<< ''')'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaFrequencyRange >> range [
 
 	^toFrequency - fromFrequency
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaFrequencyRange >> sum [
 	"Answer the sum of the fromFrequency and toFrequency.
 	This is needed when setting up a crossover preset."
@@ -133,22 +135,22 @@ SanoPlasmaFrequencyRange >> sum [
 	^fromFrequency + toFrequency
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaFrequencyRange >> toFrequency [
 	^ toFrequency
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaFrequencyRange >> toFrequency: anObject [
 	toFrequency := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaFrequencyRange >> waveform [
 	^ waveform
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaFrequencyRange >> waveform: anObject [
 	waveform := anObject
 ]

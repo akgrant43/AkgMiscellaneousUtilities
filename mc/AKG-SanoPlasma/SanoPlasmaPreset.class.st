@@ -1,15 +1,17 @@
 Class {
-	#name : #SanoPlasmaPreset,
-	#superclass : #SanoPlasmaModel,
+	#name : 'SanoPlasmaPreset',
+	#superclass : 'SanoPlasmaModel',
 	#instVars : [
 		'name',
 		'settings',
 		'programs'
 	],
-	#category : 'AKG-SanoPlasma-Model'
+	#category : 'AKG-SanoPlasma-Model',
+	#package : 'AKG-SanoPlasma',
+	#tag : 'Model'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 SanoPlasmaPreset class >> fromStream: aStream [
 	"Answer a new instance of the receiver parsed from the supplied stream"
 
@@ -27,7 +29,7 @@ SanoPlasmaPreset class >> fromStream: aStream [
 	^preset
 ]
 
-{ #category : #templates }
+{ #category : 'templates' }
 SanoPlasmaPreset class >> template [
 	"Answer the template used to write out SanoPlasma presets"
 
@@ -205,37 +207,37 @@ SanoPlasmaPreset class >> template [
 '
 ]
 
-{ #category : #adding }
+{ #category : 'adding' }
 SanoPlasmaPreset >> add: aProgram [
 
 	^programs add: aProgram
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaPreset >> fileNameIn: aDirectory [
 	"Answer the receivers FileReference"
 
 	^aDirectory / (name, '.txt')
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SanoPlasmaPreset >> initialize [
 
 	super initialize.
 	programs := OrderedCollection new.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaPreset >> name [
 	^ name
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaPreset >> name: anObject [
 	name := anObject
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 SanoPlasmaPreset >> printOn: aStream [
 
 	super printOn: aStream.
@@ -245,12 +247,12 @@ SanoPlasmaPreset >> printOn: aStream [
 		<< ')'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaPreset >> programs [
 	^ programs
 ]
 
-{ #category : #writing }
+{ #category : 'writing' }
 SanoPlasmaPreset >> saveIn: aDirectory [
 	"Save the receiver in the supplied directory"
 
@@ -269,17 +271,17 @@ SanoPlasmaPreset >> saveIn: aDirectory [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaPreset >> settings [
 	^ settings
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SanoPlasmaPreset >> settings: anObject [
 	settings := anObject
 ]
 
-{ #category : #writing }
+{ #category : 'writing' }
 SanoPlasmaPreset >> writeOn: aStream [
 	"Write the receiver on aStream"
 

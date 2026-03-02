@@ -1,6 +1,6 @@
-Extension { #name : #Object }
+Extension { #name : 'Object' }
 
-{ #category : #'*AKG-SanoPlasma' }
+{ #category : '*AKG-SanoPlasma' }
 Object >> asNumberOrNil [
 
 	^self asNumber
