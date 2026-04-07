@@ -38,21 +38,6 @@ Class {
 }
 
 { #category : 'accessing' }
-SanoPlasmaScanResults class >> fileNameDate: aFileReference [
-	"Answer the date encoded in the supplied file.
-	The filename is assumed to be DDMMYYYYxxxx"
-
-	| regex day month year |
-
-	regex := '(\d\d)(\d\d)(\d\d\d\d)\d*.csv' asRegexIgnoringCase.
-	regex matches: aFileReference basename.
-	day := regex subexpression: 2.
-	month := regex subexpression: 3.
-	year := regex subexpression: 4.
-	^Date year: year asInteger month: month asInteger day: day asInteger.
-]
-
-{ #category : 'accessing' }
 SanoPlasmaScanResults class >> fileNameID: aFileReference [
 	"Answer the date encoded in the supplied file.
 	The filename is assumed to be DDMMYYYYxxxx"
@@ -154,7 +139,7 @@ SanoPlasmaScanResults >> fileReference: anObject [
 SanoPlasmaScanResults >> filenameDate [
 	"Answer the date encoded in the receivers filename"
 
-	^self class fileNameDate: self fileReference
+	^ SanoPlasmaScanDirectory fileNameDate: self fileReference
 ]
 
 { #category : 'private - inspecting' }
@@ -238,7 +223,8 @@ SanoPlasmaScanResults >> rawScanData [
 	self fileReference readStreamDo: [ :stream |
 		csv := NeoCSVReader on: stream.
 		header := csv readHeader.
-		(header includes: 'Frequency (Hz)') ifFalse: [ ^ nil ].
+		((header includes: 'Frequency (Hz)') or:
+			[ header includes: 'Frequency' ]) ifFalse: [ ^ nil ].
 		csv do: [ :row |
 			rows add: (Array streamContents: [ :array |
 				row do: [ :cell | array nextPut: cell asNumberOrNil ] ]) ] ].
@@ -277,15 +263,21 @@ SanoPlasmaScanResults >> reportFrequencyCount: anObject [
 
 { #category : 'printing' }
 SanoPlasmaScanResults >> reportString [
-	"Answer the top 30 matches"
-
-	| data numRecords sortedByMagnitude sortedByFrequency report |
+	| data columnNames columnNumber numRecords sortedByMagnitude sortedByFrequency report |
 
 	data := self scanData.
 	data ifNil:
 		[ ^self fileReference fullName, ' is not a valid scan results file' ].
 	numRecords := reportFrequencyCount min: data size.
-	sortedByMagnitude := data sorted: [ :a :b | (a at: 3) > (b at: 3) ].
+	columnNames := data columnNames.
+	columnNumber := columnNames detectIndex: [ :name | name beginsWith: 'Magnitude' ]
+		ifNone: [ nil ].
+	columnNumber ifNil:
+		[ columnNumber := columnNames detectIndex: [ :name | name = 'HRV' ]
+			ifNone: [ nil ] ].
+	columnNumber ifNil:
+		[ self error: 'Unable to find column' ].
+	sortedByMagnitude := data sorted: [ :a :b | (a at: columnNumber) > (b at: columnNumber) ].
 	sortedByMagnitude := sortedByMagnitude first: numRecords.
 	sortedByFrequency := sortedByMagnitude sorted: [ :a :b | (a at: 2) < (b at: 2) ].
 	report := String streamContents: [ :stream |
@@ -294,10 +286,7 @@ SanoPlasmaScanResults >> reportString [
 			<< self fileReference basename;
 			cr;
 			<< 'Date:     ';
-			<< (self class fileNameDate: self fileReference) printString;
-			cr;
-			<< 'ID:       ';
-			<< (self class fileNameID: self fileReference);
+			<< (SanoPlasmaScanDirectory fileNameDate: self fileReference) printString;
 			cr;
 			cr; cr.
 		stream
@@ -312,9 +301,9 @@ SanoPlasmaScanResults >> reportString [
 			frequency := sortedByFrequency at: index.
 			stream
 				<< (magnitude second asNumber printPaddedWith: Character space to: 8);
-				<< ((magnitude third asNumber printShowingDecimalPlaces: 2) padLeftTo: 8);
+				<< (((magnitude at: columnNumber) asNumber printShowingDecimalPlaces: 2) padLeftTo: 8);
 				<< (frequency second asNumber printPaddedWith: Character space to: 28);
-				<< ((frequency third asNumber printShowingDecimalPlaces: 2) padLeftTo: 10);
+				<< (((frequency at: columnNumber) asNumber printShowingDecimalPlaces: 2) padLeftTo: 10);
 				cr ].
 		 ].
 	^report
@@ -383,7 +372,7 @@ SanoPlasmaScanResults >> scanData [
 		rawData := self rawScanData.
 		rawData ifNotNil:
 			[ columnNames := rawData columnNames.
-			frequencyIndex := columnNames indexOf: 'Frequency (Hz)'.
+			frequencyIndex := (columnNames indexOf: 'Frequency (Hz)') max: (columnNames indexOf: 'Frequency').
 			frequencyIndex = 0 ifTrue: [ ^nil ].
 			scanData := rawData columnsAt: #(1 2 3 4) ] ].
 ]
