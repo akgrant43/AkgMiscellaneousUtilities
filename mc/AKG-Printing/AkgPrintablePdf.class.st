@@ -4,17 +4,18 @@ Convert the supplied PDF to a sequence of images and convert back to a PDF.
 Useful when your printer doesn't handle PDFs very well (looking at HP).
 "
 Class {
-	#name : #AkgPrintablePdf,
-	#superclass : #Object,
+	#name : 'AkgPrintablePdf',
+	#superclass : 'Object',
 	#instVars : [
 		'inputPdf',
 		'outputPdf',
 		'tmpDir'
 	],
-	#category : #'AKG-Printing'
+	#category : 'AKG-Printing',
+	#package : 'AKG-Printing'
 }
 
-{ #category : #actions }
+{ #category : 'actions' }
 AkgPrintablePdf class >> input: inputPdf [
 
 	^ self new
@@ -22,7 +23,7 @@ AkgPrintablePdf class >> input: inputPdf [
 		convert.
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 AkgPrintablePdf class >> input: inputPdf outputPdf: outputPdf [
 
 	^ self new
@@ -31,13 +32,13 @@ AkgPrintablePdf class >> input: inputPdf outputPdf: outputPdf [
 		convert.
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 AkgPrintablePdf >> cleanTmpDir [
 
 	tmpDir deleteAllChildren
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 AkgPrintablePdf >> convert [
 
 	tmpDir := self createTmpDir.
@@ -47,7 +48,7 @@ AkgPrintablePdf >> convert [
 	^ outputPdf
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 AkgPrintablePdf >> convertImagesToPdf [
 	| proc output status cmd |
 
@@ -74,7 +75,7 @@ AkgPrintablePdf >> convertImagesToPdf [
 			self error: message ]
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 AkgPrintablePdf >> convertToImages [
 	"Convert the input PDF to a sequence of images.
 	Requires gs (ghostscript) to be in the path."
@@ -98,13 +99,13 @@ AkgPrintablePdf >> convertToImages [
 		self error: message ].
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 AkgPrintablePdf >> createTmpDir [
 
 	^ (FileLocator temp / 'akg-printable-pdf') resolve ensureCreateDirectory
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 AkgPrintablePdf >> generateOutputPdf [
 	| newBasename |
 
@@ -112,24 +113,24 @@ AkgPrintablePdf >> generateOutputPdf [
 	^ inputPdf parent / newBasename
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AkgPrintablePdf >> inputPdf [
 	^ inputPdf
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AkgPrintablePdf >> inputPdf: aFileReference [
 
 	inputPdf := aFileReference asFileReference.
 	self assert: inputPdf extension asLowercase = 'pdf'.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AkgPrintablePdf >> outputPdf [
 	^ outputPdf ifNil: [ outputPdf := self generateOutputPdf ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AkgPrintablePdf >> outputPdf: aFileReference [
 
 	outputPdf := aFileReference asFileReference.

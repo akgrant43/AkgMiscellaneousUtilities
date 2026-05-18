@@ -1,10 +1,11 @@
 Class {
-	#name : #AkgPdfTextUtility,
-	#superclass : #Object,
-	#category : #'AKG-Printing'
+	#name : 'AkgPdfTextUtility',
+	#superclass : 'Object',
+	#category : 'AKG-Printing',
+	#package : 'AKG-Printing'
 }
 
-{ #category : #api }
+{ #category : 'api' }
 AkgPdfTextUtility >> pdfToText: aFileReference [
 	"Convert the supplied pdf file to text.
 	By default it attempts to keep the layout."

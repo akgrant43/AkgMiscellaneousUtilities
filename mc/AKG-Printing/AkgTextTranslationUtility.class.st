@@ -14,74 +14,102 @@ AkgTextTranslationUtility new
 
 "
 Class {
-	#name : #AkgTextTranslationUtility,
-	#superclass : #Object,
+	#name : 'AkgTextTranslationUtility',
+	#superclass : 'Object',
 	#instVars : [
 		'inFile',
 		'outFile',
 		'srcLanguage',
-		'dstLanguage'
+		'dstLanguage',
+		'srcLanguageName',
+		'dstLanguageName',
+		'semaphore',
+		'chat'
 	],
-	#category : #'AKG-Printing'
+	#category : 'AKG-Printing',
+	#package : 'AKG-Printing'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AkgTextTranslationUtility >> dstLanguage [
 	^ dstLanguage
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AkgTextTranslationUtility >> dstLanguage: anObject [
 	dstLanguage := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AkgTextTranslationUtility >> inFile [
 	^ inFile
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AkgTextTranslationUtility >> inFile: aFileReference [
 
 	inFile := aFileReference
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 AkgTextTranslationUtility >> initialize [
 
 	super initialize.
 	srcLanguage := 'cs'.
+	srcLanguageName := 'Czech'.
 	dstLanguage := 'en'.
+	dstLanguageName := 'English'.
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
+AkgTextTranslationUtility >> newChat [
+
+	semaphore := Semaphore new.
+	chat := GtLModelFactory translateChat.
+	chat
+		when: GtLChatExecutionStateChanged
+		send: #signalSemaphoreOnFinished:
+		to: self.
+	^ chat
+]
+
+{ #category : 'as yet unclassified' }
 AkgTextTranslationUtility >> outBasename: aString [
 
 	outFile := inFile asFileReference parent / aString
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AkgTextTranslationUtility >> outFile [
 	^ outFile
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AkgTextTranslationUtility >> outFile: aFileReference [
 
 	outFile := aFileReference
 ]
 
-{ #category : #accessing }
+{ #category : 'as yet unclassified' }
+AkgTextTranslationUtility >> signalSemaphoreOnFinished: aStateChange [
+
+	aStateChange state
+		ifCanStop: [] 
+		ifStopping: [] 
+		ifIdle: [ semaphore signal ].
+]
+
+{ #category : 'accessing' }
 AkgTextTranslationUtility >> srcLanguage [
 	^ srcLanguage
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AkgTextTranslationUtility >> srcLanguage: anObject [
 	srcLanguage := anObject
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 AkgTextTranslationUtility >> text: aString [
 	"Set the supplied string as the input file"
 
@@ -90,36 +118,24 @@ AkgTextTranslationUtility >> text: aString [
 		stream << aString withUnixLineEndings ].
 ]
 
-{ #category : #api }
+{ #category : 'api' }
 AkgTextTranslationUtility >> translate [
 	"Translate the specified file"
-	| command arguments inFr outFr builder status proc stdout stderr |
+	| command inFr outFr |
 
-	inFr := inFile asFileReference.
+	inFr := inFile asFileReference contents.
 	outFr := outFile asFileReference.
-	command := 'trans'.
-	arguments := Array streamContents: [ :stream |
-		stream
-			nextPut: '-b';
-			nextPut: '-s';
-			nextPut: srcLanguage;
-			nextPut: '-i';
-			nextPut: inFr fullName;
-			nextPut: '-t';
-			nextPut: dstLanguage;
-			nextPut: '-o';
-			nextPut: outFr fullName ].
-	builder := GtExternalProcessBuilder new
-		command: command;
-		arguments: arguments;
-		pipeStdout;
-		pipeStderr.
-	command := builder createNativeCommand.
-	proc := command spawn.
-	status := command status.
-	status isSuccess ifFalse: 
-		[ stdout := String cr join: proc stdoutStream lines toArray wait.
-		stderr := String cr join: proc stderrStream lines toArray wait.
-		self error: 'phooey' ].
-	^ outFr.
+	command := String streamContents: [ :stream |
+		stream nextPutAll:
+'You are a professional Czech (cs) to English (en-AU) translator. Your goal is to accurately convey the meaning and nuances of the original Czech text while adhering to English grammar, vocabulary, and cultural sensitivities.
+Produce only the English translation, without any additional explanations or commentary.  Do not convert math notation in to unicode symbols, but leave it as latex formatted expressions.  Please translate the following Czech text into English:
+
+
+'.
+		stream nextPutAll: inFr. ].
+	self newChat.
+	chat sendString: command.
+	semaphore wait.
+	outFr writeStreamDo: [ :stream |
+		stream nextPutAll: chat messages last contentText ].
 ]

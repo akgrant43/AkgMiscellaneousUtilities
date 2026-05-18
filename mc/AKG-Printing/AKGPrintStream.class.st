@@ -22,8 +22,8 @@ Internal Representation and Key Implementation Points.
     Implementation Points
 "
 Class {
-	#name : #AKGPrintStream,
-	#superclass : #Object,
+	#name : 'AKGPrintStream',
+	#superclass : 'Object',
 	#instVars : [
 		'basename',
 		'printerHost',
@@ -33,36 +33,37 @@ Class {
 		'pandocOptions',
 		'tempDir'
 	],
-	#category : 'AKG-Printing'
+	#category : 'AKG-Printing',
+	#package : 'AKG-Printing'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AKGPrintStream >> addEnscriptOption: aString [
 	"Add the supplied option to the enscript command (unchecked)"
 
 	enscriptOptions := enscriptOptions copyWith: aString.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AKGPrintStream >> addPandocOption: aString [
 	"Add the supplied option to the enscript command (unchecked)"
 
 	pandocOptions := pandocOptions copyWith: aString.
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 AKGPrintStream >> basename [
 
 	^basename ifNil: [ basename := self newTempBasename ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AKGPrintStream >> basename: anObject [
 
 	basename := anObject
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 AKGPrintStream >> convertToPDF [
 	"Convert textTemporary to pdfTemporary"
 
@@ -88,7 +89,7 @@ AKGPrintStream >> convertToPDF [
 
 ]
 
-{ #category : #converting }
+{ #category : 'converting' }
 AKGPrintStream >> enscriptToPDF [
 	"Convert #textTemporary to a #pdfTemporary"
 	| cmdString |
@@ -103,7 +104,7 @@ AKGPrintStream >> enscriptToPDF [
 	UIManager default inform: 'Successfully converted report to pdf'.
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 AKGPrintStream >> initialize [
 
 	super initialize.
@@ -115,7 +116,7 @@ AKGPrintStream >> initialize [
 	pandocOptions := #().
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 AKGPrintStream >> markdownDirectToPDF: markdownFileReference [
 	"Convert the supplied markdown file to pdfTemporary"
 	| proc cmd args pdfFileReference |
@@ -142,7 +143,7 @@ AKGPrintStream >> markdownDirectToPDF: markdownFileReference [
 	^ pdfFileReference
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 AKGPrintStream >> markdownStringToODT: aString [
 	"Print the supplied markdown string"
 	| mdFile |
@@ -154,7 +155,7 @@ AKGPrintStream >> markdownStringToODT: aString [
 	^ self markdownToODT: mdFile
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 AKGPrintStream >> markdownStringToPDF: aString [
 	| mdFile |
 
@@ -165,7 +166,7 @@ AKGPrintStream >> markdownStringToPDF: aString [
 	^ self markdownDirectToPDF: mdFile.
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 AKGPrintStream >> markdownToODT: markdownFileReference [
 	"Convert the supplied markdown file to pdfTemporary"
 
@@ -194,7 +195,7 @@ AKGPrintStream >> markdownToODT: markdownFileReference [
 
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 AKGPrintStream >> markdownToPDF: markdownFileReference [
 	"Convert the supplied markdown file to pdfTemporary"
 	| odtFileReference |
@@ -203,12 +204,12 @@ AKGPrintStream >> markdownToPDF: markdownFileReference [
 	^ self odtToPDF: odtFileReference.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AKGPrintStream >> mdTemporary [
 	^ self basename withExtension: 'md'
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 AKGPrintStream >> newTempBasename [
 
 	| random newBasename |
@@ -223,12 +224,12 @@ AKGPrintStream >> newTempBasename [
 	^self tempDir / newBasename
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AKGPrintStream >> odtTemporary [
 	^ self basename withExtension: 'odt'
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 AKGPrintStream >> odtToPDF: odtFileReference [
 	"Convert the supplied odt file to pdf"
 	| proc cmd args |
@@ -251,12 +252,12 @@ AKGPrintStream >> odtToPDF: odtFileReference [
 	^ odtFileReference withExtension: 'pdf'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AKGPrintStream >> pdfTemporary [
 	^ self basename withExtension: 'pdf'
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 AKGPrintStream >> printMarkdownFile: aFileReference [
 	"Print the supplied markdown file"
 
@@ -264,7 +265,7 @@ AKGPrintStream >> printMarkdownFile: aFileReference [
 	self printPDF: self pdfTemporary.
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 AKGPrintStream >> printMarkdownString: aString [
 	| pdfFile |
 
@@ -272,17 +273,17 @@ AKGPrintStream >> printMarkdownString: aString [
 	self printPDF: pdfFile.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AKGPrintStream >> printOptions [
 	^ printOptions
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AKGPrintStream >> printOptions: anObject [
 	printOptions := anObject
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 AKGPrintStream >> printPDF: pdfFileReference [
 	"Print the PDF file"
 
@@ -311,7 +312,7 @@ AKGPrintStream >> printPDF: pdfFileReference [
 
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 AKGPrintStream >> printTextStream: aStream [
 	"Print the supplied stream, converting to postscript using enscript and then to pdf with ps2pdf"
 
@@ -321,42 +322,42 @@ AKGPrintStream >> printTextStream: aStream [
 		printPDF: self pdfTemporary.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AKGPrintStream >> printerHost [
 	^ printerHost
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AKGPrintStream >> printerHost: anObject [
 	printerHost := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AKGPrintStream >> printerName [
 	^ printerName
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AKGPrintStream >> printerName: anObject [
 	printerName := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AKGPrintStream >> tempDir [
 	^ tempDir
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AKGPrintStream >> tempDir: anObject [
 	tempDir := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AKGPrintStream >> textTemporary [
 	^ self basename withExtension: 'txt'
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 AKGPrintStream >> writeToText: aStream [
 	"Write the supplied stream to textTemporary"
 
