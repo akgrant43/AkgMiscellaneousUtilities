@@ -24,11 +24,20 @@ Class {
 		'srcLanguageName',
 		'dstLanguageName',
 		'semaphore',
-		'chat'
+		'chat',
+		'srcText'
 	],
 	#category : 'AKG-Printing',
 	#package : 'AKG-Printing'
 }
+
+{ #category : 'api' }
+AkgTextTranslationUtility class >> czText: aString [
+
+	^ self new
+		text: aString;
+		translate
+]
 
 { #category : 'accessing' }
 AkgTextTranslationUtility >> dstLanguage [
@@ -121,10 +130,12 @@ AkgTextTranslationUtility >> text: aString [
 { #category : 'api' }
 AkgTextTranslationUtility >> translate [
 	"Translate the specified file"
-	| command inFr outFr |
+	| command sourceText translatedText outFr |
 
-	inFr := inFile asFileReference contents.
-	outFr := outFile asFileReference.
+	sourceText := inFile
+		ifNil: [ srcText ]
+		ifNotNil: [ inFile asFileReference contents ].
+	sourceText ifNil: [ self error: 'No source text supplied' ].
 	command := String streamContents: [ :stream |
 		stream nextPutAll:
 'You are a professional Czech (cs) to English (en-AU) translator. Your goal is to accurately convey the meaning and nuances of the original Czech text while adhering to English grammar, vocabulary, and cultural sensitivities.
@@ -132,10 +143,14 @@ Produce only the English translation, without any additional explanations or com
 
 
 '.
-		stream nextPutAll: inFr. ].
+		stream nextPutAll: sourceText. ].
 	self newChat.
 	chat sendString: command.
 	semaphore wait.
-	outFr writeStreamDo: [ :stream |
-		stream nextPutAll: chat messages last contentText ].
+	translatedText := chat messages last contentText.
+	outFile ifNotNil:
+		[ outFr := outFile asFileReference.
+		outFr writeStreamDo: [ :stream |
+			stream nextPutAll: translatedText ] ].
+	^ translatedText.
 ]
