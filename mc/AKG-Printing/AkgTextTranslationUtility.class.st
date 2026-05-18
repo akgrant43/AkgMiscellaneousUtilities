@@ -39,6 +39,19 @@ AkgTextTranslationUtility class >> czText: aString [
 		translate
 ]
 
+{ #category : 'api' }
+AkgTextTranslationUtility class >> srcDir: srcDir matching: aString dstDir: dstDir [
+	| files |
+
+	files := srcDir asFileReference childrenMatching: aString.
+	files do: [ :srcFile | | dstFile |
+		dstFile := dstDir / (srcFile withExtension: 'txt') basename.
+		self new
+			inFile: srcFile;
+			outFile: dstFile;
+			translate. ].
+]
+
 { #category : 'accessing' }
 AkgTextTranslationUtility >> dstLanguage [
 	^ dstLanguage
