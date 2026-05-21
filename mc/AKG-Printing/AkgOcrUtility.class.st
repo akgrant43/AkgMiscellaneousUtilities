@@ -25,9 +25,12 @@ AkgOcrUtility >> convert: imageFileReference to: markdownFileReference [
 
 { #category : 'private accessing' }
 AkgOcrUtility >> newChat [
+	| provider |
 
 	semaphore := Semaphore new.
-	chat := GtLModelFactory qwenChat.
+	provider := GtLModelFactory qwenProvider.
+	chat := GtLChat new
+		provider: provider.
 	chat
 		when: GtLChatExecutionStateChanged
 		send: #signalSemaphoreOnFinished:
