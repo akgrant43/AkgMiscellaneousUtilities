@@ -32,11 +32,54 @@ Class {
 }
 
 { #category : 'api' }
-AkgTextTranslationUtility class >> czText: aString [
+AkgTextTranslationUtility class >> czEnText: aString [
 
 	^ self new
 		text: aString;
 		translate
+]
+
+{ #category : 'api' }
+AkgTextTranslationUtility class >> enCzText: aString [
+
+	^ self new
+		setEnCz;
+		text: aString;
+		translate
+]
+
+{ #category : 'as yet unclassified' }
+AkgTextTranslationUtility class >> gtTranslatorFor: aView [
+	<gtClassView>
+	^ aView explicit
+		title: 'Translate';
+		priority: 10;
+		stencil: [ 
+			| container inputEditor outputEditor czEnButton enCzButton |
+			container := BrVerticalPane new
+				matchParent.
+			inputEditor := BrEditor new
+				aptitude: BrGlamorousRegularEditorAptitude new ";
+				text: self sourceText asRopedText".
+			outputEditor := BrEditor new
+				aptitude: BrGlamorousRegularEditorAptitude new ";
+				text: self translatedText asRopedText";
+				beReadOnlyWithSelection.
+			czEnButton := BrButton new
+				aptitude: BrGlamorousButtonWithLabelAptitude;
+				label: 'CZ->EN';
+				action: [ outputEditor text: (self czEnText: inputEditor text asString) asRopedText ].
+			enCzButton := BrButton new
+				aptitude: BrGlamorousButtonWithLabelAptitude;
+				label: 'EN->CZ';
+				action: [ outputEditor text: (self enCzText: inputEditor text asString) asRopedText ].
+			container
+				addChild: inputEditor;
+				addChild: (BrHorizontalPane new
+					hMatchParent;
+					addChild: czEnButton;
+					addChild: enCzButton);
+				addChild: outputEditor ]
 ]
 
 { #category : 'api' }
@@ -77,10 +120,7 @@ AkgTextTranslationUtility >> inFile: aFileReference [
 AkgTextTranslationUtility >> initialize [
 
 	super initialize.
-	srcLanguage := 'cs'.
-	srcLanguageName := 'Czech'.
-	dstLanguage := 'en'.
-	dstLanguageName := 'English'.
+	self setCzEn.
 ]
 
 { #category : 'as yet unclassified' }
@@ -110,6 +150,24 @@ AkgTextTranslationUtility >> outFile [
 AkgTextTranslationUtility >> outFile: aFileReference [
 
 	outFile := aFileReference
+]
+
+{ #category : 'as yet unclassified' }
+AkgTextTranslationUtility >> setCzEn [
+
+	srcLanguage := 'cs'.
+	srcLanguageName := 'Czech'.
+	dstLanguage := 'en'.
+	dstLanguageName := 'English'.
+]
+
+{ #category : 'as yet unclassified' }
+AkgTextTranslationUtility >> setEnCz [
+
+	srcLanguage := 'en'.
+	srcLanguageName := 'English'.
+	dstLanguage := 'cs'.
+	dstLanguageName := 'Czech'.
 ]
 
 { #category : 'as yet unclassified' }
