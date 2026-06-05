@@ -48,38 +48,15 @@ AkgTextTranslationUtility class >> enCzText: aString [
 		translate
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'ui' }
 AkgTextTranslationUtility class >> gtTranslatorFor: aView [
 	<gtClassView>
-	^ aView explicit
+
+	^ aView forward
 		title: 'Translate';
 		priority: 10;
-		stencil: [ 
-			| container inputEditor outputEditor czEnButton enCzButton |
-			container := BrVerticalPane new
-				matchParent.
-			inputEditor := BrEditor new
-				aptitude: BrGlamorousRegularEditorAptitude new ";
-				text: self sourceText asRopedText".
-			outputEditor := BrEditor new
-				aptitude: BrGlamorousRegularEditorAptitude new ";
-				text: self translatedText asRopedText";
-				beReadOnlyWithSelection.
-			czEnButton := BrButton new
-				aptitude: BrGlamorousButtonWithLabelAptitude;
-				label: 'CZ->EN';
-				action: [ outputEditor text: (self czEnText: inputEditor text asString) asRopedText ].
-			enCzButton := BrButton new
-				aptitude: BrGlamorousButtonWithLabelAptitude;
-				label: 'EN->CZ';
-				action: [ outputEditor text: (self enCzText: inputEditor text asString) asRopedText ].
-			container
-				addChild: inputEditor;
-				addChild: (BrHorizontalPane new
-					hMatchParent;
-					addChild: czEnButton;
-					addChild: enCzButton);
-				addChild: outputEditor ]
+		object: [ self new ];
+		view: #gtTranslatorFor:
 ]
 
 { #category : 'api' }
@@ -103,6 +80,49 @@ AkgTextTranslationUtility >> dstLanguage [
 { #category : 'accessing' }
 AkgTextTranslationUtility >> dstLanguage: anObject [
 	dstLanguage := anObject
+]
+
+{ #category : 'ui' }
+AkgTextTranslationUtility >> gtTranslatorFor: aView [
+	<gtView>
+	^ aView explicit
+		title: 'Translate';
+		priority: 10;
+		stencil: [ 
+			| container inputEditor outputEditor czEnButton enCzButton copyButton insets |
+			container := BrVerticalPane new
+				matchParent.
+			insets := BlInsets left: 5.
+			inputEditor := BrEditor new
+				aptitude: BrGlamorousRegularEditorAptitude new ";
+				text: self sourceText asRopedText".
+			outputEditor := BrEditor new
+				aptitude: BrGlamorousRegularEditorAptitude new ";
+				text: self translatedText asRopedText";
+				beReadOnlyWithSelection.
+			czEnButton := BrButton new
+				aptitude: BrGlamorousButtonWithLabelAptitude;
+				label: 'CZ->EN';
+				margin: insets;
+				action: [ outputEditor text: (self class czEnText: inputEditor text asString) asRopedText ].
+			enCzButton := BrButton new
+				aptitude: BrGlamorousButtonWithLabelAptitude;
+				label: 'EN->CZ';
+				margin: insets;
+				action: [ outputEditor text: (self class enCzText: inputEditor text asString) asRopedText ].
+			copyButton := BrButton new
+				aptitude: BrGlamorousButtonWithIconAptitude;
+				icon: BrGlamorousVectorIcons copyToClipboard;
+				margin: insets;
+				action: [ Clipboard default clipboardText: outputEditor text asString ].
+			container
+				addChild: inputEditor;
+				addChild: (BrHorizontalPane new
+					hMatchParent;
+					addChild: czEnButton;
+					addChild: enCzButton;
+					addChild: copyButton);
+				addChild: outputEditor ]
 ]
 
 { #category : 'accessing' }
