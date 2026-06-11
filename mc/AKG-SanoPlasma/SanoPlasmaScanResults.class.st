@@ -322,22 +322,19 @@ SanoPlasmaScanResults >> sanoPlasma: anObject [
 { #category : 'reports' }
 SanoPlasmaScanResults >> savePDF [
 	"Save the currently selected report"
-
-	| cmdString |
+	| cmdString proc |
 
 	self saveReportString.
 	cmdString := 'enscript -B {1} -o - | ps2pdf - latest.pdf' format: { self reportFilename }.
-	[ OSSUnixSubprocess new 
+	proc := GtSubprocessWithInMemoryOutput new
 		shellCommand: cmdString;
-		workingDirectory: self reportDirectory fullName;
-		redirectStderr;
-		redirectStdout;
-		runAndWaitOnExitDo: [ :cmd :stdout :stderr | 
-			cmd isSuccess 
-				ifTrue: [ 
-					UIManager default inform: 'Successfully converted report to pdf'. ]
-				ifFalse: [ self error: 'Something went wrong' ] ] ] 
-					forkNamed: 'SanoPlasma PDF conversion'.
+		workingDirectory: self reportDirectory fullName.
+	proc runAndWait.
+	proc isSuccess ifTrue: 
+		[ UIManager default inform: 'Successfully converted report to pdf'. ]
+	ifFalse: 
+		[ self error: 'Something went wrong' ].
+	^ self reportDirectory / 'latest.pdf'.
 ]
 
 { #category : 'reports' }
