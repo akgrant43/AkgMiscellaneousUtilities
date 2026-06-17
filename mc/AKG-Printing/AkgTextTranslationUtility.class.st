@@ -82,6 +82,16 @@ AkgTextTranslationUtility >> dstLanguage: anObject [
 	dstLanguage := anObject
 ]
 
+{ #category : 'accessing' }
+AkgTextTranslationUtility >> dstLanguageName [
+	^ dstLanguageName
+]
+
+{ #category : 'accessing' }
+AkgTextTranslationUtility >> dstLanguageName: anObject [
+	dstLanguageName := anObject
+]
+
 { #category : 'ui' }
 AkgTextTranslationUtility >> gtTranslatorFor: aView [
 	<gtView>
@@ -209,6 +219,16 @@ AkgTextTranslationUtility >> srcLanguage: anObject [
 	srcLanguage := anObject
 ]
 
+{ #category : 'accessing' }
+AkgTextTranslationUtility >> srcLanguageName [
+	^ srcLanguageName
+]
+
+{ #category : 'accessing' }
+AkgTextTranslationUtility >> srcLanguageName: anObject [
+	srcLanguageName := anObject
+]
+
 { #category : 'as yet unclassified' }
 AkgTextTranslationUtility >> text: aString [
 	"Set the supplied string as the input file"
@@ -229,11 +249,11 @@ AkgTextTranslationUtility >> translate [
 	sourceText ifNil: [ self error: 'No source text supplied' ].
 	command := String streamContents: [ :stream |
 		stream nextPutAll:
-'You are a professional Czech (cs) to English (en-AU) translator. Your goal is to accurately convey the meaning and nuances of the original Czech text while adhering to English grammar, vocabulary, and cultural sensitivities.
-Produce only the English translation, without any additional explanations or commentary.  Do not convert math notation in to unicode symbols, but leave it as latex formatted expressions.  Please translate the following Czech text into English:
+('You are a professional {1} ({2}) to {3} ({4}) translator. Your goal is to accurately convey the meaning and nuances of the original {1} text while adhering to {3} grammar, vocabulary, and cultural sensitivities.
+Produce only the {3} translation, without any additional explanations or commentary.  Do not convert math notation in to unicode symbols, but leave it as latex formatted expressions.  Please translate the following {1} text into {3}:
 
 
-'.
+' format: { srcLanguageName. srcLanguage. dstLanguageName. dstLanguage. }).
 		stream nextPutAll: sourceText. ].
 	self newChat.
 	chat sendString: command.
