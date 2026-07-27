@@ -157,7 +157,7 @@ AkgTextTranslationUtility >> initialize [
 AkgTextTranslationUtility >> newChat [
 
 	semaphore := Semaphore new.
-	chat := GtLModelFactory translateChat.
+	chat := GtLOllamaProvider new modelName: 'translategemma:12b'.
 	chat
 		when: GtLChatExecutionStateChanged
 		send: #signalSemaphoreOnFinished:

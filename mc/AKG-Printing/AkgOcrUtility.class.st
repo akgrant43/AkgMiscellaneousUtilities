@@ -28,7 +28,7 @@ AkgOcrUtility >> newChat [
 	| provider |
 
 	semaphore := Semaphore new.
-	provider := GtLModelFactory qwenProvider.
+	provider := GtLOllamaProvider new modelName: 'qwen3.5:9b'.
 	chat := GtLChat new
 		provider: provider.
 	chat
