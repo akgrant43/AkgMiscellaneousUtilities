@@ -1,6 +1,6 @@
-Extension { #name : #MethodChunk }
+Extension { #name : 'MethodChunk' }
 
-{ #category : #'*AKG-CodeAnalysis' }
+{ #category : '*AKG-CodeAnalysis' }
 MethodChunk >> compareToCurrent [
 
 	| class sourceString |

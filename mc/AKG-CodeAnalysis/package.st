@@ -1,1 +1,1 @@
-Package { #name : #'AKG-CodeAnalysis' }
+Package { #name : 'AKG-CodeAnalysis' }

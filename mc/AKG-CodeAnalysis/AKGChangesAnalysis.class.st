@@ -1,6 +1,6 @@
 Class {
-	#name : #AKGChangesAnalysis,
-	#superclass : #Object,
+	#name : 'AKGChangesAnalysis',
+	#superclass : 'Object',
 	#instVars : [
 		'fileName',
 		'externalChanges',
@@ -11,10 +11,11 @@ Class {
 		'other',
 		'missing'
 	],
-	#category : 'AKG-CodeAnalysis'
+	#category : 'AKG-CodeAnalysis',
+	#package : 'AKG-CodeAnalysis'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 AKGChangesAnalysis class >> openFile: aFilename [
 
 	^self new
@@ -22,21 +23,21 @@ AKGChangesAnalysis class >> openFile: aFilename [
 		yourself
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AKGChangesAnalysis >> added [
 	"Answer the set of methods that don't exist in the image and are added by the receivers file"
 
 	^added ifNil: [ added := self getAdded asSortedCollection: [ :a :b | a methodSelector < b methodSelector ] ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AKGChangesAnalysis >> changed [
 	"Answer the set of methods that exist in the image and are changed by the receivers file"
 
 	^changed ifNil: [ changed := self getChanged asSortedCollection: [ :a :b | a methodSelector < b methodSelector ] ]
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 AKGChangesAnalysis >> getAdded [
 	"Build the set of methods that don't exist in the system and are added by the receivers file"
 
@@ -47,7 +48,7 @@ AKGChangesAnalysis >> getAdded [
 				[ stream nextPut: change ] ] ]
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 AKGChangesAnalysis >> getChanged [
 	"Build the set of methods that exist in the system but are changed by the receivers file"
 
@@ -61,7 +62,7 @@ AKGChangesAnalysis >> getChanged [
 						stream nextPut: change ] ] ] ]
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 AKGChangesAnalysis >> getMissing [
 	"Answer the methods that are in the image but not the receiver's file.
 	Answer for all classes modified in the change set (based on added and changed methods)"
@@ -88,7 +89,7 @@ AKGChangesAnalysis >> getMissing [
 	^newMissing
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 AKGChangesAnalysis >> getOther [
 	"Answer any other chunks"
 
@@ -102,14 +103,14 @@ AKGChangesAnalysis >> getOther [
 	^newOther
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 AKGChangesAnalysis >> getRemoved [
 	"Build the set of methods that exist in the system and are removed by the receivers file"
 
 	^Array streamContents: [ :stream | ]
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 AKGChangesAnalysis >> getUnchanged [
 	"Build the set of methods that haven't changed"
 
@@ -121,7 +122,7 @@ AKGChangesAnalysis >> getUnchanged [
 						stream nextPut: change ] ] ] ]
 ]
 
-{ #category : #inspecting }
+{ #category : 'inspecting' }
 AKGChangesAnalysis >> gtInspectAddedIn: composite [
 	<gtInspectorPresentationOrder: 50>
 
@@ -131,7 +132,7 @@ AKGChangesAnalysis >> gtInspectAddedIn: composite [
 		format: [ :each | each gtDisplayString ]
 ]
 
-{ #category : #inspecting }
+{ #category : 'inspecting' }
 AKGChangesAnalysis >> gtInspectChangedIn: composite [
 	<gtInspectorPresentationOrder: 50>
 
@@ -141,7 +142,7 @@ AKGChangesAnalysis >> gtInspectChangedIn: composite [
 		format: [ :each | each gtDisplayString ]
 ]
 
-{ #category : #inspecting }
+{ #category : 'inspecting' }
 AKGChangesAnalysis >> gtInspectMissingIn: composite [
 	<gtInspectorPresentationOrder: 50>
 
@@ -151,7 +152,7 @@ AKGChangesAnalysis >> gtInspectMissingIn: composite [
 		format: [ :each | each gtDisplayString ]
 ]
 
-{ #category : #inspecting }
+{ #category : 'inspecting' }
 AKGChangesAnalysis >> gtInspectOtherIn: composite [
 	<gtInspectorPresentationOrder: 50>
 
@@ -161,7 +162,7 @@ AKGChangesAnalysis >> gtInspectOtherIn: composite [
 		format: [ :each | each gtDisplayString ]
 ]
 
-{ #category : #inspecting }
+{ #category : 'inspecting' }
 AKGChangesAnalysis >> gtInspectRemovedIn: composite [
 	<gtInspectorPresentationOrder: 50>
 
@@ -171,7 +172,7 @@ AKGChangesAnalysis >> gtInspectRemovedIn: composite [
 		format: [ :each | each gtDisplayString ]
 ]
 
-{ #category : #inspecting }
+{ #category : 'inspecting' }
 AKGChangesAnalysis >> gtInspectUnchangedIn: composite [
 	<gtInspectorPresentationOrder: 50>
 
@@ -181,14 +182,14 @@ AKGChangesAnalysis >> gtInspectUnchangedIn: composite [
 		format: [ :each | each gtDisplayString ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AKGChangesAnalysis >> missing [
 	"Answer the set of methods that exist in the image but aren't in the receivers file"
 
 	^missing ifNil: [ missing := self getMissing asSortedCollection: [ :a :b | a selector < b selector ] ]
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 AKGChangesAnalysis >> openFile: aFilename [
 
 	| changeSet |
@@ -200,21 +201,21 @@ AKGChangesAnalysis >> openFile: aFilename [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AKGChangesAnalysis >> other [
 	"Answer any other chunks"
 
 	^other ifNil: [ other := self getOther ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AKGChangesAnalysis >> removed [
 	"Answer the set of methods that don't exist in the image and are added by the receivers file"
 
 	^removed ifNil: [ removed := self getRemoved asSortedCollection: [ :a :b | a methodSelector < b methodSelector ] ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AKGChangesAnalysis >> unchanged [
 	"Answer the set of methods that haven't changed"
 
