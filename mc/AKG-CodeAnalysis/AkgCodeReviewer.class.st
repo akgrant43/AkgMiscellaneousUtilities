@@ -12,7 +12,13 @@ AkgCodeReviewer class >> chatForRepositoryNames: aCollection [
 	^ self new chatForRepositoryNames: aCollection
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'instance creation' }
+AkgCodeReviewer class >> chatForRepositoryNames: aCollection promptSuffix: aString [
+
+	^ self new chatForRepositoryNames: aCollection promptSuffix: aString
+]
+
+{ #category : 'private' }
 AkgCodeReviewer >> changedMethodsForRepositoryNames: aCollection [
 	<return: #OrderedCollection of: #IceMethodDefinition>
 	| changedMethods repositories nameSet |
@@ -33,16 +39,30 @@ AkgCodeReviewer >> changedMethodsForRepositoryNames: aCollection [
 	^ changedMethods
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'api' }
 AkgCodeReviewer >> chatForRepositoryNames: aCollection [
 	"Answer a running chat performing a code review of the supplied repository names"
 	<return: #GtLChat>
 
-	^ self newChat sendMarkdown: 
+	^ self newChat sendString: 
 		(self promptForRepositoryNames: aCollection).
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'api' }
+AkgCodeReviewer >> chatForRepositoryNames: aCollection promptSuffix: aString [
+	"Answer a running chat performing a code review of the supplied repository names"
+	<return: #GtLChat>
+	| prompt |
+
+	prompt := String streamContents: [ :stream |
+		stream
+			<< (self promptForRepositoryNames: aCollection);
+			cr;
+			<< aString asString ].
+	^ self newChat sendMarkdown: prompt.
+]
+
+{ #category : 'private' }
 AkgCodeReviewer >> newChat [
 	"Answer a chat configured for code review"
 	| provider chat |
@@ -55,16 +75,15 @@ AkgCodeReviewer >> newChat [
 		modelName: 'kimi-k2.7-code:cloud'.
 	chat := GtLChat new provider: provider.
 	chat 
-		markdownResponse;
 		addTools: GtLTools gt.
 	^ chat
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'private' }
 AkgCodeReviewer >> promptForRepositoryNames: aCollection [
 	| changedMethods |
 	
-	aCollection isEmpty:
+	aCollection ifEmpty:
 		[ self error: 'No repository names supplied' ].
 	changedMethods := self changedMethodsForRepositoryNames: aCollection.
 	^ String streamContents: [ :stream |
